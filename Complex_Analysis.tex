@@ -1,0 +1,1157 @@
+\section{Complex Analysis}
+\label{S:complex-analysis}
+
+Syllabus
+\begin{description}
+\item[Undergraduate] Ahlfors, \emph{Complex Analysis} (2nd ed), chapters 1-4 and section 5.1. (math 113)
+\item[Graduate] Ahlfors, \emph{Complex Analysis} (2nd ed), chapter 5, section 6.1, and 6.2. (math 213a)
+\end{description}
+
+\subsection{Ahlfors, Chapter 1: Complex Numbers}
+
+\begin{proposition}[Lagrange's identity]
+  The equality
+  \[
+  \left| \sum_{i=1}^n a_i b_i \right|^2 = \sum_{i=1}^n |a_i|^2 \sum_{i=1}^n |b_i|^2 - \sum_{1 \leq i < j \leq n} \left| a_i \overline{b_j} - a_j \overline{b_i} \right|^2.
+  \]
+  holds for all $a_1, b_1, \dots, a_n, b_n \in \C$.
+\end{proposition}
+
+The following inequalities hold true for all complex values.
+\begin{gather*}
+-|a| \leq \Re a \leq |a| \\
+-|a| \leq \Im a \leq |a| \\
+|a+b| \leq |a|+|b| \\
+|a-b| \geq ||a|-|b|| \\
+|a_1 b_1 + \cdots + a_n b_n|^2 \leq (|a_1|^2 + \cdots + |a_n|^2)(|b_1|^2 + \cdots + |b_n|^2)
+\end{gather*}
+
+\subsection{Ahlfors, Chapter 2: Complex Functions}
+
+\subsubsection{Introduction to the Concept of Holomorphic Function}
+
+\begin{definition}
+  A function $u(x,y)$ is called \emph{harmonic} if it satisfies the differential equation
+  \[
+  \Delta u = \frac{\d^2 u}{\d x^2} + \frac{\d^2 u}{\d y^2} = 0.
+  \]
+\end{definition}
+
+The real and imaginary parts of a holomorphic function are harmonic.
+
+\begin{proposition}
+  If $u(x,y)$ and $v(x,y)$ have continuous first-order partial derivatives which satisfy the \emph{Cauchy-Riemann differential equations}
+  \begin{align*}
+    \frac{\d u}{\d x} &=  \frac{\d v}{\d y}, &
+    \frac{\d u}{\d y} &= -\frac{\d v}{\d x}
+  \end{align*}
+  then $f(z) = u(z) + i v(z)$ is holomorphic with homomorphic derivative $f'(z)$, and conversely. In complex form, these two equations become
+  \[
+  \frac{\d f}{\d x} = -i \frac{\d f}{\d y}.
+  \]
+\end{proposition}
+
+We will use the informal notation
+\begin{align*}
+  \frac{\d f}{\d z} &= \frac{1}{2} \left( \frac{\d f}{\d x} - i \frac{\d f}{\d y} \right), &
+  \frac{\d f}{\d \overline{z}} &= \frac{1}{2} \left( \frac{\d f}{\d x} + i \frac{\d f}{\d y} \right).
+\end{align*}
+
+\begin{theorem}[Gauss-Lucas]
+  For any polynomial $P(z) \in \C[z]$, the roots of $P'(z)$ lie in the convex hull of the roots of $P(z)$.
+\end{theorem}
+
+\begin{definition}
+  The \emph{order} of a rational function $R(z) = P(z)/Q(z)$ for $P,Q \in \C[z]$ is $\max\{\deg P, \deg Q\}$.
+\end{definition}
+
+\begin{proposition}
+  A rational function $R$ of order $p$ has $p$ zeros and $p$ poles, and the equation $R(z) = a$ has exactly $p$ roots.
+\end{proposition}
+
+When counting poles, zeros, and solutions in the result above, we considered $R$ as a function on the Riemann sphere $\C\P^1 = \C \cup \{\infty\}$.
+
+\begin{proposition}
+  If $Q$ is a polynomial with distinct roots $\alpha_1, \dots, \alpha_n$, and if $P$ is a polynomial of degree $< n$, then
+  \[
+   \frac{P(z)}{Q(z)} = \sum_{k=1}^n \frac{P(\alpha_k)}{Q'(\alpha_k)(z-\alpha_k)}.
+  \]
+\end{proposition}
+
+\subsubsection{Elementary Theory of Power Series}
+
+\begin{corollary}[Lagrange's interpolation problem]
+  There exists a unique polynomial of degree $< n$ with given values $c_k$ at the points $\alpha_k$.
+\end{corollary}
+
+The inequalities
+\begin{gather*}
+  \liminf \alpha_n + \liminf \beta_n \leq \liminf (\alpha_n + \beta_n) \leq \liminf \alpha_n + \limsup \beta_n, \\
+  \liminf \alpha_n + \limsup \beta_n \leq \limsup (\alpha_n + \beta_n) \leq \limsup \alpha_n + \limsup \beta_n
+\end{gather*}
+hold for any two real sequences $\{\alpha_n\}$ and $\{\beta_n\}$.
+
+\begin{proposition}
+  The limit of a sequence of a uniformly converging continuous functions is continuous.
+\end{proposition}
+
+\begin{definition}
+  Let $\{f_n\}$ be a sequence of functions. We say that a positive sequence $\{a_n\}$ is \emph{majorant} for $\{f_n\}$ if there exists a constant $M > 0$ such that $|f_n| \leq M a_n$ for all sufficiently large $n$. Conversely $\{f_n\}$ is called the \emph{minorant} of $\{a_n\}$.
+\end{definition}
+
+\begin{proposition}[Weierstrass $M$-test]
+  If $\sum a_n$ converges, then $\sum f_n$ converges uniformly.
+\end{proposition}
+
+\begin{theorem}
+  For each power series $\sum_n a_n z^n$ there exists a number
+  \[
+  R = \frac{1}{\limsup \sqrt[n]{|a_n|}}\in [0,\infty],
+  \]
+  called the \emph{radius of convergence}, with the following properties:
+  \begin{enumerate}[(i)]
+  \item the series converges absolutely for all $|z| < R$;
+  \item if $0 \leq \rho < R$, then the convergence is uniform for $|z| \leq \rho$;
+  \item if $|z| > R$, then the terms of the series are unbounded, hence the series does not converge;
+  \item in $|z| < R$ the sum of the series is a holomorphic function; its derivative can be obtained via termwise derivation, and has identical radius of convergence.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proposition}
+  If $\sum a_n z^n$ and $\sum b_n z^n$ have radii of convergence $R_1$ and $R_2$, then $\sum a_n b_n z^n$ has radius of convergence at least $R_1 R_2$.
+\end{proposition}
+
+\begin{proposition}
+  If $\lim_n |a_n|/|a_{n+1}| = R$, then $\sum a_n z^n$ has radius of convergence $R$.
+\end{proposition}
+
+The following result can be used to analyze when a power series converges at a point of its circle of convergence. Without loss of generality, we assume $R = 1$ and $z = 1$.
+
+\begin{theorem}[Abel's Limit Theorem]
+  If $\sum a_n$ converges, then $f(z) = \sum a_n z^n$ tends to $f(1)$ as $z$ approaches $1$ in such a way that $|1-z|/(1-|z|)$ remains bounded. Geometrically this means that $z$ stays in an angle $<180^\circ$ with vertex $1$, symmetrically to the part $(-\infty,1)$ of the real axis (a \emph{Stolz angle}).
+\end{theorem}
+
+\subsection{Ahlfors, Chapter 3: Holomorphic Functions as Mappings}
+
+\subsubsection{Elementary Point Set Topology}
+
+\begin{definition}
+  A metric space is called \emph{totally bounded} if, for every $\epsilon > 0$, $X$ can be covered by finitely map balls of radius $\epsilon$.
+\end{definition}
+
+\begin{theorem}
+  A metric space is compact if and only if it is complete and totally bounded.
+\end{theorem}
+
+\begin{corollary}[Heine-Borel]
+  A subset of $\R^n$ is compact if and only if it is closed and bounded.
+\end{corollary}
+
+\begin{theorem}
+  A metric space is compact if and only if every infinite sequence has a limit point.
+\end{theorem}
+
+\begin{corollary}[Bolzano-Weierstrass]
+  A metric space is compact if every bounded sequence has a convergent subsequence.
+\end{corollary}
+
+\begin{proposition}[Cantor's Lemma]
+  If $E_1 \supset E_2 \supset \cdots$ is a decreasing sequence of non-empty compact sets, then $\bigcap_n E_n$ is not empty.
+\end{proposition}
+
+\begin{proposition}
+  The following properties hold for any continuous map:
+  \begin{enumerate}[(i)]
+  \item the image of any compact sets is compact;
+  \item the image of any connected set is connected.
+  \end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+  A continuous bijective map with compact domain is a homeomorphism.
+\end{corollary}
+
+\begin{proposition}
+  On a compact metric space, every continuous function is uniformly continuous.
+\end{proposition}
+
+\begin{definition}
+  A connected open set $\Omega \subset \C$ is called a \emph{region}.
+\end{definition}
+
+\begin{theorem}
+  A holomorphic function in a region $\Omega$ whose derivative vanishes identically is constant. The same is true if either the real part, the imaginary part, the modulus, or the argument is constant.
+\end{theorem}
+
+\subsubsection{Conformality}
+
+\begin{definition}
+  A holomorphic function $f \cn U \rarr \C$ is called \emph{conformal} if $f'$ does not vanish in $U$.
+\end{definition}
+
+Conformal maps are interesting for the following two properties.
+\begin{proposition}
+  Let $f$ be a conformal map.
+  \begin{enumerate}[(i)]
+  \item The angle between the image of a tangent vector at a point $z$ and the original vector is always $\arg f'(z)$.
+  \item Infinitesimal segments near a point $z$ are scaled by $|f'(z)|$ independently of their direction.
+  \end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+  Conformal maps preserve angles between curves.
+\end{corollary}
+
+Consider a $\Cc^1$ path $\gamma$ and a region $E$. It is customary to write
+\begin{align*}
+  L(\gamma) &= \int_\gamma |\gamma'(t)| d t = \int_\gamma |d z|, &
+  A(E) &= \iint_E d x d y
+\end{align*}
+for the length of $\gamma$ and the area of $E$. The image path $f \circ \gamma$ and image region $f(E)$ under a conformal map $f$ satisfy
+\begin{align*}
+  L(f \circ \gamma) &= \int_\gamma |f'(\gamma(t))| |\gamma'(t)| d t = \int_\gamma |f'(z)| |d z|, &
+  A(f(E)) &= \iint_E |f'(z)|^2 d x d y.
+\end{align*}
+In the case of a region, the image area is computed with multiplicity.
+
+\subsubsection{Linear Transformations}
+
+\begin{definition}
+  Any $a,b,c,d \in \C$ satisfying $a d - b c \neq 0$ determine a biholomorphic map $\C\P^1 \rarr \C\P^1$ given by
+  \[
+  z \mapsto \frac{a z + b}{c z + d}.
+  \]
+  Such maps are called \emph{linear transformations}.  The \emph{group of linear transformations} is isomorphic to $PGL(2,\C)$ via
+  \[
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix} \mapsto
+  \left( z \mapsto \frac{a z + b}{c z + d} \right).
+  \]
+  A linear transformation is called \emph{normalized} if some corresponding matrix has determinant $1$. The \emph{group of normalized linear transformations} is isomorphic to $SL(2,\C)/\{\pm I\}$.
+\end{definition}
+
+\begin{proposition}
+  For any distinct $z_2, z_3, z_4 \in \C\P^1$, there exists a unique linear transformation $T$ satisfying $T z_2 = 1$, $T z_3 = 0$, $T z_4 = \infty$.
+\end{proposition}
+
+\begin{definition}
+  The \emph{cross ratio} $(z_1, z_2, z_3, z_4)$ is the image of $z_1$ under the linear transformation which carries $z_2$, $z_3$, $z_4$ into $1$, $0$, $\infty$.
+\end{definition}
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(i)]
+  \item Any distinct $z_1, z_2, z_3, z_4 \in \C\P^1$ and any linear transformation $T$ satisfy
+    \[
+    (T z_1, T z_2, T z_3, T z_4) = (z_1, z_2, z_3, z_4).
+    \]
+  \item A cross ratio $(z_1, z_2, z_3, z_4)$ is real if and only if the four points lie on a circle.
+    \item A linear transformation carries circles into circles.
+  \end{enumerate}
+\end{proposition}
+
+Note that in (ii) and (iii) above, a circle in $\C\P^1$ refers to either a circle in $\C$ or a straight line in $\C$ together with $\infty$.
+
+\begin{proposition}[Ptolemy's Theorem]
+  If the consecutive vertices $z_1, z_2, z_3, z_4$ of a quadrilateral lie on a circle, then
+  \[
+  |z_1 - z_3| \cdot |z_2 - z_4| = |z_1 - z_2| \cdot |z_3 - z_4| + |z_1 - z_4| \cdot |z_2 - z_3|.
+  \]
+\end{proposition}
+
+\begin{definition}
+  Consider a linear transformation $T$ which carries the real axis to a circle $C$. For any $w$, we say the points $z = T w$ and $z^\ast = T \overline{w}$ are \emph{symmetric with respect to $C$}. Equivalently, if $C$ passes through $z_1, z_2, z_3$ then any pair of symmetric points $z, z^\ast$ satisfy $(z^\ast, z_1, z_2, z_3) = \overline{(z, z_1, z_2, z_3)}$.
+\end{definition}
+
+Note that the definition of symmetry is independent of the chosen linear transformation $T$ or the three points $z_1, z_2, z_3$ on $C$.
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(i)]
+  \item If $C$ is a line, then the symmetry operation is reflection in $C$.
+  \item If $C$ is a circle, then the symmetry operation is what we call inversion in plane geometry.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Symmetry principle]
+  Let $T$ be a linear transformation which carries the circle $C_1$ into the circle $C_2$. If $z$ and $z^\ast$ are symmetric about $C_1$, then $T z$ and $T z^\ast$ are symmetric about $C_2$.
+\end{proposition}
+
+\begin{definition}
+  An \emph{orientation} of a circle $C$ is determined by an oriented triple of distinct points $z_1, z_2, z_3 \in C$. We say that a point $z \notin C$ is on the \emph{right} of $C$ if $\Im(z, z_1, z_2, z_3) > 0$, and on the \emph{left} of $C$ if $\Im(z, z_1, z_2, z_3) < 0$.
+\end{definition}
+
+Each circle $C$ in the complex plane $\C$ can be endowed with the counterclockwise orientation. With respect to it, the interior of $C$ is on its left, and it exterior on its right.
+
+\begin{definition}
+  Consider a linear transformation
+  \[
+  T(z) = k \cdot \frac{z-a}{z-b}.
+  \]
+  The preimages under $T$ of straight lines through the origin are circles through $a$ and $b$ (denoted by $C_1$). The preimages of concentric circles about the origin are circles with the equation
+  \[
+  \left| \frac{z-a}{z-b} \right| = \rho/|k|,
+  \]
+  where $\rho$ is the radius of the original circle. These are called \emph{circles of Apollonius} with limit points $a$ and $b$ (denoted by $C_2$). The configuration formed by all the circles $C_1$ and $C_2$ is referred to as the \emph{circular net} or the \emph{Steiner circles} determined by $a$ and $b$.
+\end{definition}
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(i)]
+  \item There is exactly one $C_1$ and one $C_2$ through each point in the plane with the exception of $a$ and $b$.
+  \item Every $C_1$ meets every $C_2$ at right angles.
+  \item Reflection in a $C_1$ transforms every $C_2$ into itself and every $C_1$ into another $C_1$. Reflection in a $C_2$ transforms every $C_1$ into itself and every $C_2$ into another $C_2$.
+    \item The limits points are symmetric with respect to each $C_2$, but not with respect to any other circle.
+  \end{enumerate}
+\end{proposition}
+
+The following two maps are often useful in constructing conformal isomorphisms.
+
+\begin{proposition}
+  Let $\Hc = \{ z \in \C \;|\; \Im z > 0 \}$ be the upper half-plane and $\Delta = \{ z \in \C \;|\; |z| < 1 \}$ the unit disk. The maps $F \cn \Hc \rarr \Delta$ and $G \cn \Delta \rarr \Hc$ given by
+  \begin{align*}
+    F(z) &= \frac{i-z}{i+z}, &
+    G(w) = i \frac{1-w}{1+w}
+  \end{align*}
+  are conformal isomorphisms and inverses to each other.
+\end{proposition}
+
+\begin{theorem}
+  If $f \cn \Delta \rarr \Delta$ is a conformal automorphism of the unit disk $\Delta$, then there exist $\theta \in \R$ and $\alpha \in \Delta$ such that
+  \[
+  f(z) = e^{i\theta} \frac{\alpha-z}{1-\overline{\alpha}z}.
+  \]
+\end{theorem}
+
+\begin{corollary}
+  Each conformal automorphism of the upper half-plane $\Hc$ is given by the action of a matrix in $SL(2,\R)$
+\end{corollary}
+
+\subsection{Ahlfors, Chapter 4: Complex Integration}
+
+\subsubsection{Fundamental Theorems}
+
+A definite integral of any complex-valued function $f$ satisfies
+\[
+\left| \int_a^b f(t) d t \right| \leq \int_a^b |f(t)| d t.
+\]
+The \emph{line (path) integral} of $f$ along a path $\gamma \cn [a,b] \rarr \C$ is defined as
+\[
+\int_\gamma f d z = \int_a^b f(\gamma(t)) \gamma'(t) d t,
+\]
+and it is independent of the parametrization of $\gamma$. This has the properties
+\begin{align*}
+  \int_{-\gamma} f d z &= -\int_\gamma f d z, &
+  \int_{\gamma_1 + \cdots + \gamma_n} f d z &= \int_{\gamma_1} f d z + \cdots + \int_{\gamma_n} f d z.
+\end{align*}
+We can further define
+\begin{align*}
+  \int_\gamma f \overline{d z} &= \overline{\int_\gamma \overline{f} d z}, &
+  \int_\gamma f d x &= \frac{1}{2} \left( \int_\gamma f d z + \int_\gamma f \overline{d z} \right), &
+  \int_\gamma f d y &= \frac{1}{2i} \left( \int_\gamma f d z - \int_\gamma f \overline{d z} \right).
+\end{align*}
+The integral with respect to \emph{arc length} is defined as
+\[
+\int_\gamma f d s = \int_\gamma f |d z| = \int_\gamma f(\gamma(t)) |\gamma'(t)| d t,
+\]
+and it is again independent of parametrization. Among others, it satisfies the following two properties:
+\begin{align*}
+  \int_{-\gamma} f |d z| &= -\int_\gamma f |d z|, &
+  \left| \int_\gamma f d z \right| &\leq \int_\gamma |f| \cdot |d z|.
+\end{align*}
+The \emph{length} of a path $\gamma$ is defined as
+\[
+\ell(\gamma) = \int_\gamma |d z|.
+\]
+
+\begin{theorem}
+  The line integral $\int_\gamma p d x + q d y$, defined in $U \subset \C$, depends only on the endpoints of $\gamma$ if and only if there exists a function $F(x,y)$ on $U$ with partial derivatives $\d F/\d x = p$, $\d F/\d y = q$.
+\end{theorem}
+
+\begin{corollary}
+  The integral $\int_\gamma f d z$, with continuous $f$, depends only on the endpoints of $\gamma$ if and only if $f$ is the derivative of a holomorphic function on $U$.
+\end{corollary}
+
+\subsubsection{Cauchy's Integral Formula}
+
+\begin{definition}
+  Let $\gamma$ be a piecewise differentiable closed curve in a region $\Omega$, and $a$ a point in $\Omega \setminus \gamma$. The \emph{index} (also called \emph{winding number}) of a point $a$ with respect to a curve $\gamma$ is given by the equation
+  \[
+  n(\gamma,a) = \frac{1}{2 \pi i} \int_\gamma \frac{d z}{z-a}.
+  \]
+\end{definition}
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(i)]
+  \item The index $n(\gamma,a)$ is an integer.
+  \item $n(-\gamma,a) = -n(\gamma,a)$
+  \item If $\gamma$ lies inside a circle, then $n(\gamma,a) = 0$ for all points outside of the same circle.
+  \item As a function of $a$ the index $n(\gamma,a)$ is constant in each of the regions determined by $\gamma$, and zero in the unbounded region.
+  \end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+  Suppose $f$ is holomorphic in an open disk $\Delta$, and let $\gamma$ be a closed path in $\Delta$. For any point $z \in \Delta \setminus \gamma$,
+  \[
+  n(\gamma,z) \cdot f(z) = \frac{1}{2 \pi i} \int_\gamma \frac{f(\zeta)}{\zeta-z} d \zeta.
+  \]
+\end{theorem}
+
+When $\gamma$ is a circle centered at $a$, then $n(\gamma,a) = 1$. The resulting equality
+\[
+f(z) = \frac{1}{2 \pi i} \int_\gamma \frac{f(\zeta)}{\zeta-z} d \zeta
+\]
+is called \emph{Cauchy's integral formula}. The following is a generalization which allows us to compute higher derivatives in this fashion.
+
+\begin{proposition}
+  For any $n \geq 0$,
+  \[
+  f^{(n)}(z) = \frac{n!}{2 \pi i} \int_\gamma \frac{f(\zeta) \, d \zeta}{(\zeta - z)^{n+1}}.
+  \]
+\end{proposition}
+
+The following two results follow.
+
+\begin{theorem}[Morera's Theorem]
+  If $f$ is defined and continuous in a region $\Omega$, and if $\int_\gamma f d z = 0$ for all closed curves $\gamma$ in $\Omega$, then $f$ is holomorphic in $\Omega$.
+\end{theorem}
+
+\begin{theorem}[Liouville's Theorem]
+  A bounded entire function is constant.
+\end{theorem}
+
+\subsubsection{Local Properties of Holomorphic Functions}
+
+\begin{theorem}
+  Suppose that $f$ is holomorphic in $\Omega' = \Omega \setminus \{a\}$ where $\Omega$ is region. A necessary and sufficient condition that there exist a holomorphic function in $\Omega$ which coincides with $f$ in $\Omega'$ is that $\lim_{z \rarr a} (z-a)f(z) = 0$. The extended function is uniquely determined.
+\end{theorem}
+
+A recursive application of the previous result yields the following.
+
+\begin{theorem}
+  If $f$ is holomorphic in a region $\Omega$, containing $a$, it is possible to write
+  \[
+  f(z) = f(a) + \frac{f'(a)}{1!}(z-a) + \frac{f''(a)}{2!}(z-a)^2 + \cdots + \frac{f^{(n-1)}(a)}{(n-1)!}(z-a)^{n-1} + f_n(z) (z-a)^n
+  \]
+  where $f_n$ is holomorphic in $\Omega$. Furthermore, inside a circle $\gamma$ the function $f_n$ can be computed as
+  \[
+  f_n(z) = \frac{1}{2 \pi i} \int_\gamma \frac{f(\zeta) d \zeta}{(\zeta-a)^n(\zeta-z)}.
+  \]
+\end{theorem}
+
+\begin{proposition}
+  Let $f$ be a holomorphic function on a region $\Omega$ and $a \in \Omega$. If $f^{(n)}(a) = 0$ for all $n \geq 0$, then $f$ vanishes identically on $\Omega$.
+\end{proposition}
+
+It follows that if a holomorphic function $f$ is not identically zero, then at least one of its derivatives does not vanish. Let $n \geq 0$ be the smallest integer such that $f^{(n)}(a) \neq 0$. It follows that we can write $f(z) = (z-a)^n f_n(z)$ where $f_n$ is holomorphic and $f_n(a) \neq 0$. We say that $f$ has a \emph{zero of order $n$ at $a$}. An immediate consequence is that zeros are isolated points. This can be reformulated as follows.
+
+\begin{proposition}[Analytic continuation]
+  Let $f$ and $g$ be two holomorphic functions in a region $\Omega$. If $f$ and $g$ agree on a set with an accumulation point, then $f = g$ on all of $\Omega$.
+\end{proposition}
+
+\begin{corollary}
+  A holomorphic function is uniquely determined by its values on any set with an accumulation point in the region of holomorphicity.
+\end{corollary}
+
+\begin{definition}
+  If a function $f$ is holomorphic in a neighbourhood of a point $a$, except perhaps at $a$, then we say $f$ has an \emph{isolated singularity} at $a$. If $\lim_{z \rarr a} f(z) = \infty$, then we say $f$ has a \emph{pole} at $a$.
+\end{definition}
+
+If $f$ has a pole at $a$, then the function $g = 1/f$ is holomorphic in a neighbourhood of $a$. The \emph{order of the pole} of $f$ at $a$ is defined as the order of the zero of $g$ at $a$. In other words, the order of the pole is the unique integer such that $h(z) = (z-a)^n f(z)$ is holomorphic at $a$ and $h(a) \neq 0$. Even even more detail we could consider the conditions
+\begin{enumerate}[(1)]
+\item $\lim_{z \rarr a} |z-a|^\alpha |f(z)| = 0$,
+\item $\lim_{z \rarr a} |z-a|^\alpha |f(z)| = \infty$
+\end{enumerate}
+for real values $\alpha$. If (1) holds for some $\alpha$, then it holds for all $\alpha' \geq \alpha$. Similarly, if (2) holds for some $\alpha$, then it holds for all $\alpha' \leq \alpha$. There are three possibilities:
+\begin{enumerate}[(i)]
+\item condition (1) holds for all $\alpha$, hence $f$ vanishes identically;
+\item there exists some $\alpha_0$ such that (1) holds for $\alpha > \alpha_0$ and (2) for $\alpha < \alpha_0$; then $f$ has either a zero or a pole at $a$;
+\item neither (1) nor (2) holds; we say $f$ has an \emph{essential singularity} at $a$.
+\end{enumerate}
+
+\begin{theorem}
+  A holomorphic function comes arbitrarily close to any complex value in every neighbourhood of an essential singularity.
+\end{theorem}
+
+\begin{definition}
+  A function which is holomorphic in a region $\Omega$ with the exception of finitely many poles is called \emph{meromorphic}.
+\end{definition}
+
+\begin{proposition}
+  Let $z_j$ be the zeros of a function $f$ which is holomorphic in a disk $\Delta$ and does not vanish identically, each zero being counted as many times as its order indicates. For every closed curve $\gamma$ in $\Delta$ which does not pass through a zero
+  \[
+  \sum_j n(\gamma,z_j) = \frac{1}{2 \pi i} \int_\gamma \frac{f'}{f} d z,
+  \]
+  where the sum has only finitely many terms $\neq 0$.
+\end{proposition}
+
+\begin{theorem}
+  Suppose that $f$ is holomorphic at $z_0$, $f(z_0) = w_0$, and that $f(z) - w_0$ has a zero of order $n$ at $z_0$. If $\epsilon > 0$ is sufficiently small, there exists a corresponding $\delta > 0$ such that for all $a$ with $|a-w_0| < \delta$ the equation $f(z) = a$ has exactly $n$ roots in the disk $|z-z_0| < \epsilon$.
+\end{theorem}
+
+\begin{corollary}
+  A non-constant holomorphic map is open.
+\end{corollary}
+
+\begin{corollary}
+  If $f$ is holomorphic at $z_0$ with $f'(z_0) \neq 0$, then it maps a neighbourhood of $z_0$ conformally and homeomorphically onto a connected open.
+\end{corollary}
+
+\begin{theorem}[The maximum principle]
+  If $f$ is holomorphic and non-constant in a region $\Omega$, then $|f|$ has no maximum in $\Omega$.
+\end{theorem}
+
+Alternatively, one can restate this as follows.
+
+\begin{corollary}
+  If $|f|$ is defined and continuous on a closed bounded set $E$ and holomorphic on the interior of $E$, then the maximum of $|f|$ on $E$ is attained somewhere in $\d E$.
+\end{corollary}
+
+\begin{theorem}[Schwartz's Lemma]
+  If $f(z)$ is holomorphic for $|z| < 1$ and satisfies the conditions $|f(z)| \leq 1$, $f(0) = 0$, then $|f(z)| \leq |z|$ and $|f'(0)| \leq 1$. If $|f(z)| = |z|$ for some $z \neq 0$, or if $|f'(0)| = 1$, then $f(z) = c z$ where $c$ is a constant satisfying $|c| = 1$.
+\end{theorem}
+
+\begin{corollary}
+  Every bijective conformal mapping of a disk onto another (or a half plane) is given by a linear transformation.
+\end{corollary}
+
+\subsubsection{The General Form of Cauchy's Theorem}
+
+\begin{theorem}[Cauchy's Theorem]
+  If $f$ is holomorphic in a region $\Omega$, then
+  \[
+  \int_\gamma f d z = 0
+  \]
+  for every null-homologous cycle $\gamma$ in $\Omega$.
+\end{theorem}
+
+\begin{corollary}
+  If $\Omega$ is simply-connected, then $\int_\gamma f d z = 0$ for all cycles $\gamma$.
+\end{corollary}
+
+\begin{corollary}
+  In a simply-connected region, every holomorphic function has an antiderivative.
+\end{corollary}
+
+\begin{corollary}
+  If $f$ is holomorphic and non-vanishing in a simply-connected region, then it is possible to define single-valued holomorphic branches of $\log f(z)$ and $\sqrt[n]{f(z)}$ in that region.
+\end{corollary}
+
+\subsubsection{The Calculus of Residues}
+
+\begin{definition}
+  The \emph{residue} of $f$ at an isolated singularity $a$ is the unique complex number $R$ which makes $f(z) - R/(z-a)$ the derivative of a single-valued holomorphic function in an annulus $0 < |z-a| < \delta$. We denote it by $R = \res_{z=a} f(z) = \res_a f$.
+\end{definition}
+
+\begin{theorem}
+  If $f$ has a pole of order $n$ at $z_0$, then
+  \[
+  \res_{z_0} f = \lim_{z \rarr z_0} \frac{1}{(n-1)!} \left( \frac{d}{dz} \right)^{n-1} (z-z_0)^n f(z).
+  \]
+\end{theorem}
+
+\begin{theorem}[Cauchy Residue Theorem]
+  Let $f$ be holomorphic except for isolated singularities $a_j$ in a region $\Omega$. Then
+  \[
+  \frac{1}{2 \pi i} \int_\gamma f d z = \sum_j n(\gamma,a_j) \res_{a_j} f
+  \]
+  for any null-homologous cycle $\gamma$ in $\Omega$ which does not pass through any of the points $a_j$.
+\end{theorem}
+
+\begin{corollary}[Argument principle]
+  If $f$ is meromorphic in a region $\Omega$ with zeros $a_j$ and poles $b_k$, then
+  \[
+  \frac{1}{2 \pi i} \int_\gamma \frac{f'}{f} d z = \sum_j n(\gamma,a_j) - \sum_k n(\gamma, b_k)
+  \]
+  for every null-homologous cycle $\gamma$ in $\Omega$ which does not pass through any of the zeros or poles.
+\end{corollary}
+
+\begin{corollary}[Rouch\'e's Theorem]
+  Let $\gamma$ be a null-homologous cycle in a region $\Omega$ such that $n(\gamma,z)$ is either $0$ or $1$ for any point $z \in U \setminus \gamma$. Suppose that $f$ and $g$ are holomorphic in $\Omega$ and satisfy $|g| < |f|$ on $\gamma$. Then $f$ and $f+g$ have the same number of zeros enclosed by $\gamma$.
+\end{corollary}
+
+The following few paragraph summarize a few applications of Cauchy Residue Theorem to the evaluation of definite integrals.
+\begin{enumerate}[1.]
+\item
+  Integrals of the form
+  \[
+  I = \int_0^{2\pi} R(\cos\theta,\sin\theta) d\theta
+  \]
+  where $R$ is a rational function may be evaluated by the substitution $z = e^{i\theta}$. Then
+  \[
+  I = -i \int_{|z|=1} R\left( \frac{1}{2}\left( z + \frac{1}{z} \right), \frac{1}{2i}\left( z - \frac{1}{z} \right) \right) \frac{d z}{z}.
+  \]
+  Provided there are no poles of $R$ on the unit circle, an application of Cauchy Residue Theorem finishes the job.
+\item
+  Integrals of the form
+  \[
+  I = \int_{-\infty}^\infty R(x) d x
+  \]
+  for rational $R$ converge if and only if in the rational function $R$ the degree of the denominator is at least two units greater than the degree of the numerator, and if no poles lie on the real axis. Integrating along a semicircular contour whose diameter is along the real axis yields
+  \[
+  I = 2 \pi i \sum_{\Im z > 0} \res_z R.
+  \]
+\item
+  The integrals
+  \begin{align*}
+    \int_{-\infty}^\infty R(x) \cos x d x, && \int_{-\infty}^\infty R(x) \sin x d x
+  \end{align*}\
+  can be evaluated as the real and imaginary parts of
+  \[
+  I = \int_{-\infty}^\infty R(x) e^{i x} d x.
+  \]
+  Provided $R$ has a zero of at least order two at infinity, an analogous semicircle computation aided by the Cauchy Residue Theorem yields
+  \[
+  I = 2 \pi i \sum_{\Im z > 0} \res_z R(z)e^{i z}.
+  \]
+  The statement holds even under the weaker hypothesis that $R(\infty) = 0$, not necessarily of order two or higher (a rectangular contour is better suited for this case).
+\end{enumerate}
+
+\subsubsection{Harmonic Functions}
+
+\begin{lemma}
+  All linear functions $a x + b y$ are harmonic.
+\end{lemma}
+
+\emph{Laplace's equation}
+\[
+\Delta u = \frac{\d^2 u}{\d x^2} + \frac{\d^2 u}{\d y^2} = 0
+\]
+in polar coordinates becomes
+\[
+r \frac{\d}{\d r} \left( r \frac{\d u}{\d r} \right) + \frac{\d^2 u}{\d \theta^2} = 0.
+\]
+
+\begin{corollary}
+  Any harmonic function which depends only on $r$ must be of the form $a \log r + b$.
+\end{corollary}
+
+\begin{lemma}
+  If $u$ is a harmonic function on a region $\Omega$, then
+  \[
+  f(z) = \frac{\d u}{\d x} - i \frac{\d u}{\d y}
+  \]
+  is holomorphic on $\Omega$.
+\end{lemma}
+
+\begin{definition}
+  The \emph{conjugate differential} to
+  \[
+  d u = \frac{\d u}{\d x} d x + \frac{\d u}{\d y} d y
+  \]
+  is
+  \[
+  \leftidx{^\ast}{d u} = -\frac{\d u}{\d y} d x + \frac{\d u}{\d x} d y.
+  \]
+\end{definition}
+
+In general however, there is no single-valued function $v$ such that $d v = \leftidx{^\ast}{d u}$. It is easy to see that
+\[
+f d z = d u + \leftidx{^\ast}{d u}.
+\]
+Since by Cauchy's Theorem the integral of $f d z$ vanishes along any null-homologous cycle, and the exact differential $d u$ vanishes along any cycle, it follows that
+\[
+\int_\gamma \leftidx{^\ast}{d u} = \int_\gamma - \frac{\d u}{\d y} d x + \frac{\d u}{\d x} d y
+\]
+is zero for all null-homologous cycles $\gamma$. If the domain over which we are working in is simply-connected, then $\int_\gamma \leftidx{^\ast}{d u} = 0$ for all cycles $\gamma$, hence there is a well-defined (up to additive constant) single-valued function $v$ such that $d v = \leftidx{^\ast}{d u}$. The following is an important generalization.
+
+\begin{theorem}
+  If $u_1$ and $u_2$ are harmonic in a region $\Omega$, then
+  \[
+  \int_\gamma u_1 \leftidx{^\ast}{d u_2} - u_2 \leftidx{^\ast}{d u_1} = 0
+  \]
+  for all null-homologous cycles $\gamma$.  
+\end{theorem}
+
+Applying the previous result to $u_1 = \log r$, $u_2 = u$, and a cycle $\gamma$ made up of two counterclockwise oriented circles, we obtain the following.
+
+\begin{theorem}
+  The arithmetic mean of a harmonic function over concentric circles $|z| = r$ is a linear function of $\log r$,
+  \[
+  \frac{1}{2\pi} \int_{|z|=r} u d\theta = \alpha \log r + \beta,
+  \]
+  and if $u$ is harmonic in a disk then $\alpha = 0$ and the arithmetic mean is constant.
+\end{theorem}
+
+The following is a useful consequence.
+
+\begin{theorem}[Maximum principle for harmonic functions]
+  A non-constant harmonic function has neither a maximum nor a minimum in its region of definition. Consequently, the maximum and minimum on a closed bounded set $E$ are taken on the boundary of $E$.
+\end{theorem}
+
+Note that if $f$ is non-vanishing and holomorphic, then $\log|f|$ is a well-defined harmonic function. The maximum principle for holomorphic functions can be derived as a consequence of the previous result by applying it to $\log|f|$.
+
+\begin{corollary}
+  A function $u$ continuous on a closed bounded set $E$ and harmonic on its interior is uniquely determined by its values on $\d E$.
+\end{corollary}
+
+\begin{theorem}[Poisson's formula]
+  Suppose that $u$ is harmonic for $|z| < R$, continuous for $|z| \leq R$. Then
+  \[
+  u(a) = \frac{1}{2\pi} \int_{|z|=R} \frac{R^2-|a|^2}{|z-a|^2} u(z) d\theta
+  \]
+  for all $|a| < R$.
+\end{theorem}
+
+An interesting consequence is that we can express $u(z)$ as the real part of
+\[
+f(z) = \frac{1}{2 \pi i} \int_{|\zeta|=R} \frac{\zeta+z}{\zeta-z} u(\zeta) \frac{d\zeta}{\zeta} + i C.
+\]
+Taking the imaginary part yields an explicit formula for the conjugate harmonic function.
+
+\begin{definition}
+  For any piecewise continuous function $U(\theta)$ in $0 \leq \theta \leq 2\pi$, define the \emph{Poisson integral} of $U$ as
+  \[
+  P_U(z) = \frac{1}{2\pi} \int_0^{2\pi} \Re \frac{e^{i\theta}+z}{e^{i\theta}-z} U(\theta) d\theta,
+  \]
+  a function of $|z| \leq 1$.
+\end{definition}
+
+It is not hard to see that
+\begin{align*}
+  P_{U+V} &= P_U + P_V, &
+  P_{c U} &= c P_U, &
+  P_c &= c,
+\end{align*}
+and $U \geq 0$ implies $P_U \geq 0$. These properties can be summed by stating $P$ is a positive linear functional. Furthermore, $a \leq U \leq b$ implies $a \leq P_U \leq b$.
+
+\begin{theorem}[Schwarz's Theorem]
+  The function $P_U(z)$ is harmonic for $|z| < 1$, and
+  \[
+  \lim_{z \rarr e^{i\theta_0}} P_U(z) = U(\theta_0)
+  \]
+  provided that $U$ is continuous at $\theta_0$.
+\end{theorem}
+
+The following is a restatement of Poisson's integral and Schwarz's Theorem for the half-plane.
+
+\begin{theorem}
+  If $U(\xi)$ is piecewise continuous and bounded for all real $\xi$, then
+  \[
+  P_U(z) = \frac{1}{\pi} \int_{-\infty}^\infty \frac{y}{(x-\xi)^2 + y^2} U(\xi) d\xi
+  \]
+  represents a harmonic function in the upper half-plane with boundary values $U(\xi)$ at points of continuity.
+\end{theorem}
+
+\begin{theorem}
+  Let $\Omega^+$ be the part in the upper half-plane of a symmetric region $\Omega$ (that is, satisfying $\overline{\Omega} = \Omega$), and let $\sigma$ be the real axis in $\Omega$. Suppose $v$ is continuous in $\Omega^+ \cup \sigma$, harmonic in $\Omega^+$, and zero on $\sigma$. Then $v$ has a harmonic extension to $\Omega$ which satisfies the symmetry relation $v(\overline{z}) = -v(z)$. In the same situation, if $v$ is the imaginary part of a holomorphic function $f$ in $\Omega^+$ (that is, the function $f$ is real on the real axis), then $f$ has a holomorphic extension which satisfies $f(z) = \overline{f(\overline{z})}$.
+\end{theorem}
+
+\subsection{Ahlfors, Chapter 5: Series and Product Developments}
+
+\subsubsection{Power Series Expansions}
+
+\begin{theorem}
+  Suppose that $f_n$ is holomorphic in the region $\Omega_n$, and that the sequence $\{f_n\}$ converges to a limit function $f$ in a region $\Omega$, uniformly on every compact subset of $\Omega$. Then $f$ is holomorphic in $\Omega$. Moreover, $f_n'$ converges uniformly to $f'$ on every compact subset of $\Omega$.
+\end{theorem}
+
+\begin{corollary}
+  If a series of holomorphic terms $f = \sum f_n$ converges uniformly on every compact subset of a region $\Omega$, then the sum $f$ is holomorphic in $\Omega$, and the series can be differentiated term by term.
+\end{corollary}
+
+Proving uniform convergence can be facilitated by the maximum principle. For example, if $f_n$ are holomorphic in the disk $|z| < 1$, and if it can be shown that the sequence converges uniformly on each circle $|z| = r_m$ for $\lim_{m \rarr \infty} r_m = 1$, then the uniform convergence hypothesis follows.
+
+\begin{theorem}
+  If the functions $f_n$ are holomorphic and non-vanishing in a region $\Omega$, and if $f_n$ converges to $f$, uniformly on every compact subset of $\Omega$, then $f$ is either identically zero or non-vanishing in $\Omega$.
+\end{theorem}
+
+\begin{remark}
+  The previous result holds if we replace ``non-vanishing'' with ``has at most $m$ zeros'' where $m$ is a non-negative integer.
+\end{remark}
+
+\begin{theorem}
+  If $f$ is holomorphic in the region $\Omega$, containing $z_0$, then the representation
+  \[
+  f(z) = \sum_{n=0}^\infty \frac{f^{(n)}(z_0)}{n!} (z-z_0)^n
+  \]
+  is valid in the largest open disk of center $z_0$ contained in $\Omega$.
+\end{theorem}
+
+\subsubsection{Partial Fractions and Factorization}
+
+\begin{theorem}
+  Let $\{b_r\}$ be a sequence of complex numbers with $\lim_{r \rarr \infty} b_r = \infty$, and let $P_r(\zeta)$ be polynomials without constant term. Then there are functions which are meromorphic in the whole plane with poles at the points $b_r$, and the corresponding singular parts are $P_r(1/(z-b_r))$. Moreover, the most general meromorphic function of this kind can be written in the form
+  \[
+  f(z) = \sum_r \left( P_r\left( \frac{1}{z-b_r} \right) - p_r(z) \right) + g(z),
+  \]
+  where the $p_r(z)$ are suitably chosen polynomials and $g(z)$ is holomorphic in the whole plane.
+\end{theorem}
+
+Using the previous theorem, the following series can be derived.
+\begin{align*}
+  \frac{\pi^2}{\sin^2 \pi z} &= \sum_{n=-\infty}^\infty \frac{1}{(z-n)^2} \\
+  \pi \cot \pi z &= \frac{1}{z} + \sum_{n \neq 0} \left( \frac{1}{z-n} + \frac{1}{n} \right) = \frac{1}{z} + \sum_{n=1}^\infty \frac{2 z}{z^2 - n^2} \\
+  \frac{\pi}{\sin \pi z} &= \lim_{m \rarr \infty} \sum_{n=-m}^m \frac{(-1)^n}{z-n}
+\end{align*}
+
+\begin{definition}
+  An infinite product $\prod_{n=1}^\infty p_n$ is said to converge if only at most a finite number of the factors are zero, and if the partial products formed by the non-vanishing factors tend to a finite limit which is different from zero.
+\end{definition}
+
+If $\prod p_n$ converges, then it is clear that $\lim_{n \rarr \infty} p_n = 1$. Therefore, it is customary to write an infinite product as
+\[
+\prod_{n=1}^\infty (1+a_n).
+\]
+A necessary condition for convergence is then $\lim_{n \rarr \infty} a_n = 0$.
+
+\begin{theorem}
+  The infinite product $\prod (1+a_n)$ with $1+a_n \neq 0$ converges if and only if so does the series
+  \[
+  \sum_{n=1}^\infty \log(1+a_n).
+  \]
+  whose terms represent the values of the principal branch of the logarithm.
+\end{theorem}
+
+\begin{definition}
+  We say the product $\prod (1+a_n)$ \emph{converges absolutely} if so does the series $\sum \log(1+a_n)$.
+\end{definition}
+
+\begin{theorem}
+  A necessary and sufficient condition for the absolute convergence of $\prod (1+a_n)$ is the absolute convergence of $\sum |a_n|$.
+\end{theorem}
+
+The previous result has a counterpart for uniform convergence if we allow to replace $a_n$ by functions $f_n$. This requires a slightly more technical statement if we allow zeros of these functions. More precisely, we consider only sets on which only finitely many of the factors can vanish. If these factors are omitted, then it is sufficient to study the uniform convergence of the remaining product.
+
+\begin{proposition}
+  The value of an absolutely convergent product does not change if the factors are reordered.
+\end{proposition}
+
+\begin{definition}
+  A function which is holomorphic in the entire complex plane is called \emph{entire}.
+\end{definition}
+
+\begin{proposition}
+  Every entire function can be expressed as the derivative of some entire function.
+\end{proposition}
+
+\begin{proposition}
+  Every non-vanishing entire function is of the form $e^f$ where $f$ is an entire function.
+\end{proposition}
+
+It follows that every entire function $f$ with finitely many zeros can be expressed in the form
+\[
+f(z) = z^m e^{g(z)} \prod_{n=1}^N \left( 1 - \frac{z}{a_n} \right).
+\]
+If there are infinitely many zeros, then the obvious generalization is
+\[
+f(z) = z^m e^{g(z)} \prod_{n=1}^\infty \left( 1 - \frac{z}{a_n} \right).
+\]
+This is a valid expression only if the infinite product converges uniformly on every compact set. If this is so, then the product represents an entire function with zeros at the same points, and with the same multiplicities as $f(z)$.
+
+\begin{proposition}
+  The product $\prod (1 - z/a_n)$ converges absolutely if and only if $\sum 1/|a_n|$ is convergent, and in this case the convergence is uniform in every compact set.
+\end{proposition}
+
+In general, convergence may not be attained. To meet the needs, convergence-producing factors must be introduced.
+
+\begin{theorem}
+  There exists an entire function with arbitrarily prescribed zeros $a_n$ provided that, in the case of infinitely many zeros, $a_n \rarr \infty$. Every entire function with these and no other zeros can be written in the form
+  \[
+  f(z) = z^m e^{g(z)} \prod_{n=1}^\infty \left( 1 - \frac{z}{a_n} \right) \exp\left( \frac{z}{a_n} + \frac{1}{2}\left(\frac{z}{a_n}\right)^2 + \cdots + \frac{1}{m_n}\left(\frac{z}{a_n}\right)^{m_n} \right)
+  \]
+  where the product is taken over all $a_n \neq 0$, then $m_n$ are certain integers, and $g(z)$ is an entire function. Furthermore, we can choose all $m_n$ to be equal to some fixed integer $h$. Pick $h$ as the smallest integer for which $\sum 1/|a_n|^{h+1}$ converges. Then the infinite product above is called the \emph{canonical product} associated with the sequence $\{a_n\}$, and the integer $h$ is called the \emph{genus} of the canonical product.
+\end{theorem}
+
+Whenever possible, we attempt to work with canonical products. If in this presentation $g$ is a polynomial, then $f$ is said to have \emph{finite genus} $\max\{\deg g, h\}$.
+
+\begin{corollary}
+  Every function which is meromorphic in the whole plane is the fraction of two entire functions.
+\end{corollary}
+
+Using the previous theorem, the following infinite product can be derived.
+\[
+\sin \pi z = \pi z \prod_{n \neq 0} \left( 1 - \frac{z}{n} \right) e^{z/n} = \pi z \prod_{n=1}^\infty \left( 1 - \frac{z^2}{n^2} \right)
+\]
+
+Consider the function
+\[
+G(z) = \prod_{n=1}^\infty \left( 1 + \frac{z}{n} \right) e^{-z/n}
+\]
+which has zeros at all negative integers. It is evident $G(-z)$ has the positive integers for zeros. Combining these facts with the infinite product expansion of $\sin \pi z$ given above, we obtain
+\[
+z G(z) G(-z)= \frac{\sin \pi z}{\pi}.
+\]
+By comparing $G(z)$ and $G(z-1)$, it can be shown that
+\[
+G(z-1) = z e^\gamma G(z)
+\]
+where
+\[
+\gamma = \lim_{n \rarr \infty} \left( 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} - \log n \right)
+\]
+is called \emph{Euler's constant}. The function
+\[
+\Gamma(z) = \frac{e^{-\gamma z}}{z G(z)}
+\]
+is called \emph{Euler's gamma function} and satisfies
+\[
+\Gamma(z+1) = z \Gamma(z).
+\]
+A more explicit representation is
+\[
+\Gamma(z) = \frac{e^{-\gamma z}}{z} \prod_{n=1}^\infty \left( 1 + \frac{z}{n} \right)^{-1} e^{z/n},
+\]
+and one of the previous formulas takes the form
+\[
+\Gamma(z) \Gamma(1-z) = \frac{\pi}{\sin \pi z}.
+\]
+
+\begin{proposition}
+  The function $\Gamma$ is meromorphic with simple poles at $0, -1, -2, \dots$ and no zeros. For any $n \geq 0$,
+  \[
+  \res_{-n}\Gamma = \frac{(-1)^n}{n!}.
+  \]
+\end{proposition}
+
+\begin{proposition}
+  For all $z$ with $\Re z > 0$,
+  \[
+  \Gamma(z) = \int_0^\infty t^{z-1} e^{-t} d t.
+  \]
+\end{proposition}
+
+A few notable values are
+\begin{align*}
+\Gamma(1) = \Gamma(2) = 1, && \Gamma(1/2) = \sqrt{\pi}.  
+\end{align*}
+Combining the first equality with the functional equation we deduce the following.
+
+\begin{proposition}
+  For all positive integers $n$,
+  \[
+  \Gamma(n) = (n-1)!.
+  \]
+\end{proposition}
+
+\begin{theorem}[Legendre's duplication formula]
+  The equality
+  \[
+  \sqrt{\pi} \: \Gamma(2 z) = 2^{2 z - 1} \Gamma(z) \Gamma\left( z + \frac{1}{2} \right)
+  \]
+  holds for all $z \in \C$.
+\end{theorem}
+
+\begin{theorem}[Stirling's formula]
+  There exists an entire function $J$ which tends to $0$ as $z \rarr \infty$ in a half plane $\Re z \geq c > 0$ satisfying
+  \[
+  \Gamma(z) = \sqrt{\frac{2\pi}{z}} \left(\frac{z}{e}\right)^z e^{J(z)}.
+  \]
+  Therefore
+  \[
+  \lim_{n \rarr \infty} \frac{n!}{\sqrt{2 \pi n} \left( \frac{n}{e} \right)^n} = 1.
+  \]
+\end{theorem}
+
+\subsubsection{Entire Functions}
+
+\begin{theorem}[Jensen's formula]
+  Let $f$ be an entire function not vanishing at the origin. Pick some $\rho > 0$ and let $a_1, \dots, a_n$ be the zeros of $f$ in the closed disk $|z| \leq \rho$, multiple zeros being repeated. Then
+  \[
+  \log|f(0)| = -\sum_{i=1}^n \log\left(\frac{\rho}{|a_i|}\right) + \frac{1}{2\pi} \int_0^{2\pi} \log|f(\rho e^{i\theta})| d\theta.
+  \]
+\end{theorem}
+
+\begin{definition}
+  Let $f$ be an entire function with zeros $\{a_n\}$ satisfying $f(0) \neq 0$. Let $M(r)$ be the maximum of $|f(z)|$ on $|z| = r$. The \emph{order} of the entire function $f$ is defined as
+  \[
+  \lambda = \limsup_{r \rarr \infty} \frac{\log\log M(r)}{\log r}.
+  \]
+\end{definition}
+
+According to the definition $\lambda$ is the smallest number such that
+\[
+M(r) \leq e^{r^{\lambda+\epsilon}}
+\]
+for any given $\epsilon > 0$ as soon as $r$ is sufficiently large.
+
+\begin{theorem}[Hadamard's Theorem]
+  The genus and the order of an entire function satisfy the inequality $h \leq \lambda \leq h+1$.
+\end{theorem}
+
+\begin{corollary}
+  An entire function of non-integer order assumes every finite value infinitely many times.
+\end{corollary}
+
+\subsubsection{The Riemann Zeta Function}
+
+Since the series $\sum n^{-\sigma}$ converges  uniformly for all real $\sigma \geq \sigma_0$ for any fixed $\sigma_0 > 0$, it follows that the \emph{Riemann zeta function}
+\[
+\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}
+\]
+is holomorphic in the half-plane $\Re s > 1$.
+
+\begin{theorem}
+  If $\Re s > 1$, then
+  \[
+  \zeta(s) = \prod_p \frac{1}{1 - p^{-s}}.
+  \]
+\end{theorem}
+
+The following allows us to extend $\zeta$ to the entire complex plane.
+
+\begin{theorem}
+  If $\Re s > 1$, then
+  \[
+  \zeta(s) = -\frac{\Gamma(1-s)}{2 \pi i} \int_C \frac{(-z)^{s-1}}{e^z-1} d z
+  \]
+  where $(-z)^{s-1}$ is defined on the complement of the positive real axis as $e^{(s-1)\log(-z)}$ with $-\pi < \Im\log(-z) < \pi$, and $C$ is a path traversing above and below the positive real axis.
+\end{theorem}
+
+\begin{corollary}
+  The function $\zeta$ can be extended to a meromorphic function in the whole complex plane whose only pole is a simple at $s = 1$ with residue $1$.
+\end{corollary}
+
+\begin{theorem}
+  If $n$ is a non-negative integer, then
+  \[
+  \zeta(-n) = \frac{(-1)^n n!}{2 \pi i} \int_C \frac{z^{-n-1}}{e^z - 1} d z.
+  \]
+  In particular, $\zeta$ vanishes at all even negative integers, at the odd ones it is given by
+  \[
+  \zeta(-2 m + 1) = \frac{(-1)^m B_m}{2 m},
+  \]
+  and
+  \[
+  \zeta(0) = -\frac{1}{2}.
+  \]
+\end{theorem}
+
+\begin{theorem}[Functional equation for the Riemann zeta function]
+  \[
+  \zeta(s) = 2^s \pi^{s-1} \sin\frac{\pi s}{2} \Gamma(1-s) \zeta(1-s).
+  \]
+\end{theorem}
+
+\begin{corollary}
+  The function
+  \[
+  \xi(s) = \frac{1}{2} s (1-s) \pi^{-s/2} \Gamma(s/2) \zeta(s)
+  \]
+  is entire and satisfies $\xi(s) = \xi(1-s)$.
+\end{corollary}
+
+\begin{proposition}
+  The order of $\xi$ is $1$.
+\end{proposition}
+
+\subsubsection{Normal Families}
+
+In what follows, a \emph{family} of functions $\Fc$ would refer to a set of functions defined in a fixed region $\Omega \subset \C$, and with values in a metric space $(S,d)$.
+
+\begin{definition}
+  The functions in a family $\Fc$ are said to be \emph{equicontinuous} on a set $E \subset \Omega$ if for each $\epsilon > 0$, there exists $\delta > 0$, such that for all $f \in \Fc$, $|z-z_0| < \delta$ implies $d(f(z),f(z_0)) < \epsilon$ for all $z_0,z \in E$.
+\end{definition}
+
+Note that each function $f$ in an equicontinuous family $\Fc$ on $E$ is itself uniformly continuous on $E$.
+
+\begin{definition}
+  A family $\Fc$ is said to be \emph{normal} in $\Omega$ if every sequence of functions $\{f_n\} \subset \Fc$ contains a subsequence which converges uniformly on every compact subset of $\Omega$.
+\end{definition}
+
+Note that the above definition does not require the limit functions of convergent subsequences to lie in $\Fc$.
+
+\begin{definition}
+  An \emph{exhaustion} of a region $\Omega$ is an increasing sequence of compact subspaces $E_k \subset \Omega$ such that $\bigcup_k E_k = \Omega$ satisfying the following condition: for every compact subset $E \subset \Omega$ there exists some $k$ such that $E \subset E_k$.
+\end{definition}
+
+It can be shown that exhaustions always exists for regions in the complex plane. Our aim is to define a metric on the space of functions $\Omega \rarr S$ such that convergence in this metric would be unanimous with uniform convergence on all compact subsets $E \subset \Omega$. We start by defining a new metric $\delta$ on $S$ given by
+\[
+\delta(a,b) = \frac{d(a,b)}{1+d(a,b)}.
+\]
+Then for each two functions $f, g \cn \Omega \rarr S$ we define
+\[
+\delta_k(f,g) = \sup_{x \in E_k} \delta(f(x),g(x))
+\]
+which may be regarded as the distance between $f$ and $g$ on $E_k$. Finally, we set
+\[
+\rho(f,g) = \sum_{k=1}^\infty \delta_k(f,g) 2^{-k}.
+\]
+
+\begin{proposition}
+  The so defined function $\rho$ is a metric on the space of functions $\Omega \rarr S$. Furthermore, if $S$ is a complete metric space, then so is the space of functions endowed with the metric $\rho$.
+\end{proposition}
+
+\begin{proposition}
+   A sequence of functions $\{f_n\}$ converges with respect to $\rho$ if and only if it converges uniformly on every compact subset $E \subset \Omega$.
+\end{proposition}
+ 
+An application of the Bolzano-Weierstrass Theorem to the metric space $\Fc$ endowed with the restriction of $\rho$ yields the following.
+
+\begin{theorem}
+  A family $\Fc$ is normal if and only if its closure $\overline{\Fc}$ with respect to $\rho$ is compact.
+\end{theorem}
+
+If $\overline{\Fc}$ is compact, it is customary to say $\Fc$ is \emph{relatively compact}.
+
+\begin{theorem}
+  If $S$ is complete, then $\Fc$ is normal if and only if it is totally bounded.
+\end{theorem}
+
+The following is a restatement using the original metric $d$.
+
+\begin{theorem}
+  A family $\Fc$ is totally bounded if and only if to every compact set $E \subset \Omega$ and every $\epsilon > 0$ it is possible to find $f_1, \dots, f_n \in \Fc$ such that every $f \in \Fc$ satisfies $d(f,f_i) < \epsilon$ on $E$ for some $f_i$.
+\end{theorem}
+
+\begin{theorem}[Arzela's Theorem]
+  A family $\Fc$ of continuous functions with values in a metric space $S$ is normal in the region $\Omega \subset \C$ if and only if:
+  \begin{enumerate}[(i)]
+  \item $\Fc$ is equicontinuous on every compact set $E \subset \Omega$;
+  \item for any $z \in \Omega$ the set $\{ f(z) \;|\; f \in \Fc \}$ lies in a compact subset of $S$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  A family of holomorphic functions is normal with respect to $\C$ if and only if the functions in $\Fc$ are uniformly bounded on every compact set.
+\end{theorem}
+
+If a family of holomorphic functions satisfies the conditions of the previous result, we say it is \emph{locally bounded}.
+
+\begin{theorem}
+  A locally bounded family of holomorphic functions has locally bounded derivatives.
+\end{theorem}
+
+\begin{lemma}
+  If a sequence of meromorphic functions converges in the sense of $\C\P^1$, uniformly on every compact set, then the limit functions is meromorphic or identically equal to $\infty$. If a sequence of holomorphic functions converges in the same sense, then the limit function is either holomorphic or identically equal to $\infty$.
+\end{lemma}
+
+\begin{theorem}
+  A family of holomorphic or meromorphic functions $\{f\}$ is normal in the spherical sense if and only if the expressions
+  \[
+  \rho(f) = \frac{2|f'(z)|}{1+|f(z)|^2}
+  \]
+  are locally bounded.
+\end{theorem}
+
+\subsection{Ahlfors, Chapter 6: Conformal Mapping. Dirichlet's Problem}
+
+\subsubsection{The Riemann Mapping Theorem}
+
+\begin{theorem}[Riemann Mapping Theorem]
+  Given any simply-connected  region $\Omega$ which is not the whole plane, and a point $z_0 \in \Omega$, there exists a unique holomorphic function $f : \Omega \rarr \C$, normalized by the conditions $f(z_0) = 0$, $f'(z_0) > 0$, such that $f$ is bijective from $\Omega$ onto the unit disk $|w| < 1$.  
+\end{theorem}
+
+\begin{theorem}
+  Let $f \cn \Omega \rarr \Omega'$ be a homeomorphism between two regions. If $\{z_n\}$ or $z(t)$ tends to the boundary of $\Omega$, then $\{f(z_n)\}$ or $f \circ z$ tends to the boundary of $\Omega'$.
+\end{theorem}
+
+\begin{theorem}
+  Suppose that the boundary of a simply-connected region $\Omega$ contains an analytic arc $\gamma$ as a one-sided free boundary arc. Then the function $f$ which maps $\Omega$ onto the unit disk can be extended to a function which is holomorphic and bijective onto $\Omega \cup \gamma$. The image of $\gamma$ is an arc $\gamma'$ on the unit circle.
+\end{theorem}
+
+\subsubsection{Conformal Mappings of Polygons}
+
+\begin{theorem}
+  The functions $F$ which map $|w| < 1$ conformally onto polygons with angles $\alpha_k \pi$, $k = 1, \dots, n$, are of the form
+  \[
+  F(w) = C \int_0^w \prod_{k=1}^n (w-w_k)^{-\beta_k} d w + C'
+  \]
+  where $\beta_k = 1-\alpha_k$, the $w_k$ are points on the unit circle, and $C$,$C'$ are complex constants.
+\end{theorem}
+
+TODO: Read about infinite products in Stein \& Shakarchi
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Study_Guide"
+%%% End: 

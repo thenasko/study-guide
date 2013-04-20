@@ -1,0 +1,923 @@
+\section{Algebraic Topology}
+\label{S:algebraic-topology}
+
+Syllabus
+\begin{description}
+\item[Undergraduate] Hatcher, \emph{Algebraic Topology}, chapter 1 (but not the additional topics). (math 131) 
+\item[Graduate] Hatcher, \emph{Algebraic Topology}, chapter 2 (including additional topics) and chapter 3 (without additional topics). (math 231a)
+\end{description}
+
+\subsection{Hatcher, Chapter 0: Some Underlying Geometric Notions}
+
+\begin{definition}
+  The \emph{join} of two topological spaces $X$ and $Y$, denoted $X \ast Y$, is the quotient of $X \x Y \x I$ under the identifications $(x,y_1,0) \sim (x,y_2,0)$ and $(x_1,y,1) \sim (x_2,y,1)$. In other words, this amount to collapsing $X \x Y \x \{0\}$ to $X$ and $X \x Y \x \{1\}$ to $Y$. On can also think of the join as the set of formal linear combinations $t_1 x + t_2 y$ for $x \in X$, $y \in Y$, $t_1, t_2 \in \R$ satisfying $t_1 + t_2 = 1$. Alternatively, one may think of it as the collection of all line segments joining points in $X$ with points in $Y$.
+\end{definition}
+
+The join is an associative operation. Two useful examples are:
+\begin{enumerate}[(i)]
+\item the $n$-fold join of the one point space is the $(n-1)$-simplex $\Delta^{n-1}$;
+\item the $n$-fold join of the two point space $S^0$ is the $(n-1)$-sphere $S^{n-1}$.
+\end{enumerate}
+
+\begin{proposition}
+  If $(X,A)$ is a CW pair and $A$ is a contractible subcomplex, then the quotient map $X \rarr X/A$ is a homotopy equivalence.
+\end{proposition}
+
+Compare this with the following.
+
+\begin{proposition}
+  If $(X,A)$ is a CW pair and $A$ is a contractible in $X$, that is, the inclusion $A \hrarr X$ is homotopic to the constant map, then $X/A \simeq X \vee S A$.
+\end{proposition}
+
+\begin{proposition}
+  If $(X_1,A)$ is a CW pair and the two attaching maps $f,g \cn A \rarr X_0$ are homotopic, then $X_0 \sqcup_f X_1 \simeq X_0 \sqcup_g X_1$.
+\end{proposition}
+
+A pair of topological spaces $(X,A)$ is said to have the \emph{homotopy extension property} if given a map $f_0 \cn X \rarr Y$ and a homotopy $g_t \cn A \rarr Y$ for $0 \leq t \leq 1$ satisfying $f_0|_A = g_0$, then there exists a homotopy $f_t \cn X \rarr A$ for $0 \leq t \leq 1$ satisfying $f_t|_A = g_t$ for all $t$.
+
+\begin{proposition}
+  A pair $(X,A)$ has the homotopy extension property if and only if $X \x \{0\} \cup A \x I$ is a deformation retract of $X \x I$.
+\end{proposition}
+
+\begin{proposition}
+  All CW pairs $(X,A)$ have the homotopy extension property.
+\end{proposition}
+
+\begin{proposition}
+  Suppose the pairs $(X,A)$ and $(Y,A)$ satisfy the homotopy extension property, and $f \cn X \rarr Y$ is a homotopy equivalence with $f|_A = \id_A$. Then $f$ is a homotopy equivalence rel $A$.
+\end{proposition}
+
+\begin{corollary}
+  If $(X,A)$ satisfies the homotopy extension property and the inclusion $A \hrarr X$ is a homotopy equivalence, then $A$ is a deformation retract of $X$.
+\end{corollary}
+
+\begin{corollary}
+  A map $f \cn X \rarr Y$ is a homotopy equivalence if and only if $X$ is a deformation retract of the mapping cylinder $M_f$. Hence, two spaces $X$ and $Y$ are homotopy equivalent if and only if there is a third space containing both $X$ and $Y$ as deformation retracts.
+\end{corollary}
+
+\subsection{Hatcher, Chapter 1: The Fundamental Group}
+
+\subsubsection{Basic Constructions}
+
+\begin{proposition}
+  Let $X$ be a topological space, and $h$ a path from $x_0$ to $x_1$ in $X$. Then the map $\beta_h \cn \pi_1(X,x_1) \rarr \pi_1(X,x_0)$ given by $\beta_h[f] = [h \cdot f \cdot \overline{h}]$ is an isomorphism.
+\end{proposition}
+
+\begin{theorem}[Brouwer Fixed Point Theorem]
+  Every continuous map $h \cn D^2 \rarr D^2$ has a fixed point.
+\end{theorem}
+
+\begin{theorem}[Borsuk-Ulam]
+  For every continuous map $f \cn S^2 \rarr \R^2$ there exists a pair of antipodal points $x$ and $-x$ with $f(x) = f(-x)$.
+\end{theorem}
+
+\begin{corollary}
+  There is no injective continuous map $S^2 \rarr \R^2$, and hence $S^2$ is not homeomorphic to any subset of $\R^2$.
+\end{corollary}
+
+\begin{corollary}
+  Whenever $S^2$ is expressed as the union of three closed sets $A_1$, $A_2$, and $A_3$, then at least one of these sets must contain a pair of antipodal points $\{x,-x\}$.
+\end{corollary}
+
+\begin{proposition}
+  $\pi_1(X \x Y, (x_0, y_0)) \cong \pi_1(X,x_0) \x \pi_1(Y,y_0)$
+\end{proposition}
+
+\begin{proposition}
+  If $n \geq 2$, then $\pi_1(S^n) = 0$.
+\end{proposition}
+
+\begin{proposition}
+  If a space $X$ retracts onto a space $A$, then the homomorphism $i_\ast \cn \pi_1(A,x_0) \rarr \pi_1(X,x_0)$ induced by the inclusion $i \cn A \rarr X$ is injective. If $A$ is a deformation retract of $X$, then $i_\ast$ is an isomorphism.
+\end{proposition}
+
+\begin{proposition}
+  If $\phi \cn X \rarr Y$ is a homotopy equivalence, then the induced homomorphism $\phi_\ast \cn \pi_1(X,x_0) \rarr \pi_1(Y, \phi(x_0))$ is an isomorphism for all $x_0 \in X$.
+\end{proposition}
+
+\subsubsection{Van Kampen's Theorem}
+
+\begin{theorem}[Seifert--van Kampen]
+  If $X$ is the union of path-connected open sets $A_\alpha$ each containing the basepoint $x_0 \in X$ and if each intersection $A_\alpha \cap A_\beta$ is path-connected, then the homomorphism $\Phi \cn \coprod_\alpha \pi_1(A_\alpha) \rarr \pi_1(X)$ is surjective. If in addition each intersection $A_\alpha \cap A_\beta \cap A_\gamma$ is path-connected, then the kernel of $\Phi$ is the normal subgroup $N$ generated by all elements of the form $i_{\alpha\beta}(\omega)i_{\beta\alpha}(\omega)^{-1}$ for $\omega \in \pi_1(A_\alpha \cap A_\beta)$, and hence $\Phi$ induces an isomorphism $\pi_1(X) \cong \coprod_\alpha \pi_1(A_\alpha)/N$.
+\end{theorem}
+
+\begin{proposition}
+  Suppose we attach a collection of $2$-cells $e_\alpha^2$ to a path-connected space $X$ via maps $\phi_\alpha \cn S^1 \rarr X$, producing a space $Y$. Fix basepoints $s_0 \in S^1$ and $x_0 \in X$. Choose a path $\gamma_\alpha$ from $x_0$ to $\phi(s_0)$ for each $\alpha$ so that $\gamma_\alpha \phi_\alpha \overline{\gamma_\alpha}$ is a loop in $X$ based at $x_0$. Then the inclusion $X \hrarr Y$ induces a surjection $\pi_1(X,x_0) \rarr \pi_1(Y,x_0)$ whose kernel is generated by the loops $\gamma_\alpha \phi_\alpha \overline{\gamma_\alpha}$.
+\end{proposition}
+
+\begin{corollary}
+  For every group $G$ there is a $2$-dimensional CW complex $X_G$ with $\pi_1(X_G) \cong G$.
+\end{corollary}
+
+For $\Sigma_g = (T^2)^{\# g}$ and $N_g = (\R\P^2)^{\# g}$, we have
+\begin{align*}
+  \pi_1(\Sigma_g) &= \langle a_1, b_1, \dots, a_g, b_g \;|\; a_1 b_1 a_1^{-1} b_1^{-1} \cdots a_g b_g a_g^{-1} b_g^{-1} \rangle, \\
+  \pi_1(N_g) &= \langle a_1, \dots, a_g \;|\; a_1^2 \cdots a_g^2 \rangle.
+\end{align*}
+
+\begin{corollary}
+  The surfaces $\Sigma_g$ and $\Sigma_h$ are homotopy equivalent if and only if $g = h$.
+\end{corollary}
+
+\subsubsection{Covering Spaces}
+
+\begin{proposition}[Homotopy lifting property]
+  Given a covering space $p \cn \wtilde{X} \rarr X$, a homotopy $f_t \cn Y \rarr X$, and a map $\wtilde{f_0} \cn Y \rarr \wtilde{X}$ lifting $f_0$, then there exists a unique homotopy $\wtilde{f_t} \cn Y \rarr \wtilde{X}$ of $\wtilde{f_0}$ that lifts $f_t$.
+\end{proposition}
+
+When $Y$ is a point, the previous results is also known as the \emph{path lifting property}. Concretely, for each path $f \cn I \rarr X$ and each lift $\wtilde{x_0}$ of the starting point $x_0 = f(0)$, there is a unique path $\wtilde{f} \cn I \rarr \wtilde{X}$ lifting $f$ and starting at $\wtilde{x_0}$.
+
+\begin{proposition}
+  The map $p_\ast \cn \pi_1(\wtilde{X}, \wtilde{x_0}) \rarr \pi_1(X,x_0)$ induced by a covering $p \cn (\wtilde{X}, \wtilde{x_0}) \rarr (X,x_0)$ is injective. The image subgroup $p_\ast(\pi_1(\wtilde{X}, \wtilde{x_0}))$ in $\pi_1(X,x_0)$ consists of the homotopy classes of loops in $X$ based at $x_0$ whose lifts to $\wtilde{X}$ starting at $\wtilde{x_0}$ are loops.
+\end{proposition}
+
+\begin{proposition}
+  The number of sheets of a covering space $p \cn (\wtilde{X}, \wtilde{x_0}) \rarr (X,x_0)$ with $X$ and $\wtilde{X}$ path-connected equals the index of $p_\ast(\pi_1(\wtilde{X},\wtilde{x_0}))$ in $\pi_1(X,x_0)$.
+\end{proposition}
+
+\begin{proposition}[Lifting criterion]
+  Let $p \cn (\wtilde{X}, \wtilde{x_0}) \rarr (X,x_0)$ be a covering space and $f \cn (Y,y_0) \rarr (X,x_0)$ a map with $Y$ path-connected and locally path-connected. Then a lift $\wtilde{f} \cn (Y, y_0) \rarr (\wtilde{X},\wtilde{x_0})$ of $f$ exists if and only if $f_\ast(\pi_1(Y,y_0)) \subset p_\ast(\pi_1(\wtilde{X},\wtilde{x_0}))$.
+\end{proposition}
+
+\begin{proposition}[Unique lifting property]
+  Given a covering space $p \cn \wtilde{X} \rarr X$ and a map $f \cn Y \rarr X$, if two lifts $\wtilde{f_1}, \wtilde{f_2} \cn Y \rarr \wtilde{X}$ of $f$ agree at one point of $Y$ and $Y$ is connected, then $\wtilde{f_1} = \wtilde{f_2}$.
+\end{proposition}
+
+\begin{proposition}
+  Suppose $X$ is a path-connected, locally path-connected, and semilocally simply-connected. Then for every subgroup $H \subset \pi_1(X,x_0)$ there is a covering space $p \cn X_H \rarr X$ such that $p_\ast(\pi_1(X_H,\wtilde{x_0})) = H$ for a suitably chosen basepoint $\wtilde{x_0} \in X_H$.
+\end{proposition}
+
+\begin{corollary}
+  Any topological space which is path-connected, locally-path connected, and semilocally simply-connected admits a universal cover.
+\end{corollary}
+
+\begin{proposition}
+  If $X$ is path-connected and locally path-connected, then two path-connected covering spaces $p_1 \cn \wtilde{X_1} \rarr X$ and $p_2 \cn \wtilde{X_2} \rarr X$ are isomorphic via an isomorphism $f \cn \wtilde{X_1} \rarr \wtilde{X_2}$ taking a basepoint $\wtilde{x_1} \in p_1^{-1}(x_0)$ to a basepoint $\wtilde{x_2} \in p_2^{-1}(x_0)$ if and only if $(p_1)_\ast(\pi_1(\wtilde{X_1}, \wtilde{x_1})) = (p_2)_\ast(\pi_1(\wtilde{X_2}, \wtilde{x_2}))$.
+\end{proposition}
+
+\begin{theorem}
+  Let $X$ be path-connected, locally path-connected, and semilocally path-connected. Then there is a bijection between the set of basepoint-preserving isomorphism classes of path-connected covering spaces $p \cn (\wtilde{X},\wtilde{x_0}) \rarr (X,x_0)$ and the set of subgroups of $\pi_1(X,x_0)$, obtained by associating the subgroup $p_\ast(\pi_1(\wtilde{X},\wtilde{x_0}))$ to the covering space $(\wtilde{X},\wtilde{x_0})$. If basepoints are ignored, this correspondence gives a bijection between the isomorphism classes of path-connected covering spaces $p \cn \wtilde{X} \rarr X$ and conjugacy classes of subgroups of $\pi_1(X,x_0)$.
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a topological space satisfying the hypothesis of the previous result. The set of $n$-sheeted covering spaces (not necessarily connected) of $X$ endowed with basepoints is in bijection with the set of homomorphisms $\pi_1(X,x_0) \rarr S_n$, where $S_n$ stands for the symmetric group on $n$ symbols. If we drop basepoints then there is a bijection with the set of homomorphisms up to conjugation, that is, two homomorphisms $\phi_1, \phi_2 \cn \pi_1(X,x_0) \rarr S_n$ correspond to equivalent covers if and only if $\phi_1 \circ \phi_2^{-1}$ is an inner automorphism of $S_n$.
+\end{theorem}
+
+\begin{definition}
+  For a covering space $p \cn \wtilde{X} \rarr X$, an automorphism of covers $\wtilde{X} \rarr \wtilde{X}$ is called a \emph{deck transformation}. These form a group denoted $\Aut(\wtilde{X}/X)$.
+\end{definition}
+
+\begin{definition}
+  A covering space $p \cn \wtilde{X} \rarr X$ is called \emph{normal} if for each $x_1, x_2 \in \wtilde{X}$ satisfying $p(x_1) = p(x_2)$ there exists a deck transformation $\phi \in \Aut(\wtilde{X}/X)$ such that $\phi(x_1) = x_2$.
+\end{definition}
+
+\begin{proposition}
+  Let $p \cn (\wtilde{X},\wtilde{x_0}) \rarr (X,x_0)$ be a path-connected covering space of a path-connected, locally path-connected space $X$, and let $H$ be the subgroup $p_\ast(\pi_1(\wtilde{X},\wtilde{x_0})) \subset \pi_1(X,x_0)$. Then:
+  \begin{enumerate}[(a)]
+  \item this covering space is normal if and only if $H$ is a normal subgroup of $\pi_1(X,x_0)$;
+  \item $\Aut(\wtilde{X}/X)$ is isomorphic to the quotient $N(H)/H$ where $N(H)$ is the normalizer of $H$ in $\pi_1(X,x_0)$.
+  \end{enumerate}
+  In particular, $\Aut(\wtilde{X}/X)$ is isomorphic to $\pi_1(X,x_0)/H$ if $\wtilde{X}$ is a normal covering. Hence for the universal cover $\wtilde{X} \rarr X$ we have $\Aut(\wtilde{X}/X) \cong \pi_1(X)$.
+\end{proposition}
+
+\begin{definition}
+  A group action of a group $G$ on a topological space $Y$ is called a \emph{covering space action} if the following condition holds: each $y \in Y$ has a neighbourhood $U$ such that all the images $g(U)$ for varying $g \in G$ are disjoint. In other words, $g_1(U) \cap g_2(U) \neq \emptyset$ implies $g_1 = g_2$.
+\end{definition}
+
+Note that for each covering $\wtilde{X} \rarr X$ the action of $\Aut(\wtilde{X}/X)$ on $\wtilde{X}$ is a covering space action.
+
+\begin{proposition}
+  Each covering action of a group $G$ on a space $Y$ satisfies the following:
+  \begin{enumerate}[(a)]
+  \item the quotient map $p \cn Y \rarr Y/G$, $p(y) = G y$, is a normal covering space;
+  \item if $Y$ is path-connected, then $G$ is the group of deck transformations of this covering space $Y \rarr Y/G$;
+    \item if $Y$ is path-connected and locally path-connected, then $G$ is isomorphic to $\pi_1(Y/G)/p_\ast(\pi_1(Y))$.
+  \end{enumerate}
+\end{proposition}
+
+For each $m, n \geq 1$ there is a covering space $\Sigma_{m n + 1} \rarr \Sigma_{m+1}$. Conversely, if there is a covering $\Sigma_g \rarr \Sigma_h$ then $g = m n + 1$ and $h = m + 1$ for some $m, n \geq 1$.
+
+\begin{proposition}
+  Consider maps $X \rarr Y \rarr Z$ such that both $Y \rarr Z$ and the composition $X \rarr Z$ are covering spaces. If $Z$ is locally path-connected, then $X \rarr Y$ is a covering space. Furthermore, if $X \rarr Z$ is normal, then so is $X \rarr Y$.
+\end{proposition}
+
+\begin{proposition}
+  Consider a covering action of a group $G$ on a path-connected, locally path-connected space $X$. Then any subgroup $H \subset G$ determines a composition of covering spaces $X \rarr X/H \rarr X/G$. Furthermore, the following properties hold.
+  \begin{enumerate}[(a)]
+  \item Every path-connected covering space between $X$ and $X/G$ is isomorphic to $X/H$ for some subgroup $H \subset G$.
+  \item Two such covering spaces $X/H_1$ and $X/H_2$ of $X/G$ are isomorphic if and only if $H_1$ and $H_2$ are conjugate subgroups of $G$.
+    \item The covering space $X/H \rarr X/G$ is normal if and only if $H$ is a normal subgroup of $G$, in which case the group of deck transformations of this cover is $G/H$.
+  \end{enumerate}
+\end{proposition}
+
+\subsection{Hatcher, Chapter 2: Homology}
+
+\subsubsection{Simplicial and Singular Homology}
+
+\begin{proposition}
+  Consider the decomposition of a topological space $X$ into its path-components $X = \bigsqcup_\alpha X_\alpha$. Then $H_\bullet(X) \cong \bigoplus_\alpha H_\bullet(X_\alpha)$.
+\end{proposition}
+
+\begin{theorem}[Exact sequence of a pair]
+  For every pair $(X,A)$, we have a long exact sequence
+  \[\xymatrix{
+    \cdots \ar[r] & H_n(A) \ar[r] & H_n(X) \ar[r] & H_n(X,A) \ar[r]^-\d & H_{n-1}(A) \ar[r] & \cdots.
+  }\]
+  The connecting homomorphism $\d \cn H_n(X,A) \rarr H_{n-1}(A)$ has a simple description: if a class $[\alpha] \in H_n(X,A)$ is represented by a relative cycle $\alpha$, then $\d[\alpha] = [\d \alpha] \in H_{n-1}(A)$.
+\end{theorem}
+
+The following is a mild generalization.
+
+\begin{theorem}[Exact sequence of a triple]
+  For every triple $(X,A,B)$, we have a long exact sequence
+  \[\xymatrix{
+    \cdots \ar[r] & H_n(A,B) \ar[r] & H_n(X,B) \ar[r] & H_n(X,A) \ar[r]^-\d & H_{n-1}(A,B) \ar[r] & \cdots.
+  }\]
+\end{theorem}
+
+\begin{theorem}[Excision]
+  Given subspaces $Z \subset A \subset X$ such that the closure of $Z$ is contained in the interior of $A$, then the inclusion $(X \setminus Z, A \setminus Z) \hrarr (X,A)$ induces isomorphisms $H_n(X \setminus Z, A \setminus Z) \rarr H_n(X,A)$ for all $n$. Equivalently, for subspaces $A, B \subset X$ whose interiors cover $X$, the inclusion $(B, A \cap B) \hrarr (X,A)$ induces isomorphisms $H_n(B,A \cap B) \rarr H_n(X,A)$ for all $n$.
+\end{theorem}
+
+We call a pair $(X,A)$ \emph{good} if $A$ is a nonempty closed subspace and it is the deformation retract of a neighbourhood.
+
+\begin{proposition}
+  For good pairs $(X,A)$, the quotient map $q \cn (X,A) \rarr (X/A,A/A)$ induces isomorphisms $q_\ast \cn H_n(X,A) \rarr H_n(X/A,A/A) \cong \wtilde{H}_n(X/A)$ for all $n$.
+\end{proposition}
+
+\begin{theorem}
+  If $(X,A)$ is a good pair, then  there is an exact sequence
+  \[\xymatrix{
+    \cdots \ar[r] & \wtilde{H}_n(A) \ar[r] & \wtilde{H}_n(X) \ar[r] & \wtilde{H}_n(X/A) \ar[r]^-\d & \wtilde{H}_{n-1}(A) \ar[r] & \cdots.
+  }\]
+\end{theorem}
+
+\begin{corollary}
+  If the CW complex $X$ is the union of subcomplexes $A$ and $B$, then the inclusion $(B,A \cap B) \hrarr (X,A)$ induces isomorphisms $H_n(B,A \cap B) \rarr H_n(X,A)$ for all $n$.
+\end{corollary}
+
+\begin{corollary}
+  For a wedge sum $\bigvee_\alpha X_\alpha$, the inclusions $i_\alpha \cn X_\alpha \rarr \bigvee_\alpha X_\alpha$ induce an isomorphism
+  \[
+  \bigoplus_\alpha (i_\alpha)_\ast \cn \bigoplus_\alpha \wtilde{H}_\bullet(X_\alpha) \rarr \wtilde{H}_\bullet\left( \bigvee_\alpha X_\alpha \right),
+  \]
+  provided that the wedge sum is formed at basepoints $x_\alpha \in X_\alpha$ such that the pairs $(X_\alpha,x_\alpha)$ are good.
+\end{corollary}
+
+\begin{theorem}
+  If nonempty subsets $U \subset \R^m$ and $V \subset \R^n$ are homeomorphic, then $m = n$.
+\end{theorem}
+
+\begin{proposition}
+  If $A$ is a retract of $X$, then the maps $H_n(A) \rarr H_n(X)$ induced by the inclusion $A \hrarr X$ are injective.
+\end{proposition}
+
+\begin{corollary}
+  There exists no retraction $D^n \rarr S^n$.
+\end{corollary}
+
+\begin{corollary}[Brouwer Fixed Point Theorem]
+    Every continuous map $h \cn D^n \rarr D^n$ has a fixed point.
+\end{corollary}
+
+\begin{proposition}
+  For all $n$, there are isomorphisms $\wtilde{H}_n(X) \cong \wtilde{H}_{n+1}(S X)$.
+\end{proposition}
+
+\begin{proposition}
+  Let $X$ be a finite-dimensional CW complex.
+  \begin{enumerate}[(a)]
+  \item If $X$ has dimension $n$, then $H_i(X) = 0$ for $i > n$ and $H_n(X)$ is free.
+  \item If there are no cells of dimension $n-1$ or $n+1$, then $H_n(X)$ is free with basis in bijective correspondence with the $n$-cells.
+  \item If $X$ has $k$ $n$-cells, then $H_n(X)$ is generated by at most $k$ elements.
+  \end{enumerate}
+\end{proposition}
+
+\subsubsection{Computations and Applications}
+
+\begin{definition}
+  Each map $f \cn S^n \rarr S^n$ induces a homomorphism $f_\ast \cn H_n(S^n) \rarr H_n(S^n)$ which is multiplication by an integer $d$ called the \emph{degree} of $f$ denoted $\deg f$.
+\end{definition}
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item $\deg \id_{S^n} = 1$.
+  \item If $f$ is not surjective, then $\deg f = 0$.
+  \item If $f \simeq g$, then $\deg f = \deg g$.
+  \item $\deg (f \circ g) = \deg f \deg g$.
+  \item If $f$ is the reflection in $S^{n-1}$ of $S^n$, then $\deg f = -1$.
+  \item The antipodal map has degree $(-1)^{n+1}$.
+  \item If $f \cn S^n \rarr S^n$ has no fixed points, then $\deg f = (-1)^{n+1}$.
+  \item If $S f \cn S^{n+1} \rarr S^{n+1}$ denotes the suspension map of $f \cn S^n \rarr S^n$, then $\deg S f = \deg f$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+  A continuous nonvanishing vector field on $S^n$ exists if and only if $n$ is odd.
+\end{theorem}
+
+\begin{proposition}
+  If $n$ is even, then $\Z/2$ is the only nontrivial group that can act freely on $S^n$.
+\end{proposition}
+
+\begin{proposition}
+  Let $f \cn S^n \rarr S^n$ be a continuous map, and $y \in S^n$ be a point whose preimage is finite, say $f^{-1}(y) = \{ x_1, \dots, x_m \}$. Let $U_1, \dots, U_m$ be disjoint neighbourhoods of the $x_i$ mapped homeomorphically to a neighbourhood $V$ of $y$. The \emph{local degree} of $f$ at $x_i$, denoted $\deg f|_{x_i}$, is an integer $d$ such that $f_\ast \cn H_n(U_i, U_i \setminus \{x_i\}) \rarr H_n(V, V \setminus \{y\})$ is multiplication by $d$. Then $\deg f = \sum_i \deg f|_{x_i}$.
+\end{proposition}
+
+\begin{proposition}
+  Let $X$ be a CW complex.
+  \begin{enumerate}[(a)]
+  \item $H_\bullet(X^n,X^{n-1}) \cong \Z^\ell_{(n)}$ where $\ell$ is the number of $n$-cells of $X$ (potentially infinite).
+  \item $H_k(X^n) = 0$ if $k > n$. In particular, if $X$ is finite dimensional, then $H_k(X) = 0$ for $k > \dim X$.
+  \item The inclusion $i \cn X^n \hrarr X$ induces isomorphisms $i_\ast \cn H_k(X^n) \rarr H_k(X)$ for $k < n$.
+  \end{enumerate}
+\end{proposition}
+
+There is an alternative formulation of homology which makes it easy to compute. For any CW complex $X$ there is a chain complex
+\[\xymatrix{
+  \cdots \ar[r] & H_{n+1}(X^{n+1}, X^n) \ar[r]^-{d_{n+1}} & H_n(X^n, X^{n-1}) \ar[r]^-{d_n} & H_{n-1}(X^{n-1}, X^{n-2}) \ar[r] & \cdots.
+}\]
+The homology of this complex, denoted $H^{CW}_n(X)$, is called \emph{cellular homology}. Note that $H_n(X^n, X^{n-1})$ is a free abelian group generated by the $n$-cells of $X$. The differentials $d_n$ can be computed by $d_n(e_\alpha^n) = \sum_\beta d_{\alpha\beta} e_\beta^{n-1}$ where $d_{\alpha\beta}$ is the degree of the map $S_\alpha^{n-1} \rarr X^{n-1} \rarr S_\beta^{n-1}$ that is the composition of the attaching map of $e_\alpha^n$ with the quotient map collapsing $X^{n-1} \setminus e_\beta^{n-1}$ to a point.
+
+The following computations follow.
+\begin{align*}
+  H_\bullet(\Sigma_g) &\cong \Z_{(0)} \oplus \Z^{2g}_{(1)} \oplus \Z \\
+  H_\bullet(N_g) &\cong \Z_{(0)} \oplus (\Z^{g-1} \oplus \Z/2)_{(1)} \\
+  H_k(\R\P^n) &\cong
+  \begin{cases}
+    \Z & \textrm{if $k = 0$ and if $k = n$ is odd}, \\
+    \Z/2 & \textrm{if $k$ is odd and $0 < k < n$}, \\
+    0 & \textrm{otherwise}.
+  \end{cases} \\
+  H_k(L_m(\ell_1, \dots, \ell_n)) &\cong
+  \begin{cases}
+    \Z & \textrm{if $k = 0$ or $2n-1$}, \\
+    \Z/m & \textrm{if $k$ is odd and $0 < k < 2n-1$}, \\
+    0 & \textrm{otherwise}.
+  \end{cases}
+\end{align*}
+
+\begin{theorem}
+  $H^{CW}_\bullet(X) \cong H_\bullet(X)$.
+\end{theorem}
+
+For an abelian group $G$ and an integer $n \geq 1$, we can construct a CW complex $X$ satisfying $\wtilde{H}_\bullet(X) \cong G_{(n)}$. Furthermore, it can be shown that the homotopy type of $X$ is uniquely determined by the previous condition (provided that for $n > 1$, we require $X$ to be simply-connected), hence we will refer to $X$ as a \emph{Moore space} and denote it by $M(G,n)$.
+
+\begin{theorem}
+  For finite CW complexes $X$, the Euler characteristic is
+  \[
+  \chi(X) = \sum_n (-1)^n \rank H_n(X^n, X^{n-1}) = \sum_n (-1)^n \rank H_n(X).
+  \]
+\end{theorem}
+
+For example,
+\begin{align*}
+  \chi(\Sigma_g) &= 2 - 2 g, &
+  \chi(N_g) &= 2 - g.
+\end{align*}
+
+Suppose $r \cn X \rarr A$ is a retraction and $i \cn A \rarr X$ the associated inclusion. We have already shown that $i_\ast \cn H_\bullet(A) \rarr H_\bullet(X)$ is injective, hence the long exact sequence of the pair $(X,A)$ splits into short exact sequences
+\[\xymatrix{
+  0 \ar[r] & H_n(A) \ar[r] & H_n(X) \ar[r] & H_n(X,A) \ar[r] & 0.
+}\]
+Furthermore, the relation $r_\ast i_\ast = \id_{H_\bullet(A)}$ implies the above short exact sequences are split.
+
+\begin{proposition}[Split short exact sequences]
+  For a short exact sequence
+  \[\xymatrix{
+    0 \ar[r] & A \ar[r]^-i & B \ar[r]^-j & C \ar[r] & 0
+  }\]
+  of abelian groups the following statements are equivalent:
+  \begin{enumerate}[(a)]
+  \item there is a homomorphism $p \cn B \rarr A$ such that $p \circ i = \id_A$;
+  \item there is a homomorphism $s \cn C \rarr B$ such that $j \circ s = \id_C$;
+  \item there is an isomorphism $B \cong A \oplus C$ making the diagram
+    \[\xymatrix@R=0.1in{
+      && B \ar[dr]^-j \ar[dd]^-\cong \\
+      0 \ar[r] & A \ar[ur]^-i \ar[dr] && C \ar[r] & 0 \\
+      && A \oplus C \ar[ur]
+    }\]
+    commute, where the maps in the lower row are the obvious projections.
+  \end{enumerate}
+\end{proposition}
+
+\begin{theorem}[Mayer-Vietoris sequence]
+  Let $X$ be a topological space and $A, B \subset X$ two subspaces such that their interiors cover $X$. Then there is a long exact sequence as follows.
+  \[\xymatrix{
+    \cdots \ar[r] & H_n(A \cap B) \ar[r] & H_n(A) \oplus H_n(B) \ar[r] & H_n(X) \ar[r]^-\d & H_{n-1}(A \cap B) \ar[r] & \cdots 
+  }\]
+  The connecting homomorphism $\d \cn H_n(X) \rarr H_{n-1}(A \cap B)$ has the following explicit form. Consider a class $\alpha \in H_n(X)$ represented by a cycle $z$. By further subdivision we can ensure that $z = x + y$ such that $x$ lies in $A$ and $y$ in $B$. Note that $x$ and $y$ need not be cycles themselves, but $\d x = -\d y$. Then $\d \alpha \in H_{n-1}(A \cap B)$ is represented by a the cycle $\d x = -\d y$.
+\end{theorem}
+
+There is also a similar sequence in reduced homology. Even further, we can take $A$ and $B$ to be deformation retracts of neighbourhoods $U$ and $V$ respectively satisfying $X = U \cap V$. This is particularly useful when $X$ is a CW complex and $A$ and $B$ subcomplexes since $U$ and $V$ as described always exist. The following can often be viewed as a generalization of the Mayer-Vietoris sequence.
+
+\begin{theorem}
+  Consider two maps $f, g \cn X \rarr Y$ and form the space $Z = (X \x I \sqcup Y)/\!\!\sim$ by identifying $(x,0) \sim f(x)$ and $(x,1) \sim g(x)$ for all $x \in X$. Less formally, we can describe $Z$ as $X \x I$ glued to $Y$ at one end via $f$ and at the other via $g$. Let $i \cn Y \hrarr Z$ be the evident inclusion. Then there is a long exact sequence as follows.
+  \[\xymatrix@C=0.4in{
+    \cdots \ar[r] & H_n(X) \ar[r]^-{f_\ast - g_\ast} & H_n(Y) \ar[r]^-{i_\ast} & H_n(Z) \ar[r]^-\d & H_{n-1}(X) \ar[r] & \cdots
+  }\]
+\end{theorem}
+
+\begin{theorem}[Relative Mayer-Vietoris sequence]
+  Let $(X,Y) = (A \cup B, C \cup D)$ such that: (1) $C \subset A$, (2) $D \subset B$, (3) $X$ is the union of the interiors of $A$ and $B$, and (4) $Y$ the union of the interiors of $C$ and $D$. Then there is a long exact sequence in relative homology as follows.
+  \[\xymatrix@C=0.2in{
+    \cdots \ar[r] & H_n(A \cap B, C \cap D) \ar[r] & H_n(A,C) \oplus H_n(B,D) \ar[r] & H_n(X,Y) \ar[r] & H_{n-1}(A \cap B, C \cap D) \ar[r] & \cdots
+  }\]
+\end{theorem}
+
+All variants of the Mayer-Vietoris sequence hold for reduced homology too. Furthermore, all preceding results in this section generalize to homology with coefficients.
+
+\subsubsection{The Formal Viewpoint}
+
+\begin{definition}
+  A \emph{(reduced) homology theory} is a sequence is covariant functors $\wtilde{h}_n$ from the category of CW complexes to the category of abelian groups which satisfy the following axioms.
+  \begin{enumerate}[(1)]
+  \item If $f \simeq g$, then $f_\ast = g_\ast \cn \wtilde{h}_n(X) \rarr \wtilde{h}_n(Y)$.
+  \item There are boundary homomorphisms $\d \cn \wtilde{h}_n(X/A) \rarr \wtilde{h}_{n-1}(A)$ defined for each CW pair $(X,A)$, fitting into an exact sequence
+    \[\xymatrix{
+      \cdots \ar[r]^-\d & \wtilde{h}_n(A) \ar[r]^-{i_\ast} & \wtilde{h}_n(X) \ar[r]^-{q_\ast} & \wtilde{h}_n(X/A) \ar[r]^-{\d} & \wtilde{h}_{n-1}(A) \ar[r]^-{i_\ast} & \cdots,
+    }\]
+    where $i \cn A \rarr X$ and $q \cn X \rarr X/A$ are respectively the evident inclusion and quotient maps. Furthermore, the boundary mas are natural: for $f \cn (X,A) \rarr (Y,B)$ inducing a quotient map $\overline{f} \cn X/A \rarr Y/B$, the diagrams
+    \[\xymatrix{
+      \wtilde{h}_n(X/A) \ar[r]^-\d \ar[d]_{\overline{f}_\ast} & \wtilde{h}_{n-1}(A) \ar[d]^-{f_\ast} \\
+      \wtilde{h}_n(Y/B) \ar[r]^-\d & \wtilde{h}_{n-1}(B)
+    }\]
+    commute.
+  \item For a wedge sum $X = \bigvee_\alpha X_\alpha$ with inclusions $i_\alpha \cn X_\alpha \hrarr X$, the direct sum map
+    \[
+    \bigoplus_\alpha (i_\alpha)_\ast \cn \bigoplus_\alpha \wtilde{h}_n(X_\alpha) \rarr \wtilde{h}_n(X)
+    \]
+    is an isomorphism for all $n$.
+  \end{enumerate}
+\end{definition}
+
+\subsubsection{Homology and Fundamental Group}
+
+\begin{theorem}[Hurewicz Theorem]
+  By regarding loops as singular $1$-cycles, we obtain a homomorphism $h \cn \pi_1(X, x_0) \rarr H_1(X)$. If $X$ is path-connected, then $h$ is surjective and has kernel the commutator subgroup of $\pi_1(X)$, so $h$ induces an isomorphism between the abelianization of $\pi_1(X)$ onto $H_1(X)$. If $\gamma \cn S^1 \rarr X$ is a loop, then the map $h$ may alternatively be described as $h[\gamma] = \gamma_\ast(\alpha)$ where $\alpha$ is the (oriented) generator of $H_1(S^1)$.
+\end{theorem}
+
+\subsubsection{Classical Applications}
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item For an embedding $h \cn D^k \rarr S^n$, we have $\wtilde{H}_\bullet(S^n \setminus h(D^k)) = 0$.
+  \item For an embedding $h \cn S^k \rarr S^n$ with $k < n$, we have $\wtilde{H}_\bullet(S^n \setminus h(S^k)) \cong \Z_{(n-k-1)}$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{theorem}[Invariance of Domain]
+  If $U$ is an open set in $\R^n$, then for any embedding $h \cn U \rarr \R^n$ the image $h(U)$ must be an open set in $\R^n$. The statement holds if we replace $\R^n$ with $S^n$ throughout.
+\end{theorem}
+
+\begin{corollary}
+  If $M$ is a compact $n$-manifold and $N$ a connected $n$-manifold, then an embedding $h \cn M \rarr N$ must be surjective, hence a homeomorphism.
+\end{corollary}
+
+\begin{theorem}[Hopf]
+  The only finite-dimensional division algebras over $\R$ which are commutative and have an identity are $\R$ and $\C$.
+\end{theorem}
+
+\begin{proposition}
+  An odd map $f \cn S^n \rarr S^n$, satisfying $f(-x) = -f(x)$ for all $x \in S^n$, must have odd degree. The claim also holds if we replace odd with even throughout.
+\end{proposition}
+
+\begin{proposition}
+  If $p \cn \wtilde{X} \rarr X$ is a two-sheeted cover, then there is a long exact sequence as follows.
+  \[\xymatrix{
+    \cdots \ar[r] & H_n(X; \Z/2) \ar[r]^-{\tau_\ast} & H_n(\wtilde{X}; \Z/2) \ar[r]^-{p_\ast} & H_n(X; \Z/2) \ar[r] & H_{n-1}(X; \Z/2) \ar[r] & \cdots
+  }\]
+  The map $\tau_\ast$, called the \emph{transfer homomorphism}, is given by summing up the two lifts of a given chain.
+\end{proposition}
+
+\begin{corollary}[Borsuk-Ulam]
+  For every map $g \cn S^n \rarr \R^n$ there exists a point $x \in S^n$ such that $g(x) = g(-x)$.
+\end{corollary}
+
+\subsubsection{Simplicial Approximation}
+
+\begin{theorem}[Simplicial approximation]
+  If $K$ is a finite simplicial complex and $L$ an arbitrary simplicial complex, then any map $f \cn K \rarr L$ is homotopic to a map that is simplicial with respect to some iterated barycentric subdivision of $K$.
+\end{theorem}
+
+For a map $\phi \cn \Z^n \rarr \Z^n$ we define its \emph{trace} $\tr \phi$ in the usual sense. More generally, consider a finitely generated abelian group $A$ with torsion part $A_T$. For any $\phi \cn A \rarr A$, we define $\tr \phi = \tr\overline{\phi}$ where $\overline{\phi} \cn A/A_T \rarr A/A_T$ is the induced map mod torsion.
+
+\begin{definition}
+  Let $X$ be a finite CW complex and $f \cn X \rarr X$ a continuous map. The \emph{Lefschetz number} of $f$ is
+  \[
+  \tau(f) = \sum_i (-1)^n \tr(f_\ast \cn H_n(X) \rarr H_n(X)).
+  \]
+\end{definition}
+
+Note that $\tau(\id_X) = \chi(X)$.
+
+\begin{theorem}[Lefschetz Fixed Point Theorem]
+  If $X$ is a finite simplicial complex, or more generally a retract of a finite simplicial complex, and $f \cn X \rarr X$ a map with $\tau(f) \neq 0$, then $f$ has a fixed point.
+\end{theorem}
+
+It is the case that every compact, locally contractible space that can be embedded in $\R^n$ for some $n$ is a retract of a finite simplicial complex. In particular, this includes compact manifolds and finite CW complexes.
+
+\begin{theorem}[Simplicial Approximation to CW Complexes]
+  Every CW complex $X$ is homotopy equivalent to a simplicial complex, which can be chosen to be of the same dimension as $X$, finite if $X$ is finite, and countable if $X$ is countable.
+\end{theorem}
+
+\subsection{Hatcher, Chapter 3: Cohomology}
+
+\subsubsection{Cohomology Groups}
+
+The homology of a space $X$ is customarily constructed in two steps: (1) form a chain complex $C_\bullet(X)$ (simplicial, singular, cellular, etc.), and then (2) take its homology. To make the transition to cohomology, one needs to dualize after step (1). In other words, assuming we are going to work with coefficients over an abelian group $G$, we first form $C^\bullet(X; G) = \Hom(C_\bullet; G)$. The homology of this complex is then denoted $H^\bullet(X; G)$. We proceed to investigate the relation between $H^\bullet(X; G)$ and $\Hom(H_\bullet(X), G)$.
+
+\begin{theorem}
+  If a chain complex $C_\bullet$ of free abelian groups has homology groups $H_\bullet(C)$, then the cohomology groups $H^\bullet(C; G)$ of the cochain complex $\Hom(C_\bullet, G)$ are determined by the split exact sequences
+  \[\xymatrix{
+    0 \ar[r] & \Ext(H_{n-1}(C), G) \ar[r] & H^n(C; G) \ar[r]^-{h} & \Hom(H_n(C), G) \ar[r] & 0.
+  }\]
+\end{theorem}
+
+The $\Ext(H,G)$ groups are defined in the following fashion. Every abelian group has a free resolution $0 \rarr F_1 \rarr F_0 \rarr H \rarr 0$. We apply the functor $\Hom(-,G)$ to it and take homology. It turns out that the cohomology is nontrivial only in degree $1$ (this is specific to the category of abelian groups $\Z\dmod$), and we define $\Ext(H, G) = H^1(H; G) = H_1(\Hom(F_\bullet, G))$. For computational purposes, the following properties are useful.
+\begin{enumerate}[(a)]
+\item $\Ext(H \oplus H', G) \cong \Ext(H, G) \oplus \Ext(H', G)$.
+\item $\Ext(H,G) = 0$ if $H$ is free.
+\item $\Ext(\Z/n, G) \cong G/n G$.
+\end{enumerate}
+The following result summarizes the above facts when $G = \Z$.
+
+\begin{corollary}
+  If the homology groups $H_n$ and $H_{n-1}$ of a chain complex $C$ of free abelian groups are finitely generated, with torsion subgroups $T_n \subset H_n$ and $T_{n-1} \subset H_n$, then
+  \[
+  H^n(C; Z) \cong (H_n/T_n) \oplus T_{n-1}.
+  \]
+\end{corollary}
+
+\begin{corollary}
+  If a chain map between chain complexes of free abelian groups induces an isomorphism on homology groups, then it induces an isomorphism on cohomology groups with any coefficient group $G$.
+\end{corollary}
+
+A large number of the results from the previous chapter hold for cohomology -- one only needs to reverse the direction of sequences.
+
+\subsubsection{Cup Product}
+
+Unlike the general theories of homology and cohomology in which coefficients could be taken in an arbitrary abelian group, we are required to work over a commutative ring $R$ in order to define cup products. For cochains $\phi \in C^k(X; R)$ and $\psi \in C^\ell(X; R)$, the cup product $\phi \wcup \psi \in C^{k+\ell}(X;R)$ is the cochain whose value on a singular simplex $\sigma \cn \Delta^{k+\ell} \rarr X$ is given by the formula
+\[
+(\phi \wcup \psi)(\sigma) = \phi(\sigma|_{[v_0, \dots, v_k]}) \cdot \psi(\sigma|_{[v_k, \dots, v_{k+\ell}]}).
+\]
+
+\begin{proposition}
+  For $\phi \in C^k(X;R)$ and $\psi \in C^\ell(X; R)$, we have
+  \[
+  \delta(\phi \wcup \psi) = \delta\phi \wcup \psi + (-1)^k \phi \wcup \delta\psi.
+  \]
+\end{proposition}
+
+The previous result implies that the cup product of two cocycles is again a cocycle, and the cup product of a cocycle and a coboundary (in either order) is again a coboundary. Therefore, the cup product on cochains induces a cup product on cohomology, namely
+\[\xymatrix{
+H^k(X;R) \x H^\ell(X;R) \ar[r]^-\wcup & H^{k+\ell}(X;R).
+}\]
+Associativity and distributivity on the level of cochains implies these properties for the product on cohomology too. If $R$ is unital, then there is an identity for the cup product -- the class $1 \in H^0(X;R)$ defined by the $0$-cocycle taking the value $1$ on each singular $0$-simplex. There is a relative version of the cup product which takes the form
+\[\xymatrix{
+  H^k(X,A;R) \x H^\ell(X,B;R) \ar[r]^-\wcup & H^{k+\ell}(X, A \cup B; R),
+}\]
+and this specializes to
+\[\xymatrix@R=0in{
+  H^k(X,A;R) \x H^\ell(X;  R) \ar[r]^-\wcup & H^{k+\ell}(X, A; R), \\
+  H^k(X;  R) \x H^\ell(X,A;R) \ar[r]^-\wcup & H^{k+\ell}(X, A; R), \\
+  H^k(X,A;R) \x H^\ell(X,A;R) \ar[r]^-\wcup & H^{k+\ell}(X, A; R).
+}\]
+
+\begin{proposition}
+  For a map $f \cn X \rarr Y$, the induced maps $f^\ast \cn H^n(Y;R) \rarr H^n(X;R)$ satisfy $f^\ast(\alpha \wcup \beta) = f^\ast(\alpha) \wcup f^\ast(\beta)$, and similarly in the relative case.
+\end{proposition}
+
+This prompts us to note that we can regard $H^\bullet(-;R)$ as a functor from the category of topological spaces to the category of graded $R$-algebras. We proceed summarize a few common cohomology rings.
+\begin{align*}
+  H^\bullet(\R\P^n;\Z/2) &\cong (\Z/2)[\alpha]/(\alpha^{n+1}), \quad |\alpha| = 1\\
+  H^\bullet(\R\P^\infty;\Z/2) &\cong (\Z/2)[\alpha], \quad |\alpha| = 1 \\[5pt]
+  H^\bullet(\C\P^n;\Z) &\cong \Z[\alpha]/(\alpha^{n+1}), \quad |\alpha| = 2 \\
+  H^\bullet(\C\P^\infty;\Z) &\cong \Z[\alpha], \quad |\alpha| = 2 \\[5pt]
+  H^\bullet(\H\P^n;\Z) &\cong \Z[\alpha]/(\alpha^{n+1}), \quad |\alpha| = 4 \\
+  H^\bullet(\H\P^\infty;\Z) &\cong \Z[\alpha], \quad |\alpha| = 4 \\
+  \intertext{The cohomology of real projective spaces over $\Z$ are slightly more delicate.}
+  H^\bullet(\R\P^{2n};\Z) &\cong \Z[\alpha]/(2\alpha,\alpha^{n+1}), \quad |\alpha| = 2 \\
+  H^\bullet(\R\P^{2n+1};\Z) &\cong \Z[\alpha,\beta]/(2\alpha,\alpha^{n+1},\beta^2,\alpha\beta), \quad |\alpha| = 2, |\beta| = 2n+1 \\
+  H^\bullet(\R\P^\infty;\Z) &\cong \Z[\alpha]/(2\alpha), \quad |\alpha| = 2
+\end{align*}
+
+\begin{proposition}
+  The isomorphisms
+  \[\xymatrix@R=0in{
+    H^\bullet(\bigsqcup_\alpha X_\alpha;R) \ar[r] & \prod_\alpha H^\bullet(X_\alpha;R) \\
+    \wtilde{H}^\bullet(\bigvee_\alpha X_\alpha;R) \ar[r] & \prod_\alpha \wtilde{H}^\bullet(X_\alpha;R)
+  }\]
+  whose coordinates are induced by the inclusions $i_\alpha \cn X_\alpha \hrarr \bigsqcup_\alpha X_\alpha$ and $i_\alpha \cn X_\alpha \hrarr \bigvee_\alpha X_\alpha$ respectively are ring isomorphisms.
+\end{proposition}
+
+The second isomorphism above provides us with a tool to reject spaces as being homotopy equivalent to wedge products.
+
+\begin{theorem}
+  When $R$ is commutative, the rings $H^\bullet(X,A;R)$ are graded commutative, that is, the identity
+  \[
+  \alpha \wcup \beta = (-1)^{k\ell} \beta \wcup \alpha
+  \]
+  holds for all $\alpha \in H^k(X,A;R)$ and $\beta \in H^\ell(X,A;R)$.
+\end{theorem}
+
+The \emph{cross product}, also known as the \emph{external cup product}, is a map
+\[\xymatrix{
+  H^k(X;R) \x H^\ell(Y;R) \ar[r]^-\x & H^{k+\ell}(X \x Y; R)
+}\]
+given by
+\[
+a \x b = p_1^\ast(a) \wcup p_2^\ast(b),
+\]
+where $p_1 \cn X \x Y \rarr X$ and $p_2 \cn X \x Y \rarr Y$ are the evident projections. It is not hard to see this map is bilinear, hence induces a linear map $H^k(X;R) \otimes H^\ell(Y;R) \rarr H^{k+1}(X \x Y; R)$.
+
+\begin{theorem}[K\"unneth formula]
+  The cross product $H^\bullet(X;R) \otimes_R H^\bullet(Y;R) \rarr H^\bullet(X \x Y;R)$ is an isomorphism of rings if $X$ and $Y$ are CW complexes and $H^k(Y;R)$ is a finitely generated free $R$-module for all $k$.
+\end{theorem}
+
+It turns out the hypothesis $X$ and $Y$ are CW complexes is unnecessary. The result also hold in a relative setting.
+
+\begin{theorem}[Relative K\"unneth formula]
+  For CW pairs $(X,A)$ and $(Y,B)$ the cross product homomorphism $H^\bullet(X,A;R) \otimes_R H^\bullet(Y,B;R) \rarr H^\bullet(X \x Y, A \x Y \cup X \x B; R)$ is an isomorphism of rings if $H^k(Y,B;R)$ is a finitely generated free $R$-module for each $k$.
+\end{theorem}
+
+The relative version yields a reduced one which involves the smash product $X \wedge Y$.
+
+\begin{theorem}
+  If $\R^n$ has the structure of a division algebra over $\R$, then $n$ must be a power of $2$.
+\end{theorem}
+
+\subsubsection{Poincar\'e Duality}
+
+Fix a coefficient ring $R$. For any space $X$ and any subset $A \subset X$, the \emph{local homology} of $X$ at $A$ is $H_\bullet(X|A;R) = H_\bullet(X, X \setminus A; R)$ and similarly for cohomology. As usual, omitting $R$ means we are working over $\Z$.
+
+\begin{definition}
+  A compact manifold without boundary is called \emph{closed}.
+\end{definition}
+
+\begin{theorem}
+  The homology groups of a closed manifold are finitely generated.
+\end{theorem}
+
+From now on, consider a manifold $M$. It is easy to see that $H_\bullet(M|x;R) \cong R_{(n)}$ for all $x \in M$. An \emph{$R$-orientation} of $M$ at $x$ is a choice of a generator $\mu_x \in H_n(M|x;R)$. An $R$-orientation at a point $x$ determines $R$-orientations for all $y$ in a neighbourhood $B$ (open ball of finite radius) of $x$ via the canonical isomorphisms
+\[
+H_n(M|y;R) \cong H_n(M|B;R) \cong H_n(M|x;R).
+\]
+An \emph{$R$-orientation} of $M$ is a consistent choice of local $R$-orientations at all $x \in M$. This is better handled via the space
+\[
+M_R = \{ \mu_x \in H_n(M|x;R) \;|\; x \in M \}
+\]
+topologized in an appropriate manner. There is a canonical projection $M_R \rarr M$ which turns this into a covering space. Since $H_n(M|x;R) \cong H_n(M|x) \otimes R$, each $r \in R$ determines a subcovering space
+\[
+M_r = \{ \pm \mu_x \otimes r \in H_n(M|x;R) \;|\; x \in M, \mu_x \textrm{ is a generator of } H_n(M|x) \} \subset M_R.
+\]
+The space
+\[
+\wtilde{M} = \{ \mu_x \in H_n(M|x) \;|\; \mu_x \textrm{ is a generator of } H_n(M|x) \}
+\]
+is also of great interest. For example $M_\Z = \bigsqcup_{k \geq 0} M_k$ where $M_0 \cong M$ and $M_k \cong \wtilde{M}$ for all $k \geq 1$. Similarly, if $r \in R^\x$ has order $2$, then $M_r \cong M$, and otherwise $M_r \cong \wtilde{M}$. Note that $\wtilde{M}$ is a two-sheeted cover of $M$ (potentially not connected), and a ($\Z$-)orientation of $M$ is nothing but a section $M \rarr \wtilde{M}$ of this cover.
+
+\begin{proposition}
+  If $M$ is connected, then $M$ is orientable if and only if $\wtilde{M}$ has two components.
+\end{proposition}
+
+\begin{corollary}
+  If $M$ is simply-connected, or more generally if $\pi_1(M)$ has no subgroup of index two, then $M$ is orientable.
+\end{corollary}
+
+An orientable manifold is $R$-orientable for all $R$, while a non-orientable manifold is $R$-orientable if and only if $R$ contains a unit of (additive) order $2$, which is equivalent to having $2 = 0$ in $R$. It follows that every manifold is $\Z/2$-orientable. In practice, the important cases are $R = \Z$ and $R = \Z/2$.
+
+\begin{theorem}
+  Let $M$ be a closed connected $n$-manifold.
+  \begin{enumerate}[(a)]
+  \item If $M$ is $R$-orientable, then the natural map $H_n(M;R) \rarr H_n(M|x;R) \cong R$ is an isomorphism for all $x \in M$.
+  \item If $M$ is not $R$-orientable, then the natural map $H_n(M;R) \rarr H_n(M|x;R) \cong R$ is injective with image $\{ r \in R \;|\; 2r = 0 \}$ for all $x \in M$.
+  \item $H_i(M;R) = 0$ for $i > n$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+  Let $M$ be an $n$-manifold. If $M$ is orientable, then $H_n(M) \cong \Z$, and if not, then $H_n(M) = 0$. In either case $H_n(M;\Z/2) \cong \Z/2$.
+\end{corollary}
+
+\begin{definition}
+  A \emph{fundamental (orientation) class} for $M$ with coefficients in $R$ is an element of $H_n(M;R)$ whose image in $H_n(M|x;R)$ is a generator for all $x \in M$.
+\end{definition}
+
+\begin{corollary}
+  If $M$ is a closed connected $n$-manifold, the torsion subgroup of $H_{n-1}(M)$ is trivial if $M$ is orientable and $\Z/2$ if $M$ is non-orientable.
+\end{corollary}
+
+\begin{proposition}
+  If $M$ is a connected non-compact $n$-manifold, then $H_i(M;R) = 0$ for $i \geq n$.
+\end{proposition}
+
+For an arbitrary space $X$ and a coefficient ring $R$, define an $R$-bilinear \emph{cap product}
+\[
+\wcap \cn C_k(X;R) \x C^\ell(X;R) \rarr C_{k-\ell}(X;R)
+\]
+for $k \geq \ell$ by setting
+\[
+\sigma \wcap \phi = \phi(\sigma|_{[v_0, \dots, v_\ell]}) \sigma|_{[v_\ell,\dots,v_k]}.
+\]
+The formula
+\[
+\d(\sigma \wcap \phi) = (-1)^\ell(\d\sigma \wcap \phi - \sigma \wcap \delta\phi)
+\]
+implies this induces a map on homology and cohomology
+\[\xymatrix{
+  H_k(X;R) \x H^\ell(X;R) \ar[r]^-\wcap & H_{k-\ell}(X;R).
+}\]
+There are relative forms
+\[\xymatrix@R=0in{
+  H_k(X,A;R) \x H^\ell(X  ;R) \ar[r]^-\wcap & H_{k-\ell}(X,A;R) \\
+  H_k(X,A;R) \x H^\ell(X,A;R) \ar[r]^-\wcap & H_{k-\ell}(X  ;R),
+}\]
+and more generally
+\[\xymatrix{
+  H_k(X, A \cup B; R) \x H^\ell(X,A;R) \ar[r]^-\wcap & H_{k-\ell}(X,B;R)
+}\]
+defined for open $A, B \subset X$. The naturality of the cap product is expressed via the following diagram.
+\[\xymatrix{
+  H_k(X) \x H^\ell(X) \ar@<-1.5pc>[d]_-{f_\ast} \ar[r]^-\wcap & H_{k-\ell}(X) \ar[d]^-{f_\ast} \\
+  H_k(Y) \x H^\ell(Y) \ar@<-1.5pc>[u]_-{f^\ast} \ar[r]^-\wcap & H_{k-\ell}(Y)
+}\]
+More precisely, we have
+\[
+f_\ast(\alpha) \wcap \phi = f_\ast(\alpha \wcap f^\ast(\phi)).
+\]
+We are now ready to state our main result.
+
+\begin{theorem}[Poincar\'e Duality]
+  Let $M$ be a closed $R$-orientable $n$-manifold with fundamental class $[M] \in H_n(M;R)$. Then the map $D \cn H^k(M;R) \rarr H_{n-k}(M;R)$ defined by $D(\alpha) = [M] \wcap \alpha$ is an isomorphism for all $k$.
+\end{theorem}
+
+One can define \emph{cohomology with compact support}, denoted $H_c^\bullet(X)$, as the cohomology of the cochain complex which is formed by all compactly supported cochains (that is, vanishing on chains outside a compact set). It is clear that $H^\bullet(X) \cong H^\bullet_c(X)$ for all compact spaces $X$.
+
+\begin{proposition}
+  If a space $X$ is the union of a directed set of subspaces $X_\alpha$ with the property that each compact set in $X$ is contained in some $X_\alpha$, then the natural map $\varinjlim H_i(X_\alpha;G) \rarr H_i(X;G)$ is an isomorphism for all $i$ and $G$.
+\end{proposition}
+
+For any space $X$, the compact sets $K \subset X$ form a directed system since the union of any two compact sets is compact. If $K \subset L$ is an inclusion if compact sets, then there is a natural map $H^\bullet(X, X \setminus K; G) \rarr H^\bullet(X, X \setminus L; G)$. It is possible to check that the resulting limit $\varinjlim H^\bullet(X, X \setminus K; G)$ equals $H^\bullet_c(X; G)$. This could be a useful property, for example, one can compute that $H^\bullet_c(\R^n) \cong \Z_{(n)}$. Poincar\'e Duality then generalizes in the following way.
+
+\begin{theorem}
+  The duality map $D_M \cn H_c^k(M;R) \rarr H_{n-k}(M;R)$ is an isomorphism for all $k$ whenever $M$ is an $R$-oriented $n$-manifold.
+\end{theorem}
+
+\begin{corollary}
+  A closed manifold of odd dimension has Euler characteristic zero.
+\end{corollary}
+
+The cup and cap product are related by the formula
+\[
+\psi(\alpha \wcap \phi) = (\phi \wcup \psi)(\alpha)
+\]
+for $\alpha \in C_{k+\ell}(X;R)$, $\phi \in C^k(X;R)$, and $\psi \in C^\ell(X;R)$. For a closed $R$-orientable $n$-manifold $M$, consider the \emph{cup product pairing}
+\[
+H^k(M;R) \x H^{n-k}(M;R) \rarr R, \qquad
+(\phi,\psi) \mapsto (\phi \wcap \psi)[M].
+\]
+
+\begin{proposition}
+  The cup product pairing is non-singular for closed $R$-orientable manifolds when $R$ is a field, or when $R = \Z$ and torsion in $H^\bullet(X;R)$ is factored out.
+\end{proposition}
+
+\begin{corollary}
+  If $M$ is a closed connected orientable $n$-manifold, then for each element $\alpha \in H^k(M)$ of infinite (additive) order that is not a proper multiple of another element, there exists an element $\beta \in H^{n-k}(M)$ such that $\alpha \wcup \beta$ is a generator of $H^n(M)$. With coefficients in a field the same conclusion holds for any $\alpha \neq 0$.
+\end{corollary}
+
+Let $H^k_{\textrm{free}}(M)$ denote $H^k(M)$ modulo torsion. If $M$ is closed orientable manifold of dimension $2n$, then the middle-dimensional cup product pairing $H^n_{\textrm{free}}(M) \x H^n_{\textrm{free}}(M) \rarr \Z$ is a nonsingular bilinear form on $H^n_{\textrm{free}}(M)$. This form is symmetric when $n$ is even, and skew-symmetric when $n$ is odd. In the latter case, it is always possible to chose a basis so the bilinear form is given by a matrix formed by $2 \x 2$ blocks $\left(\begin{smallmatrix} 0 & -1 \\ 1 & \phantom{-}0 \end{smallmatrix}\right)$ along the diagonal and $0$ everywhere else. In particular, this implies that if $n$ is odd, then the rank of $H^n(M)$ is even. If $n$ is even, classifying symmetric bilinear forms is an interesting algebraic question. For any given $n$, there are finitely many such but their number grows quickly with $n$.
+
+\begin{theorem}[J.H.C. Whitehead]
+  The homotopy type of a simply-connected closed $4$-manifold is uniquely determined by its cup product structure.
+\end{theorem}
+
+A compact manifold $M$ with boundary is defined to be $R$-orientable if $M \setminus \d M$ is $R$-orientable as a manifold without boundary. Orientability in the case of boundary implies there exists a fundamental class $[M]$ in $H_n(M, \d M; R)$ restricting to a given orientation at each point of $M \setminus \d M$. The following is a generalization of Poincar\'e duality.
+
+\begin{theorem}
+  Suppose $M$ is a compact $R$-orientable $n$-manifold whose boundary $\d M$ is decomposed as the union of two compact $(n-1)$-dimensional manifolds $A$ and $B$ with common boundary $\d A = \d B = A \cap B$. Then cap product with a fundamental class $[M] \in H_n(M, \d M; R)$ gives isomorphisms $D_M \cn H^k(M,A;R) \rarr H_{n-k}(M,B;R)$ for all $k$.
+\end{theorem}
+
+The possibility that $A$, $B$, or $A \cap B$ is empty is not excluded. The cases $A = \emptyset$ and $B = \emptyset$ are sometimes called \emph{Lefschetz duality}.
+
+\begin{theorem}[Alexander Duality]
+  If $K$ is a compact, locally contractible, non-empty, proper subspace of $S^n$, then $\wtilde{H}_i(S^n \setminus K) \cong \wtilde{H}^{n-i-1}(K)$ for all $i$.
+\end{theorem}
+
+\begin{corollary}
+  If $X \setminus \R^n$ is compact and locally contractible then $H_i(X)$ is $0$ for $i \geq n$ and torsion-free for $i = n-1$ and $n-2$.
+\end{corollary}
+
+\begin{proposition}
+  If $K$ is a compact, locally contractible subspace of an orientable $n$-manifold $M$, then there are isomorphisms $H_i(M, M \setminus K) \cong H^{n-i}(K)$ for all $i$.
+\end{proposition}
+
+The condition of local contractibility can be removed if one uses \v{C}ech instead of singular cohomology.
+
+\begin{definition}
+  Let $M$ and $N$ be connected closed orientable $n$-manifolds with fundamental classes $[M] \in H_n(M)$ and $[N] \in H_n(N)$ respectively. The \emph{degree} of a map $f \cn M \rarr N$, denoted $d = \deg f$, is such an integer that $f_\ast[M] = d [N]$.
+\end{definition}
+
+\begin{proposition}
+  For any closed orientable $n$-manifold $M$ there is a degree $1$ map $M \rarr S^n$.
+\end{proposition}
+
+\begin{proposition}
+  Let $f \cn M \rarr N$ be a map between connected closed orientable $n$-manifolds. Suppose $B \subset N$ is a ball such that $f^{-1}(B)$ is the disjoint union of balls $B_i$ each mapped homeomorphically by $f$ onto $B$. Then the degree of $f$ is $\sum_i \epsilon_i$ where $\epsilon_i$ is $+1$ or $-1$ according to whether $f|_{B_i} \cn B_i \rarr B$ preserves or reverses local orientations induced from the given fundamental classes $[M]$ and $[N]$.
+\end{proposition}
+
+\begin{proposition}
+  A $p$-sheeted covering $M \rarr N$ of connected closed orientable manifolds has degree $\pm p$.
+\end{proposition}
+
+\subsubsection{Universal Coefficients for Homology}
+
+\begin{theorem}[Universal Coefficients for Homology]
+  For each pair of spaces $(X,A)$ there are split exact sequences
+  \[\xymatrix{
+    0 \ar[r] & H_n(X,A) \otimes G \ar[r] & H_n(X,A;G) \ar[r] & \Tor(H_{n-1}(X,A),G) \ar[r] & 0
+  }\]
+  for all $n$, and these sequences are natural with respect to maps $(X,A) \rarr (Y,B)$.
+\end{theorem}
+
+The following result enables us to compute the $\Tor$ groups.
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item $\Tor(A,B) \cong \Tor(B,A)$.
+  \item $\Tor(\bigoplus_i A_i, B) \cong \bigoplus_i \Tor(A_i,B)$.
+  \item $\Tor(A,B) = 0$ if $A$ or $B$ is free, or more generally torsion-free.
+  \item $\Tor(A,B) \cong \Tor(T(A),B)$ where $T(A)$ is the torsion subgroup of $A$.
+  \item $\Tor(\Z/n,A) \cong \Ker(A \xrarr{n \cdot} A)$.
+  \item For each short exact sequence $0 \rarr B \rarr C \rarr D \rarr 0$ there is a natural associated exact sequence
+    \[\xymatrix@C=0.2in{
+      0 \ar[r] & \Tor(A,B) \ar[r] & \Tor(A,C) \ar[r] & \Tor(A,D) \ar[r] & A \otimes B \ar[r] & A \otimes C \ar[r] & A \otimes D \ar[r] & 0.
+    }\]
+  \end{enumerate}
+\end{proposition}
+
+\begin{corollary}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item $H_n(X;\Q) \cong H_n(X;\Z) \otimes \Q$, so when $H_n(X;\Z)$ is finitely generated, the dimension of $H_n(X;\Q)$ as a $\Q$-vector space equals the rank of of $H_n(X;\Z)$.
+  \item If $H_n(X;\Z)$ and $H_{n-1}(X;\Z)$ are finitely generated, then for $p$ prime, $H_n(X;\Z/p)$ consists of
+    \begin{enumerate}[(i)]
+    \item a $\Z/p$ summand for each $\Z$ summand of $H_n(X;\Z)$,
+    \item a $\Z/p$ summand for each $\Z/p^k$ summand in $H_n(X;\Z)$, $k \geq 1$,
+    \item a $\Z/p$ summand for each $\Z/p^k$ summand in $H_{n-1}(X;\Z)$, $k \geq 1$.
+    \end{enumerate}
+  \end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item $\wtilde{H}_\bullet(X;\Z) = 0$ if and only if $\wtilde{H}_\bullet(X;\Q) = 0$ and $\wtilde{H}_\bullet(X;\Z/p) = 0$ for all primes $p$.
+  \item A map $f \cn X \rarr Y$ induces isomorphisms on homology with $\Z$ coefficients if and only if it induces isomorphisms on homology with $\Q$ and $\Z/p$ coefficients for all primes $p$.
+  \end{enumerate}
+\end{corollary}
+
+\subsubsection{The General K\"unneth Formula}
+
+\begin{theorem}[K\"unneth formula for PID]
+  If $X$ and $Y$ are CW complexes and $R$ is a principal ideal domain, then there are split short exact sequences
+  \[\xymatrix@C=0.2in{
+    0 \ar[r] & \bigoplus_i H_i(X;R) \otimes_R H_{n-i}(Y;R) \ar[r] & H_n(X \x Y; R) \ar[r] & \bigoplus_i \Tor_R(H_i(X;R),H_{n-i-1}(Y;R)) \ar[r] & 0
+  }\]
+  natural in $X$ and $Y$.
+\end{theorem}
+
+\begin{corollary}
+  If $F$ is a field and $X$ and $Y$ are CW complexes, then the cross product map
+  \[
+  h \cn \bigoplus_i H_i(X;F) \otimes_F H_{n-i}(Y;F) \rarr H_n(X \x Y; F)
+  \]
+  is an isomorphism for all $n$.
+\end{corollary}
+
+There is a relative version of the K\"unneth formula which reads
+\[\xymatrix@C=0.2in@R=0in{
+  0 \ar[r] & \bigoplus_i H_i(X,A;R) \otimes_R H_{n-i}(Y,B;R) \ar[r] & H_n(X \x Y, A \x Y \cup X \x B; R) \ar[r] & \hspace{0.14in} \\
+  & \hspace{2.03in} \ar[r] & \bigoplus_i \Tor_R(H_i(X,A;R),H_{n-i-1}(Y,B;R)) \ar[r] & 0.
+}\]
+In the relative case, this reduces to
+\[\xymatrix@C=0.2in{
+  0 \ar[r] & \bigoplus_i \wtilde{H}_i(X;R) \otimes_R \wtilde{H}_{n-i}(Y;R) \ar[r] & \wtilde{H}_n(X \wedge Y; R) \ar[r] & \bigoplus_i \Tor_R(\wtilde{H}_i(X;R),\wtilde{H}_{n-i-1}(Y;R)) \ar[r] & 0,
+}\]
+where $X \wedge Y$ stands for the \emph{smash product} of $X$ and $Y$. It is possible to combine the K\"unneth formula to the more concise form
+\[
+H_n(X \x Y; R) \cong \bigoplus_i H_i(X; H_{n-i}(Y;R)),
+\]
+and similarly for relative and reduced homology. There is a version for cohomology which reads
+\[
+H^n(X \x Y; R) \cong \bigoplus_i H^i(X; H^{n-i}(Y;R)).
+\]
+Both of these hold if we replace $R$ with an arbitrary coefficient group $G$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Study_Guide"
+%%% End: 

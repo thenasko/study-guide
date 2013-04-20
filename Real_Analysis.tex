@@ -1,0 +1,1254 @@
+\section{Real Analysis}
+\label{S:real-analysis}
+
+Syllabus
+\begin{description}
+\item[Undergraduate] Royden, \emph{Real Analysis} (3rd ed), chapters 1-10. (math 114).
+\item[Graduate] Rudin, \emph{Real and Complex Analysis}, chapters 1-9. (math 212a).
+\item[Additional] Stein and Shakarchi, \emph{Real Analysis: Measure Theory, Integration and Hilbert Spaces} may also be a good source for some of this material.
+\end{description}
+
+TODO: Royden
+
+\subsection{Rudin, Prologue}
+
+We define the complex function
+\[
+\exp(z) = \sum_{n=0}^\infty \frac{z^n}{n!},
+\]
+and often write $e^z = \exp(z)$. The given series converges absolutely for every $z$, and uniformly on every bounded set in the complex plane. It satisfies $\exp(a+b) = \exp(a)\exp(b)$ for all $a,b \in \C$.
+
+\begin{theorem}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item For every $z \in \C$, we have $e^z \neq 0$.
+  \item $\exp$ is its own derivative.
+  \item The restriction of $\exp$ to the real axis is a monotonically increasing positive function, and
+    \begin{align*}
+      \lim_{x \rarr \infty} e^x &= \infty, &
+      \lim_{x \rarr -\infty} e^x &= 0.
+    \end{align*}
+  \item There exists a positive number $\pi$ such that $e^{\pi i/2} = i$, and such that $e^z = 1$ if and only if $z/(2\pi i)$ is an integer.
+  \item $\exp$ is a periodic function with period $2 \pi i$.
+  \item The mapping $t \mapsto e^{i t}$ maps the real axis onto the unit circle.
+  \item If $w$ is a nonzero complex number, then $w = e^z$ for some $z \in \C$.
+  \end{enumerate}
+\end{theorem}
+
+\subsection{Rudin, Chapter 1: Abstract Integration}
+
+\begin{definition}
+  A collection $\Tc$ of subsets of a set $X$ is said to be a \emph{topology} on $X$ if $\Tc$ has the following three properties:
+  \begin{enumerate}[(i)]
+  \item $\emptyset \in \Tc$ and $X \in \Tc$;
+  \item if $V_i \in \Tc$ for $i = 1, \dots, n$, then $V_1 \cap \cdots \cap V_n \in \Tc$;
+  \item if $\{V_\alpha\}$ is an arbitrary collection of members of $\Tc$, then $\bigcup_\alpha V_\alpha \in \Tc$.
+  \end{enumerate}
+  The elements of $\Tc$ are called \emph{open sets} in $X$, and $X$ is called a \emph{topological space}.
+\end{definition}
+
+\begin{definition}
+  A map $f \cn X \rarr Y$ between two topological spaces is called \emph{continuous} if $f^{-1}(U)$ is open in $X$ for all open $U \subset Y$.
+
+  A map $f \cn X \rarr Y$ between two topological spaces is called \emph{continuous at $x \in X$} if for every open $V \subset Y$ around $f(x)$, there exists an open $U \subset X$ such that $f(U) \subset V$.
+\end{definition}
+
+\begin{proposition}
+  A map $f \cn X \rarr Y$ between two topological spaces is continuous if and only if it is continuous around all $x \in X$.
+\end{proposition}
+
+\begin{definition}
+  A collection $\Mc$ of subsets of a set $X$ is said to be a $\sigma$-algebra on $X$ if $\Mc$ has the following three properties:
+  \begin{enumerate}[(i)]
+  \item $X \in \Mc$;
+  \item if $A \in \Mc$, then $A^c = X \setminus A \in \Mc$;
+  \item if $A = \bigcup_{n=1}^\infty A_n$ for some $A_n \in \Mc$, then $A \in \Mc$.
+  \end{enumerate}
+  We call the elements of $\Mc$ \emph{measurable sets} in $X$, and $X$ a \emph{measurable space}.
+\end{definition}
+
+\begin{definition}
+  Let $X$ be a measurable space, and $Y$ a topological space. A map $f \cn X \rarr Y$ is called \emph{measurable} if $f^{-1}(U)$ is measurable in $X$ for every open $U \subset Y$. 
+\end{definition}
+
+\begin{remark}
+  Rudin could have alternatively defined a measurable map between two measurable spaces. What is the motivation behind the more restrictive definition above?
+\end{remark}
+
+\begin{proposition}[Further properties of metric spaces]
+  Let $X$ be a measurable space with $\sigma$-algebra $\Mc$.
+  \begin{enumerate}[(a)]
+  \item $\emptyset \in \Mc$.
+  \item If $A_i \in \Mc$ for $1 \leq i \leq n$, then $\bigcup_{i=1}^n A_n \in \Mc$.
+  \item If $A_i \in \Mc$ for $i \geq 1$, then $\bigcap_{n=1}^\infty A_n \in \Mc$.
+  \item If $A, B \in \Mc$, then $A \setminus B \in \Mc$.
+  \end{enumerate}  
+\end{proposition}
+
+\begin{theorem}
+  Let $g \cn Y \rarr Z$ be a continuous function between topological spaces.
+  \begin{enumerate}[(a)]
+  \item If $f \cn X \rarr Y$ is a continuous function for a topological space $X$, then $h = g \circ f \cn X \rarr Z$ is continuous.
+  \item Let $f \cn X \rarr Y$ is a measurable function for a measurable space $X$, then $h = g \circ f \cn X \rarr Z$ is measurable.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Let $u$ and $v$ be real measurable functions on a measurable space $X$, and $\Phi \cn \R^2 \rarr Y$ a continuous map for a topological space $Y$. Then $h \cn X \rarr Y$ defined by $h(x) = \Phi(u(x),v(x))$ is measurable.
+\end{theorem}
+
+\begin{corollary}
+  Let $X$ be a measurable space.
+  \begin{enumerate}[(a)]
+  \item If $f = u + i v$, where $u$ and $v$ are real measurable functions on $X$, then $f$ is a complex measurable function on $X$.
+  \item If $f = u + i v$ is a complex measurable function on $X$, then $u$, $v$, and $|f|$ are real measurable functions on $X$.
+  \item If $f$ and $g$ are complex measurable functions on $X$, then so are $f + g$ and $f g$.
+  \item If $E \subset X$ is a measurable set, then the function $\chi_E \cn X \rarr \C$ given by
+    \[
+    \chi_E(x) =
+    \begin{cases}
+      1 & \textrm{if } x \in E, \\
+      0 & \textrm{if } x \notin E
+    \end{cases}
+    \]
+    is measurable.
+  \item If $f$ is a complex measurable function on $X$, there is a complex measurable function $\alpha$ on $X$ such that $|\alpha| = 1$ and $f = \alpha |f|$.
+  \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+  If $\Fc$ is any collection of subsets of $X$, then there exists a smallest $\sigma$-algebra $\Mc$ in $X$ such that $\Fc \subset \Mc$. We say $\Mc$ is \emph{generated by $\Fc$}.
+\end{theorem}
+
+\begin{definition}
+  Let $X$ be a topological space. The \emph{Borel measure} $\Bc$ on $X$ is generated by the opens in $X$. The elements of $\Bc$ are called \emph{Borel sets}.
+\end{definition}
+
+\begin{proposition}
+  Every continuous map is \emph{Borel measurable}, that is, measurable when the domain is endowed with the Borel measure.
+\end{proposition}
+
+\begin{theorem}
+  Let $X$ be a measurable space with $\sigma$-algebra $\Mc$, $Y$ a topological space, and $f \cn X \rarr Y$ a map.
+  \begin{enumerate}[(a)]
+  \item If $\Omega$ is the collection of all sets $E \subset Y$ such that $f^{-1}(E) \in \Mc$, then $\Omega$ is a $\sigma$-algebra on $Y$. In short, pushforwards of $\sigma$-algebras are $\sigma$-algebras.
+  \item If $f$ is measurable and $E$ is a Borel set in $Y$, then $f^{-1}(E) \in \Mc$.
+  \item If $Y = [-\infty,\infty]$ and $f^{-1}((\alpha,\infty]) \in \Mc$ for all $\alpha \in \R$, then $f$ is measurable.
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  Let $\{a_n\}$ be a sequence in $[-\infty,\infty]$, and put
+  \begin{align*}
+    \limsup_{n \rarr \infty} a_n &= \inf\{ \sup\{ a_k, a_{k+1}, \dots \} \;|\; k \geq 1 \}, \\
+    \liminf_{n \rarr \infty} a_n &= \sup\{ \inf\{ a_k, a_{k+1}, \dots \} \;|\; k \geq 1 \}.
+  \end{align*}
+\end{definition}
+
+Then
+\[
+\liminf_n a_n = -\limsup_n(-a_n).
+\]
+If $\{a_n\}$ converges, then
+\[
+\lim_n a_n = \limsup_n a_n = \liminf_n a_n.
+\]
+
+Suppose $\{f_n\}$ is a sequence of extended-real function on a set $X$. Then $\sup_n f_n$ and $\limsup_n f_n$ are functions defined on $X$ by
+\begin{align*}
+  \left( \sup_n f_n \right)(x) &= \sup_n(f_n(x)), \\
+  \left( \limsup_n f_n \right)(x) &= \limsup_n(f_n(x)).
+\end{align*}
+Similarly for $\inf_n f_n$ and $\liminf_n f_n$. If $f(x) = \lim_n f_n(x)$ is well-defined for all $x \in X$, then we call $f$ the \emph{pointwise limit} of the sequence $\{f_n\}$.
+
+\begin{theorem}
+  If $f_n \cn X \rarr [-\infty,\infty]$ is measurable for $n \geq 1$, then so are $\sup_n f_n$ and $\limsup_n f_n$.
+\end{theorem}
+
+\begin{corollary}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item The limit of every pointwise convergent sequence of complex measurable functions is measurable.
+  \item If $f$ and $g$ are measurable (with range $[-\infty,\infty]$), then so are $\max\{f,g\}$ and $\min\{f,g\}$. In particular, this is true of the functions $f^+ = \max\{f,0\}$ and $f^- = -\min\{f,0\}$. These are respectively called the \emph{positive} and \emph{negative parts of $f$}. We have $f = f^+ - f^-$ and $|f| = f^+ + f^-$.
+  \end{enumerate}
+\end{corollary}
+
+\begin{proposition}
+  If $f = g-h$, $g \geq 0$, and $f \geq 0$, then $f^+ \leq g$ and $f^- \leq h$.
+\end{proposition}
+
+\begin{definition}
+  A function $s$ on a measurable space $X$ whose range consists of only finitely many points in $[0,\infty)$ is called \emph{simple}.
+\end{definition}
+If $\alpha_1, \dots, \alpha_n$ are the distinct values assumed by $s$, and $A_i = f^{-1}(\alpha_i)$, then $s = \sum_{i=1}^n \alpha_i \chi_{A_i}$. The function $s$ is measurable if and only if all $A_i$ are measurable.
+
+\begin{theorem}
+  Let $f \cn X \rarr [0,\infty]$ be a measurable function. There exists simple measurable functions $s_n$ on $X$ such that:
+  \begin{enumerate}[(a)]
+  \item $0 \leq s_1 \leq s_2 \leq \cdots \leq f$;
+  \item $s_n \rarr f$ pointwise.
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+  It can be shown using the construction in the proof of the theorem above, that if $f$ is bounded, then $s_n$ is a uniformly convergent sequence.
+\end{remark}
+
+\begin{definition}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item A \emph{(positive) measure} is a function $\mu$, defined on a $\sigma$-algebra $\Mc$, whose range is in $[0,\infty]$ and which is \emph{countably additive}. This means that is $\{A_i\}$ is a disjoint countable collection of elements of $\Mc$, then
+    \[
+    \mu\left( \bigcup_{i=1}^\infty A_i \right) = \sum_{i=1}^\infty \mu(A_i).
+    \]
+    To avoid trivialities, we shall also assume that $\mu(A) < \infty$ for at least one $A \in \Mc$.
+  \item A \emph{measure space} is a measurable space which has a positive measure defined on the $\sigma$-algebra of its measurable sets.
+  \item A \emph{complex measure} is a complex-valued countable additive function defined on a $\sigma$-algebra.
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+  For any positive measure $\mu$ on a $\sigma$-algebra $\Mc$, the following holds:
+  \begin{enumerate}[(a)]
+  \item $\mu(\emptyset) = 0$;
+  \item if $A_1, \dots, A_n$ are pairwise disjoint elements of $\Mc$, then $\mu(A_1 \cup \cdots \cup A_n) = \mu(A_1) + \cdots + \mu(A_n)$;
+  \item if $A, B \in \Mc$ and $A \subset B$, then $\mu(A) \leq \mu(B)$;
+  \item if $A = \bigcup_{n=1}^\infty A_n$ for $A_1 \subset A_2 \subset \cdots$ where all $A_n$ are elements of $\Mc$, then $\mu(A_n) \rarr \mu(A)$ as $n \rarr \infty$;
+  \item if $A = \bigcap_{n=1}^\infty A_n$ for $A_1 \supset A_2 \supset \cdots$ where all $A_n$ are elements of $\Mc$, and $\mu(A_1)$ is finite, then $\mu(A_n) \rarr \mu(A)$ as $n \rarr \infty$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{example}
+  Let $X$ be any set.
+  \begin{enumerate}[(a)]
+  \item For any $E \subset X$ define $\mu(E) = \infty$ if $E$ is infinite, and $\mu(E) = |E|$ if $E$ is finite. This $\mu$ is called the \emph{counting measure on $X$}.
+  \item For $x_0 \in X$, define $\mu(E) = 1$ is $x_0 \in E$, and $\mu(E) = 0$ otherwise. This $\mu$ is called the \emph{unit mass concentrated at $x_0 \in X$}.
+  \end{enumerate}
+\end{example}
+
+To make sense of arithmetic on $[0,\infty]$, we define additionally $a + \infty = \infty + a = \infty$ if $0 \leq a \leq \infty$, and
+\[
+a \cdot \infty = \infty \cdot a =
+\begin{cases}
+  \infty & \textrm{if } 0 < a \leq \infty, \\
+  0 & \textrm{if } a = 0.
+\end{cases}
+\]
+This ensures the commutative, associative, and distributive laws hold in $[0,\infty]$ without any restriction. It is important to note that cancellation laws have to be treated with some care: $a + b = a + c$ implies $b=c$ only when $a < \infty$, and $ac = ac$ implies $b=c$ only when $0 < a < \infty$.
+
+\begin{proposition}
+  If $0 \leq a_1 \leq a_2 \leq \cdots$, $0 \leq b_1 \leq b_2 \leq \cdots$, $a_n \rarr a$, and $b_n \rarr b$, then $a_n b_n \rarr a b$.
+\end{proposition}
+
+\begin{corollary}
+  Sums and products of measurable functions into $[0,\infty]$ are measurable.
+\end{corollary}
+
+\begin{definition}
+  If $s \cn X \rarr [0,\infty)$ is a measurable simple function of the form $s = \sum_{i=1}^n \alpha_i \chi_{A_i}$, where $\alpha_1, \dots, \alpha_n$ are distinct values of $s$, and if $E \in \Mc$, we define
+  \[
+  \int_E s d\mu = \sum_{i=1}^n \alpha_i \mu(A_i \cap E).
+  \]
+  If $f \cn X \rarr [0, \infty]$ is measurable, and $E \in \Mc$, we define
+  \[
+  \int_E f d\mu = \sup \int_E s d\mu,
+  \]
+  where the supremum is taken over all simple measurable functions $s$ such that $0 \leq s \leq f$.
+\end{definition}
+This is called the \emph{Lebesgue integral of $f$ over $E$, with respect to the measure $\mu$}.
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item If $0 \leq f \leq g$, then $\int_E f d\mu \leq \int_E g d\mu$.
+  \item If $A \subset B$ and $f \geq 0$, then $\int_A f d\mu \leq \int_B f d\mu$.
+  \item If $f \geq 0$ and $c \in [0,\infty)$ is a constant, then $\int_E c f d\mu = c \int_E f d\mu$.
+  \item If $f(x) = 0$ for all $x \in E$, then $\int_E f d\mu = 0$, even if $\mu(E) = \infty$.
+  \item If $\mu(E) = 0$, then $\int_E f d\mu = 0$, even if $f(x) = \infty$ for all $x \in E$.
+  \item If $f \geq 0$, then $\int_E f d\mu = \int_X \chi_E f d\mu$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+  Let $s$ and $t$ be nonnegative measurable simple functions on $X$. For $E \in \Mc$, define $\phi(E) = \int_E s d\mu$. Then $\phi$ is a measure on $\Mc$. Also $\int_X (s+t) d\mu = \int_X s d\mu + \int_E t d\mu$.
+\end{proposition}
+
+\begin{theorem}[Lebesgue's Monotone Convergence Theorem]
+  Let $\{f_n\}$ be a sequence of measurable functions on $X$, and suppose that
+  \begin{enumerate}[(a)]
+  \item $0 \leq f_1 \leq f_2 \leq \cdots$,
+  \item $f_n \rarr f$ pointwise on $X$.
+  \end{enumerate}
+  Then $f$ is measurable, and
+  \[
+  \lim_n \int_X f_n d\mu = \int_X f d\mu.
+  \]
+\end{theorem}
+
+\begin{theorem}
+  If $f_n \cn X \rarr [0,\infty]$ is measurable for $n \geq 1$, and $f = \sum_{n=1}^\infty f_n$, then $\int_X f d\mu = \sum_{n=1}^\infty \int_X f_n d\mu$.
+\end{theorem}
+
+The following follows by employing the counting measure on $\Z^+$.
+
+\begin{corollary}
+  If $a_{i j} \geq 0$ for all $i,j \geq 0$, then
+  \[
+  \sum_{i=1}^\infty \sum_{j=1}^\infty a_{i j} = \sum_{j=1}^\infty \sum_{i=1}^\infty a_{i j}.
+  \]
+\end{corollary}
+
+\begin{proposition}[Fatou's Lemma]
+  If $f_n \cn X \rarr [0,\infty]$ is measurable for all $n \geq 1$, then
+  \[
+  \int_X \left( \liminf_n f_n \right) d\mu \leq \liminf_n \int_X f_n d\mu.
+  \]
+\end{proposition}
+
+\begin{theorem}
+  Suppose $f \cn X \rarr [0,\infty]$ is measurable, and $\phi(E) = \int_E f d\mu$ for $E \in \Mc$. Then $\phi$ is a measure on $\Mc$, and
+  \[
+  \int_X f d\phi = \int_X d f d\mu.
+  \]
+\end{theorem}
+
+\begin{definition}
+  Let $L^1(\mu)$ be the collection of all complex measurable functions $f$ on $X$ for which $\int_X |f| d\mu < \infty$. The elements of $L^1(\mu)$ are called \emph{Lebesgue measurable functions with respect to $\mu$}.
+\end{definition}
+
+\begin{definition}
+  If $f = u + i v$ for $u$ and $v$ real measurable functions on $X$, and if $f \in L^1(\mu)$, then we define
+  \[
+  \int_E f d\mu = \int_E u^+ d\mu - \int_E u^- d\mu + i \int_E v^+ d\mu - i \int_E v^- d\mu
+  \]
+  for every $E \in \Mc$. In some circumstances it is desirable to extend this to the case when $f$ is a measurable function with range in $[-\infty,\infty]$. Then, we set $\int_E f d\mu = \int_E f^+ d\mu - \int_E f^- d\mu$, provided that at least one of the integrals on the right is finite.
+\end{definition}
+
+\begin{theorem}
+  If $f, g \in L^1(\mu)$ and $\alpha,\beta \in \C$, then $\alpha f + \beta g \in L^1(\mu)$, and
+  \[
+  \int_X (\alpha f + \beta g) d\mu = \alpha \int_X f d\mu + \beta \int_X f d\mu.
+  \]
+\end{theorem}
+
+\begin{theorem}
+  If $f \in L^1(\mu)$, then $\left| \int_X f d\mu \right| \leq \int_X |f| d\mu$.
+\end{theorem}
+
+\begin{theorem}[Lebesgue's Dominated Convergence Theorem]
+  Suppose $\{f_n\}$ is a sequence of complex measurable functions on $X$ such that $f = \lim_n f_n$ is defined pointwise on all $X$. If there is a function $g \in L^1(\mu)$ such that $|f_n| \leq g$ for all $n \geq 1$, then $f \in L^1(\mu)$,
+  \[
+  \lim_n \int_X |f_n - f| d\mu = 0,
+  \]
+  and
+  \[
+  \lim_n \int_X f_n d\mu = \int_X f d\mu.
+  \]
+\end{theorem}
+
+\begin{definition}
+  Let $P$ be a property which a point $x \in X$ may or may not have. If $\mu$ is a measure on a $\sigma$-algebra $\Mc$ and if $E \in \Mc$, the statement ``$P$ holds almost everywhere on $E$'' (abbreviated ``$P$ holds a.e.\ on $E$'') means that there exists an $N \in \Mc$ such that $\mu(N) = 0$, $N \subset E$, and $P$ holds at every point of $E \setminus N$. Note that the concept depends strongly on the used measure $\mu$.
+\end{definition}
+
+\begin{definition}
+  If $f$ and $g$ are measurable functions and if $\mu(\{ x \;|\; f(x) \neq g(x) \}) = 0$, we say that $f = g$ a.e.\ on $X$, and write $f \sim g$. Note that $\sim$ is an equivalence relation.
+\end{definition}
+
+\begin{proposition}
+  If $f \sim g$, then, for every $E \in \Mc$, we have $\int_E f d\mu = \int_E g d\mu$.
+\end{proposition}
+
+\begin{theorem}
+  Let $(X, \Mc, \mu)$ be a measure space, and $\Mc^\ast$ be the collection of all $E \subset X$ for which there exist $A, B \in \Mc$ with $A \subset E \subset B$ and $\mu(B \setminus A) = 0$, and define $\mu(E) = \mu(A)$ in this situation. Then $\Mc^\ast$ is a $\sigma$-algebra, and $\mu$ is a measure on $\Mc^\ast$.
+\end{theorem}
+
+\begin{definition}
+  The extended measure $\mu$ is called \emph{complete}, since all subsets of sets of measure $0$ are now measurable; the $\sigma$-algebra $\Mc^\ast$ is called the $\mu$-completion of $\Mc$.
+\end{definition}
+
+In light of the previous theorem and definition, we may only require functions to be well-defined and measurable on the complement of a zero measure set. This is sometimes a very useful trick.
+
+\begin{theorem}
+  Suppose $\{f_n\}$ is a sequence of complex measurable functions defined a.e.\ on $X$ such that
+  \[
+  \sum_{n=1}^\infty \int_X |f_n| d\mu < \infty.
+  \]
+  Then the series $f(x) = \sum_{n=1}^\infty f_n(x)$ converges for almost all $x$, $f \in L^1(\mu)$, and
+  \[
+  \int_X f d\mu = \sum_{n=1}^\infty \int_X f_n d\mu.
+  \]
+\end{theorem}
+
+\begin{theorem}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item If $f \cn X \rarr [0,\infty]$ is measurable, $E \in \Mc$, and $\int_E f d\mu = 0$, then $f = 0$ a.e.\ on $E$.
+  \item If $f \in L^1(\mu)$ and $\int_E f d\mu = 0$ for every $E \in \Mc$, then $f = 0$ a.e.\ on $X$.
+  \item If $f \in L^1(\mu)$ and $\left| \int_X f d\mu \right| = \int_X |f| d\mu$, then there is a constant $\alpha$ such that $\alpha f = |f|$ a.e.\ on $X$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Suppose $\mu(X) < \infty$, $f \in L^1(\mu)$, $S$ is a closed set in the complex plane, and the averages
+  \[
+  A_E(f) = \frac{1}{\mu(E)} \int_E f d\mu
+  \]
+  lie in $S$ for all $E \in \Mc$ with $\mu(E) > 0$. Then $f(x) \in S$ for almost all $x \in X$.
+\end{theorem}
+
+\begin{theorem}
+  Let $\{E_k\}$ be a sequence of measurable sets in $X$, such that $\sum_{k=1}^\infty \mu(E_k) < \infty$. Then almost all $x \in X$ lie in at most finitely many of the sets $E_k$.
+\end{theorem}
+
+\subsection{Rudin, Chapter 2: Positive Borel Measures}
+
+\begin{definition}
+  Let $X$ be a topological space.
+  \begin{enumerate}[(a)]
+  \item A set $E \subset X$ is called \emph{closed} if its complement $E^c$ is open.
+  \item The \emph{closure} $\overline{E}$ of $E \subset X$ is the smallest closed set in $X$ which contains $E$.
+  \item A topological space is called \emph{compact} if every open cover has a finite subcover.
+  \item A neighbourhood of a point $p \in X$ is an open set which contains $p$.
+  \item $X$ is \emph{Hausdorff} if for every two points can be separated by opens.
+  \item $X$ is \emph{locally compact} if every point of $X$ has a neighbourhood whose closure is compact (alternatively, for every $p \in X$, there is a neighbourhood $U$ of $p$, and compact $K \subset X$ satisfying $U \subset K$).
+  \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Heine-Borel Theorem]
+  A subset of an Euclidean space is compact if and only it is closed and bounded.
+\end{theorem}
+
+\begin{proposition}
+  Every metric space is Hausdorff.
+\end{proposition}
+
+\begin{theorem}
+  A closed subset of a compact space is also compact.
+\end{theorem}
+
+\begin{corollary}
+  If $A \subset B \subset X$ and $B$ has a compact closure, then so does $A$.
+\end{corollary}
+
+\begin{theorem}
+  Suppose $X$ is Hausdorff, $K \subset X$ is compact, and $p \in K^c$. Then there exist open sets $U$ and $V$ such that $p \in U$, $K \subset V$, and $U \cap V = \emptyset$.
+\end{theorem}
+
+\begin{corollary}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item Compact subsets of Hausdorff spaces are closed.
+  \item In a Hausdorff space, the intersections of a closed and a compact subset is compact.
+  \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+  If $\{K_\alpha\}$ is a collection of compact subsets of a Hausdorff space and their intersection is empty, then there exists a finite subcollection with empty intersection.
+\end{theorem}
+
+\begin{theorem}
+  Suppose $X$ is a locally compact Hausdorff space, $U \subset X$, and $K \subset X$ is compact. Then there exists an open $V \subset X$ with compact closure which satisfies
+  \[
+  K \subset V \subset \overline{V} \subset U.
+  \]
+\end{theorem}
+
+\begin{definition}
+  Let $X$ be a topological space, and consider a function $f \cn X \rarr \R$.
+  \begin{enumerate}[(i)]
+  \item We call $f$ \emph{lower semicontinuous} if $f^{-1}((\alpha,\infty))$ is open for all $\alpha \in \R$.
+  \item We call $f$ \emph{upper semicontinuous} if $f^{-1}((-\infty,\alpha))$ is open for all $\alpha \in \R$.
+  \end{enumerate}
+  An alternative definition could be made by replacing $\R$ with $[-\infty,\infty]$.
+\end{definition}
+
+\begin{proposition}
+  Let $X$ be a topological space. A function $f \cn X \rarr \R$ is continuous if and only if it is both upper and lower semicontinuous.
+\end{proposition}
+
+\begin{example}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item Characteristic functions of open sets are lower semicontinuous.
+  \item Characteristic functions of closed sets are upper semicontinuous.
+  \item The supremum of any collection of lower semicontinuous function is lower semicontinuous.
+  \item The infimum of any collection of upper semicontinuous function is upper semicontinuous.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  Let $X$ be a topological space, and $f \cn X \rarr \C$ a function. The \emph{support of $f$} is
+  \[
+  \Supp f = \overline{f^{-1}(\C \setminus \{0\})}.
+  \]
+  The collection of all continuous complex functions on $X$ with compact support is denoted $\Cc_c(X)$.
+\end{definition}
+
+Note that $\Cc_c(X)$ is a vector space over $\C$. We could have also replaced ``continuous'' above with ``measurable'' to yield another interesting object of study.
+
+\begin{theorem}
+  The image of a compact set under a continuous map is compact.
+\end{theorem}
+
+\begin{corollary}
+  The image of any $f \in \Cc_c(X)$ is compact in $\C$.
+\end{corollary}
+
+\begin{definition}
+  For any compact $K \subset X$, the notation
+  \[
+  K \prec f
+  \]
+  will mean that $f \in \Cc_c(X)$, $0 \leq f \leq 1$, and $f|_K = 1$. Similarly, for any open $U \subset X$, the notation
+  \[
+  f \prec U
+  \]
+  will mean that $f \in \Cc_c(X)$, $0 \leq f \leq 1$, and $\Supp f \subset U$. Then, $K \prec f \prec U$ will simultaneously mean $K \prec f$ and $f \prec U$.
+\end{definition}
+
+\begin{proposition}[Urysohn's Lemma]
+  Let $X$ be a locally compact Hausdorff space, $U \subset X$ an open, and $K \subset X$ a compact. Then there exists $f \in \Cc_c(X)$ such that $K \prec f \prec U$.
+\end{proposition}
+
+\begin{theorem}
+  Compact Hausdorff spaces admit \emph{partitions of unity}. That is, for any compact space $K$, and a (finite) open cover $U_1, \dots, U_n$, there exist $f_i \in \Cc(X)$ satisfying $f_i \prec U_i$, and $\sum_i f_i = 1$. The statement also holds true for compact subspaces of locally compact Hausdorff spaces.
+\end{theorem}
+
+\begin{theorem}[Riesz Representation Theorem]
+  Let $X$ be a locally compact Hausdorff space, and $\Lambda \cn \Cc_c(X) \rarr \C$ be a \emph{positive linear functional}, that is, $\Lambda$ is a morphism of vector spaces over $\C$, and for every $f \geq 0$, we have $\Lambda(f) \geq 0$. Then there exists a $\sigma$-algebra $\Mc$ on $X$ containing all Borel sets of $X$, and a unique positive measure $\mu$ on $\Mc$ which represents $\Lambda$ in the sense that:
+  \begin{enumerate}[(a)]
+  \item $\Lambda(f) = \int_X f d\mu$ for every $f \in \Cc_c(X)$;
+  \item $\mu(K) < \infty$ for every compact $K \subset X$;
+  \item for every $E \in \Mc$, we have
+    \[
+    \mu(E) = \inf\{ \mu(U) \;|\; E \subset U, U \textrm{ is open} \};
+    \]
+  \item the relation
+    \[
+    \mu(E) = \sup\{ \mu(K) \;|\; K \subset E, K \textrm{ is compact} \}
+    \]
+    holds for every open $E \subset X$, and for every $E \in \Mc$ with $\mu(E) < \infty$;
+  \item $\Mc$ is complete, i.e., if $E \in \Mc$, $A \subset E$, and $\mu(E) = 0$, then $A \in \Mc$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  Let $X$ be a locally compact Hausdorff space $X$. A measure $\mu$ defined on the $\sigma$-algebra of Borel sets is called a \emph{Borel measure}.
+\end{definition}
+
+\begin{definition}
+  Assume $\mu$ is a positive Borel measure on $X$. We call it \emph{outer (resp.\ inner) regular} if every Borel set $E \subset X$ has property (c) (resp.\ property (d)) from the Riesz Representation Theorem. If a measure is both inner and outer regular, then we call it \emph{regular}.
+\end{definition}
+
+\begin{definition}
+  A topological space is called \emph{$\sigma$-compact} if it is the union of finitely many compacts, or alternatively, every open cover has a countable subcover. We call a topological space \emph{$\sigma$-locally compact} if it is both $\sigma$- and locally compact.
+
+  A set $E$ in a measure space is said to have \emph{$\sigma$-finite measure} if $R$ is a countable union of measurable sets $E_i$ with $\mu(E_i) < \infty$.
+\end{definition}
+
+\begin{theorem}
+  Let $X$ be a $\sigma$-locally compact Hausdorff space. If $\Mc$ and $\mu$ as in the Riesz Representation Theorem, then they have the following properties:
+  \begin{enumerate}[(a)]
+  \item for any $E \in \Mc$ and $\epsilon > 0$, there is a closed $F \subset X$ and an open $U \subset X$ satisfying $F \subset E \subset U$ and $\mu(U \setminus F) < \epsilon$;
+  \item $\mu$ is a regular Borel measure on $X$;
+  \item for any $E \in \Mc$, there are sets $A$ and $B$ such that $A$ is a countable union of closed sets, $B$ is a countable intersection of open sets, $A \subset E \subset B$, and $\mu(B \setminus A) = 0$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a locally compact Hausdorff space in which every open is $\sigma$-compact. If $\mu$ is a positive Borel measure on $X$ such that $\mu(K) < \infty$ for all compact $K \subset X$, then $\mu$ is regular.
+\end{theorem}
+
+\begin{definition}
+  Let $W = \prod_{i=1}^k I_i \subset \R^k$ where $I_i \subset \R$ are intervals (open, closed, or any combination thereof) with endpoints $\alpha_i$ and $\beta_i$. We call such a set a \emph{$k$-cell}. The \emph{volume of $W$} is defined to be $\vol(W) = \prod_{i=1}^k (\beta_i - \alpha_i)$.
+
+  If $a = (a_1, \dots, a_k) \in \R^k$ and $\delta > 0$, we call the set
+  \[
+  Q(a, \delta) = \prod_{i=1}^k [a_i, a_i+\delta)
+  \]
+  a \emph{$\delta$-box with corner at $a$}.
+
+  For an integer $n \geq 1$, let $\Omega_n$ denote the set of $2^{-n}$-boxes with corners at points of $P_n = 2^{-n} \Z^k$.
+\end{definition}
+
+\begin{proposition}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item For any fixed $n \geq 1$, the set $\Omega_n$ is a partition of $\R^k$.
+  \item If $Q \in \Omega_n$, $Q' \in \Omega_r$, and $r < n$, then either $Q \subset Q'$ or $Q \cap Q' = \emptyset$.
+  \item If $Q \in \Omega_r$, then $\vol(Q) = 2^{-r k}$; and if $r < n$, then $|P_n \cap Q| = 2^{(n-r)k}$.
+  \item Every nonempty open in $\R^k$ is a countable union of disjoint boxes in $\bigcup_{n \geq 1} \Omega_n$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+  There exists a positive complete measure $m$ defined on a $\sigma$-algebra $\Mc$ on $\R^k$ with the following properties:
+  \begin{enumerate}[(a)]
+  \item $m(W) = \vol(W)$ for every $k$-cell $W$;
+  \item $\Mc$ contains all Borel sets of $\R^k$; more precisely, $E \in \Mc$ if and only if there exists $A,B \subset \R^k$ such that $A \subset E \subset B$, $A$ is a countable union of closed sets, $B$ is a countable union of opens, and $m(B \setminus A) = 0$; also, $m$ is regular;
+  \item $m$ is translation-invariant, i.e., for every $E \in \Mc$ and $x \in \R^k$, we have $m(E+x) = m(E)$;
+  \item if $\mu$ is any positive translation-invariant Borel measure on $\R^k$ such that $\mu(K) < \infty$ for every compact $K \subset \R^k$, then there is a constant $c > 0$ such that $\mu(E) = c \, m(E)$ for all Borel sets $E \subset \R^k$;
+  \item for every linear transformation $T \cn \R^k \rarr \R^k$, we have $m(T(E)) = \det T \, m(E)$ for all $E \in \Mc$; in particular, $m(T(E)) = m(E)$ when $T$ is a rotation.
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  The members of $\Mc$ are called \emph{Lebesgue measurable sets in $\R^k$}; $m$ is the \emph{Lebesgue measure on $\R^k$}. When clarity requires it, we shall write $m_k$ in place of $m$.
+
+  For any $E \subset \R^k$, the measure $m$ induces a restricted measure $m_E$ on $E$ (and also a $\sigma$-algebra $\Mc_E$). We will write $L^1(E) = L^1(m_E)$, and, in particular, $L^1(\R^k) = L^1(m)$.
+
+  If $k = 1$, $I$ is an interval (open, closed, or any combination thereof) with endpoints $a$ and $b$, and $f \in L^1(I)$, it is customary to denote
+  \[
+  \int_a^b f(x) d x = \int_I f d m.
+  \]
+\end{definition}
+
+\begin{proposition}
+  For any continuous complex function $f$ on $[a,b]$, the Riemann integral of $f$ and the Lebesgue integral of $f$ over $[a,b]$ agree.
+\end{proposition}
+
+\begin{remark}
+  A natural question to ask is whether all elements of $\Mc$ are Borel. Another such is whether all subsets of $\R^k$ are measurable. The answer of both of these is negative (for the latter one see the following result).
+\end{remark}
+
+\begin{theorem}
+  If $A \subset \R$ and every subset of $A$ is Lebesgue measurable, then $m(A) = 0$.
+\end{theorem}
+
+\begin{corollary}
+  Every set of positive measure has a nonmeasurable subset.
+\end{corollary}
+
+\begin{theorem}[Lusin's Theorem]
+  Suppose $f$ is a complex measurable function on $X$, $\mu(A) < \infty$, $f|_{X \setminus A} = 0$, and $\epsilon > 0$. Then there exists a $f \in \Cc_c(X)$ such that
+  \[
+  \mu(\{ x \;|\; f(x) \neq g(x)\}) < \epsilon.
+  \]
+  Furthermore, we may arrange so that
+  \[
+  \sup_{x \in X} |g(x)| \leq \sup_{x \in X} |f(x)|.
+  \]
+\end{theorem}
+
+\begin{corollary}
+  Assume the hypotheses of Lusin's Theorem are satisfied and that $|f| \leq 1$. Then there is a sequence $\{g_n\}$ such that $g_n \in \Cc_c(X)$, $|g_n| \leq 1$, and
+  \[
+  f(x) = \lim_n g_n(x) \qquad a.e.
+  \]
+\end{corollary}
+
+\begin{theorem}[Vitali-Carath\'eodory Theorem]
+  Suppose $f \in L^1(\mu)$, $f$ is real-valued, and $\epsilon > 0$. Then there exist functions $u, v \cn X \rarr \R$ such that $u \leq f \leq v$, $u$ is upper semicontinuous and bounded above, $v$ is lower semicontinuous and bounded below, and $\int_X (v - u) d\mu < \epsilon$.
+\end{theorem}
+
+\subsection{Rudin, Chapter 3: $L^p$-spaces}
+
+\begin{definition}
+  Consider an interval $(a,b) \subset [-\infty,\infty]$. A function $\phi \cn (a,b) \rarr \R$ is called \emph{convex} if the inequality
+  \[
+  \phi((1-\lambda) x + \lambda y) \leq (1-\lambda) \phi(x) + \lambda \phi(y)
+  \]
+  holds for all $a < x,y < b$, and $0 \leq \lambda \leq 1$.
+
+  Graphically, the above means for any $x,y \in (a,b)$ the graph of $\phi$ between these two points is below the straight line connecting $(x,\phi(x))$ and $(y,\phi(y))$. Alternatively, convexity is equivalent to the inequality
+  \[
+  \frac{\phi(t)-\phi(s)}{t-s} \leq \frac{\phi(u)-\phi(t)}{u-t}
+  \]
+  for all $a < s < t < u < b$.
+\end{definition}
+
+The following is a consequence of the mean value theorem for differentiation and the alternative formulation of convexity above.
+
+\begin{proposition}
+  A differentiable $\phi \cn (a,b) \rarr \R$ is convex if and only if $\phi'$ is monotonically increasing.
+\end{proposition}
+
+\begin{theorem}
+  If $\phi \cn (a,b) \rarr \R$ is convex, then it is also continuous.
+\end{theorem}
+
+\begin{remark}
+  The statement above would not hold had the domain not been an open interval.
+\end{remark}
+
+\begin{theorem}[Jensen's Inequality]
+  Let $\mu$ be a positive measure on a $\sigma$-algebra $\Mc$ on a set $X$ with $\mu(X) = 1$. If $f \in L^1(\mu)$, $a < f < b$, and $\phi$ is convex on $(a,b)$, then
+  \[
+  \phi\left( \int_X f d\mu \right) \leq \int_X (\phi \circ f) d\mu.
+  \]
+\end{theorem}
+
+\begin{remark}
+  The cases $a = -\infty$ and $b = \infty$ are not excluded. In either of these, it may occur that $\phi \circ f$ is not an element of $L^1(\mu)$. Then its integral exists in the extended sense and equals $+\infty$, in other words, the equality is vacuous.
+\end{remark}
+
+\begin{example}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item Taking $\phi(x) = e^x$, we obtain
+    \[
+    \exp\left( \int_X f d\mu \right) \leq \int_X e^f d\mu.
+    \]
+  \item Taking $X = \{p_1, \dots, p_n\}$, $\mu(\{p_i\}) = 1/n$ for all $1 \leq i \leq n$, and $f(p_i) = x_i$, we obtain
+    \[
+    \exp\frac{x_1 + \cdots + x_n}{n} \leq \frac{e^{x_1} + \cdots + e^{x_n}}{n}.
+    \]
+    Taking $y_i = e^{x_i}$, this turns into the AM-GM inequality
+    \[
+    (y_1 \cdots y_n)^{1/n} \leq \frac{y_1 + \cdots + y_n}{n}.
+    \]
+  \item If we modify the previous example only by setting $\mu(\{p_i\}) = \alpha_i > 0$ with $\sum_{i=1}^n \alpha_i = 1$, we obtain
+    \[
+    y_1^{\alpha_1} \cdots y_n^{\alpha_n} \leq \alpha_1 y_1 + \cdots + \alpha_n y_n.
+    \]
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  If two positive real numbers $p$ and $q$ satisfy $p + q = p q$, or alternatively $1/p + 1/q = 1$, we say they are \emph{conjugate exponents}.
+\end{definition}
+
+\begin{remark}
+  Note that $1/p + 1/q = 1$ implies $1 < p,q < \infty$.
+\end{remark}
+
+\begin{theorem}
+  Let $p$ and $q$ be conjugate exponents, $X$ a measure space with measure $\mu$, and $f,g \cn X \rarr [0,\infty]$ measurable functions. Then
+  \[
+  \tag{H\"older's inequality}
+  \int_X f g d\mu \leq \left( \int_X f d\mu \right)^{1/p} \left( \int_X g d\mu \right)^{1/q},
+  \]
+  and
+  \[
+  \tag{Minkowski's inequality}
+  \left( \int_X (f+g)^p d\mu \right)^{1/p} \leq \left( \int_X f^p d\mu \right)^{1/p} + \left( \int_X g^p d\mu \right)^{1/p}.
+  \]
+\end{theorem}
+
+\begin{remark}
+  When $p = q = 2$, H\"older's inequality becomes the well-known (Cauchy-)Schwartz inequality.
+\end{remark}
+
+\begin{remark}
+  Assuming $\int_X f^p d\mu < \infty$ and $\int_X g^q d\mu < \infty$, equality holds in H\"older's inequality if and only if there exists constants $\alpha$ and $\beta$, not both $0$, such that $\alpha f^p = \beta g^q$ a.e. An analogous statement could be made regarding Minkowski's inequality.
+\end{remark}
+
+\begin{definition}
+  Let $X$ be a measure space with a positive measure $\mu$. For any $0 < p < \infty$ and $f \cn X \rarr \C$ measurable, define its $L^p$-norm
+  \[
+  \|f\|_p = \left( \int_X |f|^p d\mu \right)^{1/p}.
+  \]
+  Let $L^p(\mu)$ consist of all such functions with finite $L^p$-norm.
+
+  As before, we write $L^p(\R^k) = L^p(\mu)$ if $\mu$ is the Lebesgue measure on $\R^k$, and similarly for measurable subsets of $\R^k$.
+
+  If $\mu$ is the counting measure on a set $A$, then we denote $\ell^p(A) = L^p(A)$. If $A$ is countably infinite, we may even write $\ell^p$. In this case, we may imagine the elements of $\ell^p$ as complex sequences $x = \{x_n\}$ satisfying
+  \[
+  \|x\|_p = \left( \sum_{n=1}^\infty |x_n|^p \right)^{1/p} < \infty.
+  \]
+\end{definition}
+
+\begin{definition}
+  Suppose $f \cn X \rarr [0,\infty]$ is measurable. Let $S$ be the set of all $\alpha \in \R$ satisfying
+  \[
+  \mu(f^{-1}((\alpha,\infty])) = 0.
+  \]
+  If $S = \emptyset$, then put $\beta = 0$. If $S \neq \emptyset$, then put $\beta = \inf S$. Since
+  \[
+  g^{-1}((\beta,\infty]) = \bigcup_{n=1}^n g^{-1}\left(\left(\beta+\frac{1}{n}, \infty \right]\right),
+  \]
+  and since the union of a countable collection of measure $0$ sets has measure $0$, it follows that $\beta \in S$. We call $\beta$ the \emph{essential supremum} of $f$.
+
+  For any measurable $f \cn X \rarr \C$, we define its $L^\infty$-norm $\|f\|_\infty$ to be the essential supremum of $|f|$. Let $L^\infty(\mu)$ consist of all such functions with finite $L^\infty$-norm. We call these functions \emph{essentially bounded on $X$}.
+\end{definition}
+
+\begin{remark}
+  It follows from the definition that $|f| \leq \lambda$ a.e.\ if and only if $\|f\|_\infty \leq \lambda$.
+\end{remark}
+
+\begin{definition}
+  As before, we will write $L^\infty(\R^k) = L^\infty(\mu)$ if $\mu$ is the Lebesgue measure on $\R^k$. Similarly, we write $\ell^\infty(A) = L^\infty(\mu)$ if $\mu$ is the counting measure on a set $A$. We may write $\ell^\infty$ alone if $A$ is countable.
+\end{definition}
+
+\begin{theorem}
+  Let $p$ and $q$ be conjugate exponents. If $f \in L^p(\mu)$, $g \in L^q(\mu)$, then
+  \[
+  \|f g\|_1 \leq \|f\|_p \|g\|_q,
+  \]
+  hence $f g \in L^1(\mu)$.
+\end{theorem}
+
+\begin{theorem}
+  Let $1 \leq p \leq \infty$. If $f, g \in L^p(\mu)$, then
+  \[
+  \|f+g\|_p \leq \|f\|_p + \|g\|_p,
+  \]
+  hence $f+g \in L^p(\mu)$.
+\end{theorem}
+
+\begin{remark}
+  If $f \in L^p(\mu)$, and $\alpha \in \C$, then $\|\alpha f\|_p = |\alpha| \, \|f\|_p$. This remark combined with the previous result implies  that $L^p(\mu)$ is a vector space over $\C$.
+\end{remark}
+
+\begin{remark}
+  Let $d \cn L^p(\mu) \x L^p(\mu) \rarr [0,\infty)$ be given by $d(f,g) = \|f-g\|_p$. It is not hard to check that $d(f,g) = 0$ if and only if $f \sim g$, that is, $f = g$ a.e. In other words, $d$ descends to a metric on $L^p(\mu)/\!\!\sim$. It can also be checked that $\sim$ respects linearity, hence $L^p(\mu)/\!\!\sim$ is a vector space over $\C$.
+\end{remark}
+
+\begin{remark}
+  To avoid cumbersome details, we may sometimes treat $L^p(\mu)$ as a metric space and actually refer to $L^p(\mu)/\!\!\sim$. In this case the elements of $L^p(\mu)$ are not functions, but equivalence classes of functions.
+\end{remark}
+
+\begin{remark}
+  It is elementary though essential to define \emph{convergence} and being \emph{Cauchy} in $L^p(\mu)$.
+\end{remark}
+
+\begin{theorem}
+  For every $1 \leq p \leq \infty$, and every positive measure $\mu$, the metric space $L^p(\mu)$ is complete.
+\end{theorem}
+
+\begin{theorem}
+  If $1 \leq p \leq \infty$ and $\{f_n\}$ is a Cauchy sequence in $L^p(\mu)$ with limit $f$, then $\{f_n\}$ has a subsequence which converges pointwise a.e.\ to $f$.
+\end{theorem}
+
+\begin{theorem}
+  Let $S$ be the class of all complex, measurable, simple functions on $X$ such that $\mu(s^{-1}(\C \setminus \{0\})) < \infty$. If $1 \leq p < \infty$, then $S$ is dense in $L^p(\mu)$.
+\end{theorem}
+
+\begin{theorem}
+  For $1 \leq p < \infty$, $\Cc_c(X)$ is dense in $L^p(\mu)$.
+\end{theorem}
+
+\begin{remark}
+  Fix $k \geq 1$, and consider the spaces $\Cc_c(\R^k) \subset L^p(\R^k)$. For every $1 \leq p \leq \infty$, the $L^p$-norm induces a genuine metric on $\Cc_c(\R^k)$ (unlike in $L^p(\R^k)$, we do not need equivalence classes). If $1 \leq p < \infty$, then $\Cc_c(\R^k)$ is dense in $L_p(\R^k)$ and the latter is complete, hence we may treat $L^p(\R^k)$ as the completion of $\Cc_c(\R^k)$ with respect to the metric induced by the $L^p$-norm. In the case $p = \infty$, the  completion of $\Cc_c(\R^k)$ is not $L^p(\R^k)$ but $\Cc_0(\R^k)$, the space of all continuous functions on $\R^k$ which ``vanish at infinity'' (see below). It is also interesting to note that for $f \in \Cc^c(\R^k)$, we have
+  \[
+  \|f\|_\infty = \sup_{x \in \R^k} |f(x)|.
+  \]
+\end{remark}
+
+\begin{definition}
+  Let $X$ be a locally compact Hausdorff space. A continuous function $f \cn X \rarr \C$ is said to \emph{vanish at infinity} if for every $\epsilon > 0$ there exists a compact $K \subset X$ such that $|f|_{X \setminus K}| < \epsilon$. The set of all functions is denoted $\Cc_0(X)$.
+\end{definition}
+
+\begin{remark}
+  It is clear that $\Cc_c(X) \subset \Cc_0(X)$, and equality is attained if $X$ is compact. In that case, we may write $\Cc(X)$ for either of them.
+\end{remark}
+
+\begin{theorem}
+  Let $X$ be a locally compact Hausdorff space. The completion of $\Cc_c(X)$ with respect to the supremum norm
+  \[
+  \|f\| = \sup_{x \in X} |f(x)|
+  \]
+  is $\Cc_0(X)$.
+\end{theorem}
+
+\subsection{Rudin, Chapter 4: Elementary Hilbert Space Theory}
+
+\begin{definition}
+  An \emph{inner product} for a complex vector space $H$ is a map $(-,-) \cn H \x H \rarr \C$ which satisfies the following properties:
+  \begin{enumerate}[(a)]
+  \item $(y,x) = \overline{(x,y)}$ for all $x,y \in H$;
+  \item $(x+y,z) = (x,z) + (y,z)$ for all $x,y,z \in H$;
+  \item $(\alpha x,y) = \alpha(x,y)$ for all $\alpha \in \C$, $x,y \in H$;
+  \item $(x,x) \geq 0$ for all $x \in H$;
+  \item $(x,x) = 0$ only if $x = 0$.
+  \end{enumerate}
+  A complex vector space endowed with an inner product is called an \emph{inner product space}.
+\end{definition}
+
+\begin{definition}
+  The \emph{norm} of $x \in H$ is $\|x\| = \sqrt{(x,x)}$, where $\sqrt{-}$ denotes the non-negative square root.
+\end{definition}
+
+The following are immediate consequences of the given properties:
+\begin{enumerate}[(a)]
+\item $(0,x) = 0$ for all $x \in H$;
+\item for every $y \in H$, the map $H \rarr \C$ given by $x \mapsto (x,y)$ is linear;
+\item $(x,\alpha y) = \overline{\alpha}(x,y)$ for all $\alpha \in \C$, $x,y \in H$;
+\item $\|x\|^2 = (x,x)$ for all $x \in H$.
+\end{enumerate}
+
+\begin{proposition}[(Cauchy-)Schwartz Inequality]
+  For all $x,y \in H$, we have
+  \[
+  |(x,y)| \leq \|x\| \, \|y\|.
+  \]
+\end{proposition}
+
+\begin{proposition}[Triangle Inequality]
+  For all $x,y \in H$, we have
+  \[
+  \|x+y\| \leq \|x\| + \|y\|.
+  \]
+\end{proposition}
+
+\begin{remark}
+  Any inner product space $H$ possesses a natural metric structure in which the distance between $x,y \in H$ is given by $\|x-y\|$. This can be verified using the properties and inequalities listed above.
+\end{remark}
+
+\begin{definition}
+  A \emph{Hilbert space} is an inner product space which is complete in its natural metric structure.
+\end{definition}
+
+Let $H$ denote a Hilbert space for the remainder of this chapter.
+
+\begin{example}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item The vector space $\C^n$ endowed with $(x,y) = \sum_{i=1}^n x_i \overline{y_i}$ is a Hilbert space.
+  \item If $\mu$ is any positive measure on a set $X$, then $L^2(\mu)$ is a Hilbert space with inner product
+    \[
+    (f,g) = \int_X f \overline{g} d\mu.
+    \]
+    Note that in this case the induced norm agrees with the $L^2$-norm.
+  \item The vector space of all continuous functions $[0,1] \rarr \C$ is an inner product space when endowed with
+    \[
+    (f,g) = \int_0^1 f(t) \overline{g(t)} d t.
+    \]
+    This however is not a Hilbert space since completeness fails to hold.
+  \end{enumerate}
+\end{example}
+
+\begin{theorem}
+  For any fixed $y \in H$, the maps $H \rarr \C$, $H \rarr \C$, and $H \rarr \R$ respectively given by
+  \[
+  x \mapsto (x,y), \qquad
+  x \mapsto (y,x), \qquad
+  x \mapsto \|x\|
+  \]
+  are all continuous.
+\end{theorem}
+
+\begin{definition}
+  A \emph{closed subspace} of a Hilbert space is a subspace closed in the natural metric structure.
+\end{definition}
+
+\begin{remark}
+  If $M \subset H$ is a subspace, then so is its closure $\overline{M}$.
+\end{remark}
+
+\begin{definition}
+  Let $V$ be a vector space. A subset $E \subset V$ is called \emph{convex} if the straight segment joining any two points of $E$ is also contained in $E$. Formally this means that if $x,y \in E$ and $0 < t < 1$, then $(1-t) x + t y \in E$.
+\end{definition}
+
+\begin{remark}
+  The following properties follow immediately from the definition of convexity:
+  \begin{enumerate}[(a)]
+  \item every subspace of a vector space is convex;
+  \item any translate of a convex set is also convex.
+  \end{enumerate}
+\end{remark}
+
+\begin{definition}
+  Let $V$ be an inner product space. We call two vectors $x,y \in V$ \emph{orthogonal}, and write $x \perp y$, if $(x,y) = 0$. For $x \in V$, let $x^\perp$ denote the set all vectors in $V$ perpendicular to it. Similarly, for any subspace $M \subset V$, let $M^\perp$ denote the set of all vectors in $V$ perpendicular to everything in $M$.
+\end{definition}
+
+\begin{remark}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item The relation $\perp$ on $V$ is symmetric.
+  \item Both $x^\perp$ and $M^\perp$ are subspaces.
+  \item For any $x \in H$, the space $x^\perp \subset H$ is closed. Similarly, so is $M^\perp = \bigcap_{x \in M} x^\perp$.
+  \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+  Every nonempty, closed, convex set in a Hilbert space contains a unique element of smallest norm.
+\end{theorem}
+
+\begin{theorem}
+  Let $M$ be a closed subspace of a Hilbert space $H$.
+  \begin{enumerate}[(a)]
+  \item Every $x \in H$ has a unique decomposition $x = P(x) + Q(x)$, where $P(x) \in M$ and $Q(x) \in M^\perp$.
+  \item $P(x)$ and $Q(x)$ are the nearest points to $x$ in $M$ and $M^\perp$ respectively.
+  \item The maps $P \cn H \rarr M$ and $Q \cn H \rarr M^\perp$ are both linear.
+  \item Every $x \in H$ satisfies $\|x\|^2 = \|P(x)\|^2 + \|Q(x)\|^2$.
+  \end{enumerate}
+  The maps $P$ and $Q$ are called the \emph{orthogonal projections} of $H$ onto $M$ and $M^\perp$.
+\end{theorem}
+
+\begin{corollary}
+  If $M \neq H$, then there exists $y \in H \setminus \{0\}$ such that $y \perp M$.
+\end{corollary}
+
+\begin{theorem}
+  If $L \cn H \rarr \C$ is continuous and linear, then there exists a unique $y \in H$ such that $L(x) = (x,y)$ for all $x \in H$.
+\end{theorem}
+
+\begin{definition}
+  Let $V$ be a vector space. For any subset $S \subset V$, let $\langle S \rangle$ denote the set of finite linear combinations of elements of $S$, also called its \emph{span}.
+\end{definition}
+
+\begin{definition}
+  A collection of vectors $\{ u_\alpha \;|\; \alpha \in A \}$ in a Hilbert space $H$ is called \emph{orthonormal} if $(u_\alpha,u_\beta) = \delta_{\alpha\beta}$ for all $\alpha,\beta \in A$. To each $x \in H$, we associate a function $\what{x} \cn H \rarr \C$ given by $\alpha \mapsto (x,u_\alpha)$. The numbers $\what{x}(\alpha)$ are called the \emph{Fourier coefficients} of $x$ relative to $\{u_\alpha\}$.
+\end{definition}
+
+\begin{theorem}
+  Suppose $\{ u_\alpha \;|\; \alpha \in A \}$ is an orthonormal set in a Hilbert space $H$ and $F \subset A$ is a finite subset. Let $M_F$ be the span of $\{ u_\alpha \;|\; \alpha \in F \}$.
+  \begin{enumerate}[(a)]
+  \item For any $\phi \cn A \rarr \C$ satisfying $\phi|_{A \setminus F} = 0$, the vector
+    \[
+    y = \sum_{\alpha \in F} \phi(\alpha) u_\alpha
+    \]
+    satisfies $\what{y}(\alpha) = \phi(\alpha)$ for all $\alpha \in A$, and
+    \[
+    \|y\|^2 = \sum_{\alpha \in F} |\phi(\alpha)|^2.
+    \]
+  \item Define $s_F \cn H \rarr H$ by
+    \[
+    s_F(x) = \sum_{\alpha \in F} \what{x}(\alpha) u_\alpha.
+    \]
+    Then for all $x \in H$, we have
+    \[
+    \| x - s_F(x) \| < \| x - s \|
+    \]
+    for all $s \ M_F$, except for $s = s_F(x)$, and
+    \[
+    \sum_{\alpha \in F} |\what{x}(\alpha)|^2 \leq \|x\|^2.
+    \]
+  \end{enumerate}
+\end{theorem}
+
+
+Before delving into the next result, let us clarify the meaning of $\sum_{\alpha \in A} \phi(\alpha)$ for infinite $A$. For this, we assume $0 \leq \phi \leq \infty$.  Then $\sum_{\alpha \in A} \phi(\alpha)$ will denote the supremum of finite sums $\phi(\alpha_1) + \cdots + \phi(\alpha_n)$, where $\alpha_1, \dots, \alpha_n \in A$ are distinct. Note that this agrees with $\int_A \phi d\mu$ if $\mu$ is the counting measure on $A$. We can then refer to $\ell^2(A)$ which is a Hilbert space with inner product
+\[
+(\phi,\psi) = \sum_{\alpha \in A} \phi(\alpha) \overline{\psi(\alpha)}.
+\]
+We know that the functions $A \rarr \C$ which vanish at all but finitely many points form a dense subset of $\ell^2(A)$. Furthermore, for all $\phi \in \ell^2(A)$, the set $\phi^{-1}(\C \setminus \{0\})$ is at most countable.
+
+\begin{lemma}
+  Assume the following:
+  \begin{enumerate}[(a)]
+  \item $X$ and $Y$ are metric spaces, and $X$ is complete;
+  \item $f \cn X \rarr Y$ is continuous;
+  \item $X$ has a dense subset $X_0$ on which $f$ is an isometry;
+  \item $f(X_0)$ is dense in $Y$.
+  \end{enumerate}
+  Then $f \cn X \rarr Y$ is an isometry, and in particular, a bijection.
+\end{lemma}
+
+\begin{theorem}[Riesz-Fischer Theorem]
+  Let $\{ u_\alpha \;|\; \alpha \in A \}$ be an orthonormal set in the Hilbert space $H$, and $P$ the span of $\{u_\alpha\}$. The inequality
+  \[
+  \sum_{\alpha \in A} |\what{x}(\alpha)|^2 \leq \|x\|^2
+  \]
+  holds for all $x \in H$, and $x \mapsto \what{x}$ is a continuous map $H \rarr \ell^2(A)$ whose restriction to $\overline{P}$ is an isometry.
+\end{theorem}
+
+\begin{theorem}
+  Let $\{ u_\alpha \;|\; \alpha \in A \}$ be an orthonormal set in the Hilbert space $H$, and $P$ the span of $\{u_\alpha\}$. The following are equivalent:
+  \begin{enumerate}[(a)]
+  \item $\{u_\alpha\}$ is a maximal orthonormal set in $H$;
+  \item the span of $\{u_\alpha\}$ is dense in $H$;
+  \item the equality
+    \[
+    \sum_{\alpha \in A} |\what{x}(\alpha)|^2 = \|x\|^2
+    \]
+    holds for all $x \in H$;
+  \item the equality
+    \[
+    \tag{Parseval's identity}
+    \sum_{\alpha \in A} \what{x}(\alpha) \overline{\what{y}(\alpha)} = (x,y)
+    \]
+    holds for all $x,y \in H$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  Maximal orthonormal sets are called \emph{complete orthonormal set} or \emph{orthonormal base}.
+\end{definition}
+
+\begin{remark}
+  Note that an orthonormal base in a Hilbert space need not be a basis for the underlying vector space. Actually, it will only be one in the finite-dimensional case.
+\end{remark}
+
+\begin{corollary}
+  If $\{ u_\alpha \;|\; \alpha \in A \}$ is a maximal orthogonal set in a Hilbert space $H$, then the map $H \rarr \ell^2(A)$ given by $x \mapsto \what{x}$ is an isomorphism of Hilbert spaces.
+\end{corollary}
+
+\begin{theorem}[Hausdorff Maximality]
+  Every nonempty partially ordered set contains a maximal totally ordered subset.  
+\end{theorem}
+
+\begin{theorem}
+  Every orthonormal set $B$ in a Hilbert space $H$ is contained in a maximal orthonormal set in $H$.
+\end{theorem}
+
+\begin{corollary}
+  Every Hilbert space admits a maximal orthonormal set.
+\end{corollary}
+
+In what follows, we will identify maps $S^1 \rarr X$ with periodic maps $\R \rarr X$ with period $2\pi$. More concretely, we shall sometimes write $f(t)$ rather than $f(e^{i t})$, even if we think of $f$ as defined on $S^1$.
+
+Consider the class of all Lebesgue measurable, $2\pi$-periodic functions on $\R$ for which the norm
+\[
+\|f\|_p = \left( \frac{1}{2\pi} \int_{-\pi}^\pi |f(t)|^p d t \right)^{1/p}
+\]
+is finite. Under the identification above, the set of these functions is $L^p(S^1)$. Note the normalizing factor $1/2\pi$ inserted for the sake of convenience. Similarly for $L^\infty(S^1)$ and $\Cc(S^1)$.
+
+\begin{definition}
+  A \emph{trigonometric polynomial} is a finite sum of the form
+  \[
+  f(t) = a_0 + \sum_{n=1}^N (a_n \cos n t + b_n \sin n t)
+  \]
+  for defined for $t \in \R$ where $a_i, b_j \in \C$. These coincide with finite sums of the form
+  \[
+  f(t)= \sum_{n=-N}^N c_n e^{i n t}
+  \]
+  where $c_n \in \C$ which are often more convenient.
+\end{definition}
+
+It is clear that all trigonometric polynomials have period $2\pi$. For $n \in \Z$, we set $u_n(t) = e^{i n t}$. If we define the inner product in $L^2(S^1)$ as $(f,g) = 1/2\pi \int_{-\pi}^\pi f(t)\overline{g(t)} d t$, then $(u_m,u_n) = \delta_{m n}$. The orthonormal set $\{ u_n \;|\; n \in \Z \}$ in $L^2(S^1)$ is called the \emph{trigonometric system}.
+
+\begin{theorem}
+  For any $f \in \Cc(S^1)$ and $\epsilon > 0$, there exists a trigonometric polynomial $P$ such that $|f-P| < \epsilon$.
+\end{theorem}
+
+Combining the above with the fact $\Cc(S^1)$ is dense in $L^2(S^1)$, we obtain the following.
+
+\begin{corollary}
+  The trigonometric system is a maximal orthonormal set in $L^2(S^1)$.
+\end{corollary}
+
+\begin{definition}
+  For any $f \in L^1(S^1)$, we define the \emph{Fourier coefficients of $f$} by the formula
+  \[
+  \what{f}(n) = (f, u_n) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) e^{-i n t} d t.
+  \]
+  The \emph{Fourier series} of $f$ is $\sum_{n=-\infty}^{\infty} \what{f}(n) e^{i n t}$, and its partial sums are $s_N(t) = \sum_{n=-N}^N \what{f}(n) e^{i n t}$.
+\end{definition}
+
+The following are consequences of previous results for $L^p$ spaces.
+
+\begin{corollary}
+  \mbox{}
+  \begin{enumerate}[(a)]
+  \item For any $f,g \in L^2(S^1)$, we have
+    \[
+    \sum_{n = -\infty}^\infty \what{f}(n) \overline{\what{g}(n)} = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t)\overline{g(t)} d t,
+    \]
+    and the series on the left converges absolutely.
+  \item For any $f \in L^2(S^1)$, we have
+    \[
+    \lim_{N \rarr \infty} \|f-s_N\|_2 = 0,
+    \]
+    since a special case of (a) implies
+\[
+\|f-s_N\|^2_2 = \sum_{|n| > N} \left| \what{f}(n) \right|^2.
+\]
+  \end{enumerate}
+\end{corollary}
+
+\subsection{Rudin, Chapter 5: Examples of Banach Space Techniques}
+
+\begin{definition}
+  A vector space $X$ is called \emph{normed} if it is endowed with a \emph{norm}, that is, a map $\|-\| \cn X \rarr [0,\infty)$ satisfying the following conditions:
+  \begin{enumerate}[(a)]
+  \item $\|x+y\| \leq \|x\| + \|y\|$ for all $x,y \in X$;
+  \item $\|\alpha x\| = |\alpha| \, \|x\|$ for all $\alpha \in \C$, $x \in X$;
+  \item $\|x\| = 0$ implies $x = 0$ for all $x \in X$.
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  Any normed vector space $X$ possesses a natural metric structure in which the distance between $x,y \in X$ is given by $\|x-y\|$. This can be verified using the properties listed above.
+\end{remark}
+
+\begin{definition}
+  A \emph{Banach space} is a normed vector space which is complete with respect to the metric induced by its norm.
+\end{definition}
+
+\begin{remark}
+  Every Hilbert space is a Banach space in a natural way.
+\end{remark}
+
+\begin{definition}
+  Let $X$ and $Y$ be normed vector spaces. The \emph{norm} of a linear map $\Lambda \cn X \rarr Y$ is given by
+  \[
+  \|\Lambda\| = \sup\{ \|\Lambda(x)\| \;|\; x \in X, \|x\| \leq 1 \}.
+  \]
+Geometrically, $\Lambda$ maps the closed unit ball in $X$ to the closed ball of radius $\|\Lambda\|$ around $0$ in $Y$.
+\end{definition}
+
+\begin{definition}
+  If $\|\Lambda\| < \infty$, then $\Lambda$ is called \emph{bounded}.
+\end{definition}
+
+\begin{theorem}
+  Let $X$ and $Y$ be normed vector spaces. For a linear transformation $\Lambda \cn X \rarr Y$, the following are equivalent:
+  \begin{enumerate}[(a)]
+  \item $\Lambda$ is bounded;
+  \item $\Lambda$ is continuous;
+  \item $\Lambda$ is continuous at $0 \in X$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Baire's Theorem]
+  In a complete metric space $X$, the intersection of every countable collection of dense opene subsets is dense. In particular (except in the trivial case $X = \emptyset$), the intersection is not empty.
+\end{theorem}
+
+\begin{corollary}
+  In a complete metric space, the intersection of any countable collection of dense countable intersections of opens is again a dense countable intersection of opens.
+\end{corollary}
+
+The following describes why Baire's Theorem is sometimes called the Category Theorem.
+
+\begin{definition}
+  Let $X$ be a metric space. We call a set $E \subset X$ \emph{nowhere dense} if $\overline{E}$ contains no nonempty opens.
+\end{definition}
+
+\begin{definition}[Baire's terminology]
+  Any countable union of nowhere dense sets is called to be of the \emph{first category}. All other subsets are called to be of the \emph{second categoty}.
+\end{definition}
+
+Using this language Baire's Theorem becomes.
+
+\begin{corollary}
+  No complete metric space is of the first category.
+\end{corollary}
+
+\begin{theorem}[Banach-Steinhauss Theorem]
+  Let $X$ be a Banach space, $Y$ a normed vector space, and $\{ \Lambda_\alpha \cn X \rarr Y \;|\; \alpha \in A \}$ a collection of bounded linear transformations. Then there exists an $M < \infty$ such that
+  \[
+  \|\Lambda_\alpha\| \leq M
+  \]
+  for all $\alpha \in A$, or
+  \[
+  \sup_{\alpha \in A} \|\Lambda_\alpha(x)\| = \infty
+  \]
+  for all $x$ belonging to some countable intersection of opens in $X$ which is also dense.
+\end{theorem}
+
+\begin{remark}
+  The Banach-Steinhauss Theorem is sometimes referred to as the \emph{uniform boundedness principle}.
+\end{remark}
+
+\begin{theorem}[Open Mapping Theorem]
+  Let $Y$ and $V$ be the open units of two Banach spaces $X$ and $Y$ respectively. To every surjective bounded linear transformation $\Lambda \cn X \rarr Y$ there corresponds a $\delta > 0$ satisfying $\Lambda(U) \supset \delta V$.
+\end{theorem}
+
+\begin{theorem}
+  If $X$ and $Y$ are Banach spaces and $\Lambda \cn X \rarr Y$ is a bijective bounded linear transformation, then there is a $\delta > 0$ such that $\|\Lambda(x)\| \geq \delta\|x\|$. In other words, $\Lambda^{-1} \cn Y \rarr X$ is a bounded linear transformation too.
+\end{theorem}
+
+TODO here
+
+\subsection{Rudin, Chapter 6: Complex Measures}
+
+TODO
+
+\subsection{Rudin, Chapter 7: Differentiation}
+
+TODO
+
+\subsection{Rudin, Chapter 8: Integration on Product Spaces}
+
+TODO
+
+\subsection{Rudin, Chapter 9: Fourier Transforms}
+
+TODO
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Study_Guide"
+%%% End: 

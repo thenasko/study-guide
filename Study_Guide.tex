@@ -1,0 +1,49 @@
+\documentclass[10pt]{amsbook}
+
+\include{customizations}
+
+\begin{document}
+
+\title[Study Guide, Harvard Mathematics Qualification Exam]{Study Guide \\ Harvard Mathematics Qualification Exam}
+\author[A. Atanasov]{Atanas Atanasov}
+\email{nasko@math.harvard.edu}
+\author[C. Sia]{Charmaine Sia}
+\email{sia@math.harvard.edu}
+\date{}
+
+\maketitle
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+Below is a set of guidelines which were used in the compilation of this document. They do not reflect any absolute practice in typesetting, but merely the combination of my own customs and some rational decisions which I took to standardize various parts of the document.
+\begin{itemize}
+\item When taking notes from a book, try to copy all definitions, propositions, theorems, and important remarks. Do not hesitate to add your own relevant observations as these could facilitate the learning process.
+\item If there is a change of sentence structure which would simplify the statement of results, then apply that.
+\item When the book in question is slightly old (e.g., Rudin, \emph{Real and Complex Analysis}), we should change mathematical notation in order to update the text.
+\item Use as many of the predefined customizations as possible.
+\item Avoid the use of ``one-to-one'' and ``onto''. Instead replace these with ``injective'' and ``surjective'' respectively.
+\item Attempt to utilize any standard modern notation, e.g.\ $S^1$, Lie groups, etc.
+\item If it is customary to use employ certain symbols for an object, then attempt to do so.
+\item Use $\setminus$ for the difference of sets instead of $-$.
+\item Use \texttt{\textbackslash cn} (without the customizations \texttt{\textbackslash colon}) for colons in functions, that is, visually $f \cn X \rarr Y$ looks better than $f : X \rarr Y$ (note the difference in spacing before the colon).
+\item Be consistent with wording and spelling. For example, use holomorphic instead of analytic throughout. On a similar note, hyphenate ``non'' constructions such as ``non-constant'' and ``non-vanishing''.
+\end{itemize}
+\vspace{\baselineskip}
+
+TODO:
+\begin{itemize}
+\item Add ``subsubsections'' which will not display in the table of contents. This is done to logically separate the various results in a chapter.
+\item Check all files and convert adjectives ``nonX'' to ``non-X''.
+\end{itemize}
+
+% Chapter 1 -- Notes
+\input{Notes}
+
+% Chapter 2 -- Past Exams
+\input{Past_Exams}
+
+% \bibliographystyle{amsplain.bst}
+% \bibliography{template}
+
+\end{document}

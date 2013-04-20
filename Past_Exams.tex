@@ -1,0 +1,1716 @@
+\chapter{Past Exams}
+\label{S:past-exams}
+
+\newcommand{\done}{$\bullet$}
+\newcommand{\some}{$\circ$}
+\newcommand{\todo}{$\cdot$}
+\newcommand{\none}{}
+\begin{center}
+  \begin{tabular}{l
+      c@{\hspace{2pt}}c@{\hspace{2pt}}c c@{\hspace{2pt}}c@{\hspace{2pt}}c
+      c@{\hspace{2pt}}c@{\hspace{2pt}}c c@{\hspace{2pt}}c@{\hspace{2pt}}c
+      c@{\hspace{2pt}}c@{\hspace{2pt}}c c@{\hspace{2pt}}c@{\hspace{2pt}}c}
+    \toprule
+    \multicolumn{1}{l}{}
+    & \multicolumn{3}{c}{\hyperref[S:spring-2010]{S 2010}}
+    & \multicolumn{3}{c}{\hyperref[S:fall-2009]  {F 2009}}
+    & \multicolumn{3}{c}{\hyperref[S:spring-2009]{S 2009}}
+    & \multicolumn{3}{c}{\hyperref[S:fall-2008]  {F 2008}}
+    & \multicolumn{3}{c}{\hyperref[S:spring-2008]{S 2008}}
+    & \multicolumn{3}{c}{\hyperref[S:fall-2007]  {F 2007}} \\
+    & \hyperref[S:spring-2010-1]{D1} & \hyperref[S:spring-2010-2]{D2} & \hyperref[S:spring-2010-3]{D3}
+    & \hyperref[S:fall-2009-1]  {D1} & \hyperref[S:fall-2009-2]  {D2} & \hyperref[S:fall-2009-3]  {D3}
+    & \hyperref[S:spring-2009-1]{D1} & \hyperref[S:spring-2009-2]{D2} & \hyperref[S:spring-2009-3]{D3}
+    & \hyperref[S:fall-2008-1]  {D1} & \hyperref[S:fall-2008-2]  {D2} & \hyperref[S:fall-2008-3]  {D3}
+    & \hyperref[S:spring-2008-1]{D1} & \hyperref[S:spring-2008-2]{D2} & \hyperref[S:spring-2008-3]{D3}
+    & \hyperref[S:fall-2007-1]  {D1} & \hyperref[S:fall-2007-2]  {D2} & \hyperref[S:fall-2007-3]  {D3} \\
+    \midrule
+    Algebra
+    & \none & \done & \none & \none & \none & \none
+    & \none & \none & \none & \none & \none & \none
+    & \none & \none & \done & \none & \none & \none \\
+    Algebraic Geometry
+    & \none & \none & \none & \none & \none & \none
+    & \none & \none & \none & \none & \none & \none
+    & \none & \none & \none & \none & \none & \none \\
+    Complex Analysis
+    & \done & \done & \done & \done & \done & \done
+    & \todo & \done & \todo & \done & \done & \todo
+    & \done & \todo & \done & \done & \done & \todo \\
+    Algebraic Topology
+    & \done & \done & \done & \some & \done & \todo
+    & \done & \done & \done & \todo & \done & \done
+    & \done & \some & \some & \done & \done & \done \\
+    Differential Geometry
+    & \none & \none & \none & \none & \none & \none
+    & \none & \none & \none & \none & \none & \none
+    & \none & \none & \none & \none & \none & \none \\
+    Real Analysis
+    & \none & \none & \none & \none & \none & \none
+    & \none & \none & \none & \none & \none & \none
+    & \none & \none & \none & \none & \none & \none \\
+    \bottomrule
+  \end{tabular}
+  
+  \vspace\baselineskip
+  Legend: \done\, done, \some\, partly done, \todo\, to be done
+\end{center}
+\vspace\baselineskip
+
+\section{Spring 2010}
+\label{S:spring-2010}
+
+\subsection{Day 1}
+\label{S:spring-2010-1}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+TODO
+
+\problem*{Problem 3}
+
+Let $\lambda$ be a real number greater than 1. Show that the equation $z e^{\lambda-z} = 1$ has exactly one solution with $|z| < 1$, and that this solution $z$ is real.
+
+\begin{proof}[Solution]
+  We first show that $z e^{\lambda-z} - 1$ has one solution. Consider the entire functions $f(z) = z e^{\lambda-z}$ and $g(z) = -1$, so that we are interested in the roots of $f+g$ in the unit disk $\Delta$. First of all $z$ has one root in $\Delta$, and $e^{\lambda-z}$ does not vanish, hence $f$ has exactly one root in $\Delta$. To apply Rouch\'e's Theorem, it suffices to observe that
+  \[
+  |f| =
+  |z| |e^{\lambda-z}| =
+  e^{\lambda-\Re z} >
+  1 =
+  |g| \leq
+  |f|
+  \]
+  on the unit circle $\d\Delta$. This completes the first part of the problem. To conclude the one root is real, consider the restriction of $f+g$ to the line segment $[-1,1]$, namely
+  \begin{align*}
+    (f+g)(-1) &= -e^{\lambda+1} < 0, &
+    (f+g)(1) &= e^{\lambda-1} > 0.
+  \end{align*}
+  Since $(f+g)|_\R$ is real-values, the Intermediate Value Theorem shows $f+g$ vanishes somewhere on along $(-1,1)$, and since there is a unique root in $\Delta$, this completes our claim.
+\end{proof}
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+Let $X$ be a topological space. We say that two covering spaces $f \cn Y \rarr X$ and $g \cn Z \rarr X$ are isomorphic if there exists a homeomorphism $h \cn Y \rarr Z$ such that $g \circ h = f$. If $X$ is compact oriented surface of genus $g$, how many connected $2$-sheeted covering spaces does $X$ have, up to isomorphism?
+
+\begin{proof}[Solution]
+  It is a classical theorem that covering spaces of a connected (and sufficiently nice, such as a manifold) space $X$ are in a bijective correspondence with subgroups of $\pi_1(X)$ up to conjugation. To a subgroup $H \subset \pi_1(X)$ corresponds to covering space with $[\pi_1(X):H]$ sheets. Therefore we are interested in counting the index $2$ subgroups up to conjugation in $\pi_1(\Sigma_g)$ where $\Sigma_g$ is the $g$-holed torus for $g \geq 0$. Recall that all index $2$ subgroups are normal, hence we may remove ``up to conjugation'' in the previous sentence. Such subgroups induce natural quotient homomorphism $\pi_1(\Sigma_g) \rarr \Z/2$, and conversely every such surjective homomorphism induces an index 2 subgroup, namely, its kernel. But $\Z/2$ is abelian, hence a homomorphism $\phi \cn \pi_1(\Sigma_g) \rarr \Z/2$ factors through
+  \[
+  \pi_1(\Sigma_g)/[\pi_1(\Sigma_g),\pi_1(\Sigma_g)] \cong H_1(\Sigma_g) \cong \Z^{2g}.
+  \]
+  In the first of the two isomorphisms above, we applied the Hurewicz Theorem. Our problem now is reduced to counting the surjective homomorphisms $\Z^{2g} \rarr \Z/2$. Note that $\Z^{2g}$ is the free abelian group of $2g$ generators, say $e_1, \dots, e_{2g}$. Therefore, homomorphisms $\wtilde{\phi} \cn \Z^{2g} \rarr \Z/2$ are uniquely determined by $\wtilde{\phi}(e_i)$, and conversely, every such choice yields a homomorphism. The only non-surjective homomorphism corresponds to the assignment of $[0] \in \Z/2$ to every generator $e_i$. In conclusion, $\Sigma_g$ has exactly
+  \[
+  2^{2g}-1
+  \]
+  $2$-sheeted covering spaces up to isomorphism.
+\end{proof}
+
+\subsection{Day 2}
+\label{S:spring-2010-2}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+Let $a$ be an arbitrary real number and $b$ a positive real number. Evaluate the integral
+\[
+\int_0^\infty \frac{\cos(a x)}{\cosh(b x)} d x.
+\]
+
+\begin{proof}[Solution]
+  Start by noting that
+  \[
+  I =
+  \int_0^\infty \frac{\cos(a x)}{\cosh(b x)} d x =
+  \frac{1}{2} \int_{-\infty}^\infty \frac{\cos(a x)}{\cosh(b x)} d x =
+  \frac{1}{2} \int_{-\infty}^\infty \frac{e^{i a x}}{\cosh(b x)} d x.
+  \]
+  Shifting the line of integration up by $\pi i/b$ we get
+  \[
+  \int_{-\infty}^\infty \frac{e^{i a (x + \pi i/b)}}{\cosh(b(x + \pi i/b))} d x =
+  - e^{-\pi a/b} \int_{-\infty}^\infty \frac{e^{i a x}}{\cosh(b x)} d x =
+  - 2 I e^{-\pi a/b}.
+  \]
+  In doing so, we picked only one pole at $\pi i/2 b$ with residue
+  \begin{align*}
+    \res_{\pi i/2 b} \frac{e^{i a x}}{\cosh(b x)}
+    &=
+    e^{i a \pi i/2 b} \res_{\pi i/2 b} \frac{1}{\cosh(b x)} =
+    e^{-a \pi/2 b} \lim_{z \rarr \pi i/2 b} \frac{z - \frac{\pi i}{2 b}}{\cosh(b x)} \\
+    &=
+    e^{-a \pi/2 b} \lim_{z \rarr \pi i/2 b} \frac{1}{b \sinh(b x)} =
+    \frac{1}{i b} e^{-a \pi/2 b}.
+  \end{align*}
+  We used two statements worth mentioning: (1) if $f$ has a simple pole at $z_0$ and $g$ is holomorphic at $z_0$, then $\res_{z_0} f g = g(z_0) \res_{z_0} f$; (2) a complex version of L'H\^opital's rule. Putting the collected information together, we obtain
+  \[
+  2 I - \left( - 2 I e^{a \pi/ b} \right) = 2 \pi i \frac{1}{i b} e^{-a \pi/ 2 b}.
+  \]
+  Rearranging, we conclude
+  \[
+  I = \frac{\pi e^{- a \pi/2 b}}{b(1 + e^{- a \pi/b})}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 3}
+
+Let $\Lambda_1$ and $\Lambda_2 \subset \R^4$ be complementary $2$-planes, and let $X = \R^4 \setminus (\Lambda_1 \cup \Lambda_2)$ be the complement of their union. Find the homology and cohomology groups of $X$ with integer coefficients.
+j
+\begin{proof}[Solution]
+  Since $\Lambda_1$ and $\Lambda_2$ are complimentary, there exists an isomorphism $T \cn \R^4 \rarr \R^4$ such that $R(\Lambda_1) = \R^2 \x \{0\}^2$ and $T(\Lambda_2) = \{0\}^2 \x \R^2$. Such $\R$-linear isomorphisms are homeomorphisms, hence we may assume that $\Lambda_i$ by its image under $T$. Then
+  \[
+  X = \R^4 \setminus (\Lambda_1 \cup \Lambda_2) = (\R^2 \setminus \{0\})^2.
+  \]
+  The space $\R^2 \setminus \{0\}$ deformation retracts to $S^1$, so
+  \[
+  H_\bullet(\R^2 \setminus \{0\}) = \Z_{(0)} \oplus \Z_{(1)}.
+  \]
+  The homology in all degrees is finitely generated and free, hence the K\"unneth formula implies
+  \[
+  H_\bullet(X) \cong
+  H_\bullet(\R^2 \setminus \{0\})^{\otimes 2} \cong
+  \Z_{(0)} \oplus \Z_{(1)}^2 \oplus \Z_{(2)}.
+  \]
+  All groups are free, hence any $\Ext(-,\Z)$ group involving them would vanish. The Universal Coefficients Theorem enables us to compute the cohomology
+  \[
+  H_\bullet(X) \cong \Z_{(0)} \oplus \Z_{(1)}^2 \oplus \Z_{(2)}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+Let $p$ be a prime, and let $G$ be the group $\Z/p^2\Z \oplus \Z/p^2\Z$.
+\begin{enumerate}[(a)]
+\item How many subgroups of order $p$ does $G$ have?
+\item How many subgroups of order $p^2$ does $G$ have? How many of these are cyclic?
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Every subgroup of order $p$ is generated by an element of order $p$, and each subgroup possesses $\phi(p) = p-1$ such generators. Therefore, it suffices to count the number of elements of order $p$ and divide by $p-1$. Let $|-|$ denote the order of an element. The order of an element $(a,b) \in G$ is given by $|(a,b)| = \lcm(|a|,|b|)$. If $|(a,b)| = p$, then the possibilities are $(|a|,|b|) = (1,p),(p,1),(p,p)$. Since $\Z/p^2\Z$ has exactly $p$ elements of order dividing $p$, and exactly one of oder $1$, it follows it has $p-1$ elements of order $p$. Putting all information together, the number of subgroups of order $p$ is
+  \[
+  \frac{1 \cdot (p-1) + (p-1) \cdot 1 + (p-1) \cdot (p-1)}{p-1} =
+  (1 + 1 + p-1) = p+1.
+  \]
+  
+  \problem*{(b)}
+  Let us start by counting the cyclic subgroups of order $p^2$. Each such corresponds to $\phi(p^2) = p(p-1)$ generators. The group $\Z/p^2\Z$ has $\phi(p) = p(p-1)$ generators, hence $p(p-1)$ elements of order $p^2$. If $|(a,b)| = p^2$, then $(|a|,|b|) = (1,p^2), (p^2,1), (p,p^2), (p^2,p), (p^2,p^2)$. The number of cyclic subgroups of order $p^2$ is
+  \[
+  \frac{ 1 \cdot p(p-1) + p(p-1) \cdot 1 + (p-1) \cdot p(p-1) + p(p-1) \cdot (p-1) + p(p-1) \cdot p(p-1)}{p(p-1)} =
+  p(p+1).
+  \]
+  Next, let us consider the non-cyclic subgroups of order $p^2$. It is easy to see each of these is isomorphic to $\Z/p\Z \oplus \Z/p\Z$. There are exactly $p^2$ elements of order dividing $p$ in $G$, and also $p^2$ such elements in $\Z/p\Z \oplus \Z/p\Z$, hence there is exactly one non-cyclic subgroup of order $p^2$. In total, there are
+  \[
+  p(p+1) + 1 = p^2 + p + 1
+  \]
+  subgroups of order $p^2$ in $G$.
+\end{proof}
+
+\subsection{Day 3}
+\label{S:spring-2010-3}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+Let $f$ be holomorphic on a domain containing the closed disk $\{ z \;|\; |z| \leq 3 \}$, and suppose that
+\[
+f(1) = f(i) = f(-1) = f(-i) = 0.
+\]
+Show that
+\[
+|f(0)| \leq \frac{1}{80} \max_{|z|=3}|f(z)|.
+\]
+and find all such functions for which equality holds.
+
+\begin{proof}[Solution]
+  Consider the holomorphic functions
+  \[
+  h(z) = (z-1)(z+1)(z-i)(z+i) = z^4-1
+  \]
+  and
+  \[
+  g(z) =
+  \begin{cases}
+    f(z)/h(z) & \textrm{if } z \neq \pm 1, \pm i, \\
+    f'(1)/4 & \textrm{if } z = 1, \\
+    i f'(i)/4 & \textrm{if } z = i, \\
+    -f'(-1)/4 & \textrm{if } z = -1, \\
+    -i f'(-i)/4 & \textrm{if } z = -i
+  \end{cases}
+  \]
+  defined on the same domain as $f$. Let us compute the minimum of $h$ on the circle $C = \{ z \;|\; |z| = 3 \}$. We have
+  \[
+  |h(3 e^{i\theta})|^2 =
+  \left(3^4 e^{4 i \theta} - 1\right)\left(3^4 e^{-4 i \theta} - 1\right) =
+  (3^8-1) - 2 \cdot 3^4 \cos 4\theta,
+  \]
+  hence the required minimum of $|h|$ is
+  \[
+  \sqrt{3^8 - 1 - 2 \cdot 3^4} = 3^4 - 1 = 80.
+  \]
+  Setting $c = \max_{|z|=3}|f(z)|$, it follows that
+  \[
+  |g| \leq c/80
+  \]
+  on $C$, hence on $|z| \leq 3$ by the maximum modulus principle. But then $|f| \leq c|z^4-1|/80$, so
+  \[
+  |f(0)| \leq \frac{c |0^4 - 1|}{80} = \frac{c}{80}.
+  \]
+  If equality is attained, then
+  \[
+  |g(0)| = \frac{|f(0)|}{|0^4-1|} = |f(0)| = \frac{c}{80}.
+  \]
+  Combined with the fact $|g| \leq c/80$ on $C$ and the maximum modulus principle, we conclude $g = c c'/80$ is constant, where $c'$ is a constant of absolute value $1$. It follows that $f = c c' h/80$.
+\end{proof}
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+Let $X = \R\P^2 \x \R\P^4$.
+\begin{enumerate}[(a)]
+\item Find the homology groups $H_\bullet(X, \Z/2)$.
+\item Find the homology groups $H_\bullet(X, \Z)$.
+\item Find the cohomology groups $H^\bullet(X,\Z)$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Recall that
+  \[
+  H_\bullet(\R\P^n;\Z/2) \cong \bigoplus_{0 \leq i \leq n} \Z/2_{(i)}.
+  \]
+  Note that $\Z/2$ is a field, and apply the K\"unneth formula to compute
+  \begin{align*}
+    H_\bullet(X;\Z/2)
+    &\cong
+    H_\bullet(\R\P^2;\Z/2) \otimes H_\bullet(\R\P^4;\Z/2) \\
+    &\cong
+    \left( \Z/2_{(0)} \oplus \Z/2_{(1)} \oplus \Z/2_{(2)} \right) \otimes \left( \Z/2_{(0)} \oplus \Z/2_{(1)} \oplus \Z/2_{(2)} \oplus \Z/2_{(3)} \oplus \Z/2_{(4)} \right) \\
+    &\cong
+    \Z/2_{(0)} \oplus (\Z/2)_{(1)}^2 \oplus (\Z/2)_{(2)}^3 \oplus (\Z/2)_{(3)}^3 \oplus (\Z/2)_{(4)}^3 \oplus (\Z/2)_{(5)}^2 \oplus \Z/2_{(6)}.
+  \end{align*}
+  
+  \problem*{(b)}
+  We have
+  \begin{align*}
+    H_\bullet(\R\P^2) &\cong \Z_{(0)} \oplus \Z/2_{(1)}, &
+    H_\bullet(\R\P^4) &\cong \Z_{(0)} \oplus \Z/2_{(1)} \oplus \Z/2_{(3)}.
+  \end{align*}
+  The general K\"unneth formula tells us we have split short exact sequences
+  \[\xymatrix@C=0.2in{
+    0 \ar[r] & \bigoplus_i H_i(\R\P^2) \otimes H_{n-i}(\R\P^4) \ar[r] & H_n(X) \ar[r] & \bigoplus_i \Tor(H_i(\R\P^2),H_{n-i-1}(\R\P^4)) \ar[r] & 0.
+  }\]
+  Using this, we compute
+  \begin{align*}
+    H_0(X) &\cong \Z, &
+    H_1(X) &\cong (\Z/2)^2, &
+    H_2(X) &\cong \Z/2, &
+    H_3(X) &\cong (\Z/2)^2, \\
+    H_4(X) &\cong \Z/2, &
+    H_5(X) &\cong \Z/2, &
+    H_6(X) &\cong 0.
+  \end{align*}
+  
+  \problem*{(c)}
+  The universal coefficients for cohomology implies we have split short exact sequences
+  \[\xymatrix{
+    0 \ar[r] & \Ext(H_{n-1}(X),\Z) \ar[r] & H^n(X) \ar[r] & \Hom(H_n(X),\Z) \ar[r] & 0
+  }\]
+  for all $n$. We use these to compute
+  \begin{align*}
+    H_0(X) &\cong \Z, &
+    H_1(X) &\cong 0, &
+    H_2(X) &\cong (\Z/2)^2, &
+    H_3(X) &\cong \Z/2, \\
+    H_4(X) &\cong (\Z/2)^2, &
+    H_5(X) &\cong \Z/2, &
+    H_6(X) &\cong \Z/2. && \qedhere
+  \end{align*}
+\end{proof}
+
+\problem*{Problem 6}
+
+TODO
+
+\section{Fall 2009}
+\label{S:fall-2009}
+
+\subsection{Day 1}
+\label{S:fall-2009-1}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+Let $\C\P^n$ be complex projective $n$-space.
+\begin{enumerate}[(a)]
+\item Describe the cohomology ring $H^\bullet(\C\P^n, \Z)$ and, using the K\"unneth formula, the cohomology ring $H^\bullet(\C\P^n \x \C\P^n, \Z)$.
+\item Let $\Delta \subset \C\P^n \x \C\P^n$ be the diagonal, and $\delta = i_\ast[\Delta] \in H_{2n}(\C\P^n \x \C\P^n, \Z)$ the image of the fundamental class of $\Delta$ under the inclusion $i \cn \Delta \hrarr \C\P^n \x \C\P^n$. In terms of your description of $H^\bullet(\C\P^n \x \C\P^n, \Z)$ above, find the Poincar\'e dual $\delta^\ast \in H^{2n}(\C\P^n \x \C\P^n, \Z)$ of $\delta$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  We know that $H^\bullet(\C\P^n) \cong \Z[\alpha]/(\alpha^{n+1})$ with $|\alpha| = 2$, so the K\"unneth formula implies
+  \[
+  H^\bullet(\C\P^n \x \C\P^n) \cong
+  \Z[\alpha]/(\alpha^{n+1}) \otimes_\Z \Z[\beta]/(\beta^{n+1}) \cong
+  \Z[\alpha,\beta]/(\alpha^{n+1},\beta^{n+1}).
+  \]
+  
+  \problem*{(b)}
+  TODO
+\end{proof}
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+Let $\Omega \subset \C$ the the open set
+\[
+\Omega = \{ z \;|\; |z| < 2 \textrm{ and } |z-1| > 1 \}.
+\]
+Give a conformal isomorphism between $\Omega$ and the unit disc $\Delta = \{ z \;|\; |z| < 1 \}$.
+
+\begin{proof}[Solution]
+  Set $\Omega_1 = \Omega$. We proceed to give a sequence of conformal isomorphisms $f_i \cn \Omega_i \rarr \Omega_{i+1}$.
+  \begin{align*}
+    f_1(z) &= z-2 &
+    \Omega_2 &= \{ z \;|\; |z+2| < 2 \textrm{ and } |z+1| > 1 \} \\
+    f_2(z) &= \frac{1}{z} &
+    \Omega_3 &= \{ z \;|\; -1/2 < \Re z < -1/4 \} \\
+    f_3(z) &= -4 \pi i \left( z + \frac{1}{4} \right) &
+    \Omega_4 &= \{ z \;|\; 0 < \Im z < \pi \} \\
+    f_4(z) &= e^z &
+    \Omega_5 &= \{ z \;|\; \Im z > 0 \} \\
+    f_5(z) &= \frac{i-z}{i+z} &
+    \Omega_6 &= \{ z \;|\; |z| < 1 \}
+  \end{align*}
+  The composition $f = f_5 \circ \cdots \circ f_1$ is given by
+  \[
+  f(z) = \frac{i - \displaystyle\exp\left( - \frac{\pi i (6-z)}{z-2} \right)}{i + \displaystyle\exp\left( - \frac{\pi i (6-z)}{z-2} \right)}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\subsection{Day 2}
+\label{S:fall-2009-2}
+\mbox{}
+
+\problem*{Problem 1}
+
+Let $\Delta = \{ z \;|\; |z| < 1 \}$ be the unit disk, and $\Delta^\ast = \Delta \setminus \{0\}$ the punctured disk. A holomorphic function $f$ on $\Delta^\ast$ is said to have an \emph{essential singularity} at $0$ if $z^n f(z)$ does not extend to a holomorphic function on $\Delta$ for any $n$.
+
+Show that if $f$ has an essential singularity at $0$, then $f$ assumes values arbitrarily close to every complex number in any neighbourhood of $0$ -- that is, for any $w \in \C$, $\epsilon > 0$, and $\delta > 0$, there exists $z \in \Delta^\ast$ with
+\[
+|z| < \delta
+\qquad\textrm{and}\qquad
+|f(z) - w| < \epsilon.
+\]
+
+\begin{proof}[Solution]
+  For contradiction assume the opposite -- there exists some $w \in \C$, $\epsilon > 0$, and $\delta > 0$, such that for all $z \in B(0,\delta) \setminus \{0\}$, we have $|f(z) - w| \geq \epsilon$. Consider the function $g(z) = 1/(f(z) - w)$ which is well-defined on $B(0,\delta) \setminus \{0\}$ and bounded by $1/\epsilon$. Riemann's Theorem on removable singularities implies that $g$ extends holomorphically over $0$. By abusing notation, we call this extension $g$ again. Suppose that $g$ has a zero of order $n$ at $0$, in other words, there exists a holomorphic function $h$ such that $h(z) = g(z)/z^n$ away from $0$. But then
+  \[
+  f(z) = \frac{1}{g(z)} + w = \frac{h(z)}{z^n} + w
+  \]
+  has a pole of order $n$ at $0$, contradicting the hypothesis there is an essential singularity there. This completes our claim.
+\end{proof}
+
+\begin{remark}
+  This statement is known as the Casorati-Weierstrass Theorem (see Ahlfors, page 129 or Stein \& Shakarchi, page 86).
+\end{remark}
+
+\problem*{Problem 2}
+
+Let $X = S^1 \vee S^1$ be a figure $8$, $p \in X$ the point of attachment, and let $\alpha$ and $\beta \cn [0,1] \rarr X$ be loops with base point $p$ (that is, such that $\alpha(0) = \alpha(1) = \beta(0) = \beta(1) = p$) tracing out the two halves of $X$. Let $Y$ be the CW complex formed by attaching two $2$-disks to $X$, with attaching maps homotopic to
+\[
+\alpha^2 \beta \qquad\textrm{and}\qquad \alpha\beta^2.
+\]
+\begin{enumerate}[(a)]
+\item Find the homology groups $H_i(Y,Z)$.
+\item Find the homology groups $H_i(Y,\Z/3)$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  We associate a cellular chain complex
+  \[\xymatrix@C=0.5in{
+    \cdots \ar[r] & 0 \ar[r] & \Z^2_{(2)} \ar[r]^-{\left(\begin{smallmatrix} 2 & 1 \\ 1 & 2 \end{smallmatrix}\right)} & \Z^2_{(1)} \ar[r]^-{\left(\begin{smallmatrix} 0 & 0 \end{smallmatrix}\right)} & \Z_{(1)} \ar[r] & 0 \ar[r] & \cdots,
+  }\]
+  whose homology is
+  \[
+  H_\bullet(Y,Z) \cong \Z_{(0)} \oplus \Z/3_{(1)}.
+  \]
+  
+  \problem*{(b)}
+  The universal coefficients for homology yields split short exact sequences
+  \[\xymatrix{
+    0 \ar[r] & H_n(Y) \otimes \Z/3 \ar[r] & H_n(Y,\Z/3) \ar[r] & \Tor(H_{n-1}(Y),\Z/3) \ar[r] & 0.
+  }\]
+  We obtain
+  \[
+  H_\bullet(Y,\Z/3) \cong \Z/3_{(0)} \oplus \Z/3_{(1)} \oplus \Z/3_{(2)}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\subsection{Day 3}
+\label{S:fall-2009-3}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+Let $\tau_1$ and $\tau_2 \in \C$ be a pair of complex numbers, independent over $\R$, and $\Lambda = \Z\langle \tau_1, \tau_2 \rangle \subset \C$ the lattice of integral linear combinations of $\tau_1$ and $\tau_2$. An entire meromorphic function is said to be \emph{doubly periodic} with respect to $\Lambda$ if
+\[
+f(z + \tau_1) = f(z + \tau_2) = f(z) \qquad \forall z \in \C.
+\]
+\begin{enumerate}[(a)]
+\item Show that an entire holomorphic function doubly periodic with respect to $\Lambda$ is constant.
+\item Suppose now that $f$ is an entire meromorphic function doubly periodic with respect to $\Lambda$, and that $f$ is either holomorphic or has one simple pole in the closed parallelogram
+  \[
+  \{ a \tau_1 + b \tau_2 \;|\; a,b \in [0,1] \subset \R \}.
+  \]
+  Show that $f$ is constant.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Let $P$ denote the closed parallelogram defined above. It is clear that $P$ is compact, its image under $f$ is also compact, hence closed and bounded. On the other hand, $f(\C) = f(P)$ since $f$ is doubly periodic, so $f$ is bounded. Liouville's Theorem implies $f$ is constant as required.
+
+  \problem*{(b)}
+  Without loss of generality (by shifting $P$ slightly), we may assume $P$ has no poles on $\d P$. The Cauchy Residue Theorem implies combined with the double periodicity yields
+  \[
+  \sum_z \res_z f = \frac{1}{2 \pi i} \int_{\d P} f = 0.
+  \]
+  The sum above is taken over all poles of $f$ occurring inside $P$. If $f$ is holomorphic then $f$ is constant by part (a). If $f$ had a simple pole, then the above equality is contradiction.
+\end{proof}
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+Find the fundamental groups of the following spaces:
+\begin{enumerate}[(a)]
+\item $SL(2,\R)$
+\item $SL(2,\C)$
+\item $SO(3,\R)$
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  TODO
+  
+  \problem*{(b)}
+  TODO
+  
+  \problem*{(c)}
+  TODO
+\end{proof}
+
+\problem*{Problem 6}
+
+TODO
+
+\section{Spring 2009}
+\label{S:spring-2009}
+
+\subsection{Day 1}
+\label{S:spring-2009-1}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+TODO
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+Let $X = S^1 \vee S^1$ be a figure $8$.
+\begin{enumerate}[(a)]
+\item Exhibit two three-sheeted covering spaces $f \cn Y \rarr X$ and $g \cn Z \rarr X$ such that $Y$ and $Z$ are not homeomorphic.
+\item Exhibit two three-sheeted covering spaces $f \cn Y \rarr X$ and $g \cn Z \rarr X$ such that $Y$ and $Z$ are homeomorphic, but not as covering spaces of $X$.
+\item Exhibit a normal three-sheeted covering space of $X$.
+\item Exhibit a non-normal three-sheeted covering space of $X$.
+\item Which of the above would still be possible if we consider two-sheeted covering spaces instead of thee-sheeted ones?
+\end{enumerate}
+
+\begin{proof}[Solution]
+  We start by treating $\pi_1(X) = \langle a, b \rangle$ where we use the wedge-point as a basepoint.
+  
+  \problem*{(a)}
+  Consider the two covering spaces corresponding the subgroups
+  \begin{align*}
+    \langle a^3, b^3, a b^{-1}, a^{-1} b \rangle, &&
+    \langle a^3, b, a b a^{-1}, a^{-1} b a \rangle.
+  \end{align*}
+  The former has the property that removing any single point from the covering space leaves it connected, while the latter does not. Hence the two covers are not homeomorphic.
+  
+  \problem*{(b)}
+  Consider the two covering spaces corresponding to subgroups
+    \begin{align*}
+    \langle a, b^3, b a b^{-1}, b^{-1} a b \rangle, &&
+    \langle a^3, b, a b a^{-1}, a^{-1} b a \rangle.
+  \end{align*}
+  Drawing the respective spaces it is clear they are homeomorphic. To see they are not isomorphic as covers consider the preimage of one of the circles in $X$, say the one given by the image of $a$. If the covers are isomorphic, then these preimages would be homeomorphic. In the former case, the preimage is three disjoint circles and in the latter case a triangle. Counting connected components, we conclude these two spaces cannot be homeomorphic, hence the two covers are not isomorphic.
+
+  \problem*{(c)}
+  Both covers we used in part (b) were normal. To be specific we consider the first one, namely corresponding to the subgroup $H = \langle a, b^3, b a b^{-1}, b^{-1} a b \rangle$. It suffices to show $H \subset \pi_1(X)$ is normal. To do this, it suffices to show $H$ is closed under conjugation. Since $\pi_1(X)$ is generated by $a$ and $b$, it suffices to show $H$ is closed under conjugation by $a, a^{-1}, b, b^{-1}$. Since $a \in H$, we are left to consider $b$ and $b^{-1}$ only which is a routine exercise.
+
+  \problem*{(d)}
+  The cover corresponding to the subgroup
+  \[
+  \langle a, b^3, b a b, b a^{-1} b \rangle
+  \]
+  is not normal.
+
+  \problem*{(e)}
+  Considering two-sheeted covering spaces, we could have answered in the following manner.
+  \begin{enumerate}[(a)]
+  \item
+    Such covers exist for the same reason -- for example, consider
+    \begin{align*}
+      \langle a^2, b^2, a b \rangle, &&
+      \langle a, b^2, b a b \rangle.
+    \end{align*}
+    
+  \item
+    The answer is also in the affirmative -- consider
+    \begin{align*}
+      \langle a, b^2, b a b \rangle, &&
+      \langle b, a^2, a b a \rangle.
+    \end{align*}
+    
+  \item
+    All two-sheeted covers are normal since all index 2 subgroups are normal. Any of the above examples would suffice.
+    
+  \item
+    As explained in part (c) above, no non-normal covers exist. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\subsection{Day 2}
+\label{S:spring-2009-2}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+Show that the function defined by
+\[
+f(z) = \sum_{n=0}^\infty z^{2^n}
+\]
+is analytic in the open disk $|z| < 1$, but has no analytic continuation to any large domain.
+
+\begin{proof}[Solution]
+  For the first part, it suffices to compute the radius of convergence of the series defining $f$. Set $a_k = 1$ if $k = 2^n$ for an integer $n \geq 0$, and $a_k = 0$ otherwise. Then the radius of convergence is given by
+  \[
+  R =
+  \left( \limsup_{k \rarr \infty} \sqrt[k]{|a_k|} \right)^{-1}
+  \left( \limsup_{k \rarr \infty}
+    \begin{cases}
+      1 & \textrm{if $k$ is a power of $2$}, \\
+      0 & \textrm{otherwise}
+    \end{cases}
+  \right)^{-1} =
+  1.
+  \]
+  For the second part, we first claim that it suffices to show $\lim_{r \rarr 1} f(r) = \infty$. Assume for contradiction that $f$ extends to a region $\Omega$ strictly larger than the unit disk. It follows that $\Omega$ contains some point on the unit circle and a small disk around it. Since points of the form $\exp(2\pi i k/2^\ell)$ for $k,\ell \geq 0$ are dense in the unit circle, it follows that $\Omega$ contains such a point, say $z_0 = \exp(2 \pi i k/2^\ell)$. Since $f$ extends holomorphically over $z_0$, it follows that $\lim_{r \rarr 1} f(r z_0)$ is bounded. Then
+  \[
+  |f(r z_0)| =
+  \left| \sum_{n=0}^\infty r^{2^n} \exp\left( 2 \pi i \frac{k}{2^\ell} 2^n \right) \right| \geq
+  C + \left| \sum_{n=\ell}^\infty r^{2^n} \exp\left( 2 \pi i k 2^{n-\ell} \right) \right| =
+  C + \left| \sum_{n=\ell}^\infty r^{2^n} \right|,
+  \]
+  where $C$ can be chosen to be a constant independent of $r$. If the above expression were bounded, this would contradict the unboundedness of $\lim_{r \rarr 1} f(r)$. It suffices to provide an argument for our last point, namely
+  \[
+  f(r) =
+  \sum_{n=0}^\infty r^{2^n} \geq
+  \sum_{n=0}^N r^{2^n} \geq
+  N r^{2^N}.
+  \]
+  Above, we could have chosen $N$ to be any positive integer. Given such a choice of $N$, consider $r = N^{-1/2^{N+1}}$, so that
+  \[
+  f(r) \geq \sqrt{N}.
+  \]
+  Since $N$ could have been chosen arbitrarily large, this furnished the necessary claim.
+\end{proof}
+
+Nasko: Is there a way to solve the second part of the given problem with techniques from complex analysis rather than brute force?
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+Let $X = S^2 \x \R\P^3$ and $Y = S^3 \x \R\P^2$.
+\begin{enumerate}
+\item Find the homology groups $H_n(X, \Z)$ and $H_n(Y, \Z)$ for all $n$.
+\item Find the homology groups $H_n(X, \Z/2)$ and $H_n(Y, \Z/2)$ for all $n$.
+\item Find the homotopy groups $\pi_1(X)$ and $\pi_1(Y)$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Recall that
+  \begin{align*}
+    H_\bullet(S^2)    &= \Z_{(0)} \oplus \Z_{(2)}, &
+    H_\bullet(\R\P^3) &= \Z_{(0)} \oplus \Z/2_{(1)} \oplus \Z_{(3)}, \\
+    H_\bullet(S^3)    &= \Z_{(0)} \oplus \Z_{(3)}, &
+    H_\bullet(\R\P^2) &= \Z_{(0)} \oplus \Z/2_{(1)}.
+  \end{align*}
+  Since the homology of $S^n$ is free and finitely generated in all degrees, the K\"unneth formula in its simplest form implies
+  \begin{align*}
+    H_\bullet(X)
+    &\cong
+    H_\bullet(S^2) \otimes H_\bullet(\R\P^3) \cong
+    \Z_{(0)} \oplus \Z/2_{(1)} \oplus \Z_{(2)} \oplus (\Z \oplus \Z/2)_{(3)} \oplus \Z_{(5)}, \\
+    H_\bullet(Y)
+    &\cong
+    H_\bullet(S^3) \otimes H_\bullet(\R\P^2) \cong
+    \Z_{(0)} \oplus \Z/2_{(1)} \oplus \Z_{(3)} \oplus \Z/2_{(4)}.
+  \end{align*}
+    
+  \problem*{(b)}
+  Universal coefficient for homology implies
+  \begin{align*}
+    H_0(X,\Z/2) &\cong \Z/2, &
+    H_1(X,\Z/2) &\cong \Z/2, &
+    H_2(X,\Z/2) &\cong (\Z/2)^2, \\
+    H_3(X,\Z/2) &\cong (\Z/2)^2, &
+    H_4(X,\Z/2) &\cong \Z/2, &
+    H_5(X,\Z/2) &\cong \Z/2, \\[5pt]
+    H_0(Y,\Z/2) &\cong \Z/2, &
+    H_1(Y,\Z/2) &\cong \Z/2, &
+    H_2(Y,\Z/2) &\cong \Z/2, \\
+    H_3(Y,\Z/2) &\cong \Z/2, &
+    H_4(Y,\Z/2) &\cong \Z/2, &
+    H_5(Y,\Z/2) &\cong \Z/2.
+  \end{align*}
+  
+  \problem*{(c)}
+  We compute
+  \begin{align*}
+    \pi_1(X) &\cong
+    \pi_1(S^2) \x \pi_1(\R\P^3) \cong
+    1 \x \Z/2 \cong
+    \Z/2, \\
+    \pi_1(Y) &\cong
+    \pi_1(S^3) \x \pi_1(\R\P^2) \cong
+    1 \x \Z/2 \cong
+    \Z/2. \qedhere
+  \end{align*}
+\end{proof}
+
+\subsection{Day 3}
+\label{S:spring-2009-3}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+TODO
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+Let $X$ and $Y$ be two CW complexes.
+\begin{enumerate}[(a)]
+\item Show that $\chi(X \x Y) = \chi(X) \chi(Y)$.
+\item Let $A$ and $B$ be two subcomplexes of $X$ such that $X = A \cup B$. Show that $\chi(X) = \chi(A) + \chi(B) - \chi(A \cap B)$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  In order to define $\chi(X)$ and $\chi(Y)$, we need to assume they are finite.
+  
+  \problem*{(a)}
+  For all $n \in \Z$, let the number of $n$-cells of $X$ and $Y$ be $x_n$ and $y_n$ respectively. It is a trivial observation that
+  \begin{align*}
+    x_n &= \rank H_n(X^n,X^{n-1}), &
+    y_n &= \rank H_n(Y^n,Y^{n-1}).
+  \end{align*}
+  It is an easy algebraic exercise to show that the Euler characteristic of a finite chain complex does not change when we take its homology. Therefore cellular homology implies
+  \[
+  \chi(X) =
+  \sum_n (-1)^n \rank H_n(X) =
+  \sum_n (-1)^n \rank H_n(X^n,X^{n-1}) =
+  \sum_n (-1)^n x_n
+  \]
+  and similarly for $Y$. On the other hand, the CW structures on $X$ and $Y$ induce such a structure on $X \x Y$ in which the number of $n$-cells is $\sum_i x_i y_{n-i}$. Therefore,
+  \[
+  \chi(X \x Y) =
+  \sum_n (-1)^n \sum_i x_i y_{n-i} =
+  \sum_{i,j} (-1)^{i+j} x_i y_j =
+  \left( \sum_i (-1)^i x_i \right) \left( \sum_j (-1)^j y_j \right) =
+  \chi(X) \chi(Y).
+  \]
+  
+  \problem*{(b)}
+  Since $A$ and $B$ are subcomplexes of $X$, there exists neighbourhoods $U_A$ and $U_B$ of $A$ and $B$ respectively which deformation retract for the respective subcomplexes. It follows that there exists a Mayer-Vietoris long exact sequence relative $H_\bullet(A \cap B)$, $H_\bullet(A) \oplus H_\bullet(B)$, and $H_\bullet(X)$. The required equality follows directly by counting ranks in this sequence.
+\end{proof}
+
+\section{Fall 2008}
+\label{S:fall-2008}
+
+\subsection{Day 1}
+\label{S:fall-2008-1}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+Evaluate the integral
+\[
+\int_0^\infty \frac{\sqrt{t}}{(1+t)^2} d t.
+\]
+
+\begin{proof}[Solution]
+  We start with a change of variable $t = x^2$ or $x = \sqrt{t}$ (the square root is taken to be positive here), which yields
+  \[
+  I =
+  \int_0^\infty \frac{\sqrt{t}}{(1+t)^2} d t =
+  2 \int_0^\infty \frac{x^2}{(1+x^2)^2} d x =
+  \int_{-\infty}^\infty \frac{x^2}{(1+x^2)^2} d x.
+  \]
+  We are lead to consider the meromorphic function $f(z) = z^2/(1+z^2)^2$ which has two double poles at $i$ and $-i$ respectively. The residue at $i$ is
+  \[
+  \res_i f =
+  \lim_{z \rarr i} \frac{1}{1!} \frac{d}{d z} (z-i)^2 \frac{z^2}{(z-i)^2(z+i)^2} =
+  2 i \lim_{z \rarr i} \frac{z}{(z+i)^3} = \frac{1}{4 i}.
+  \]
+  Consider a semicircular contour in the upper half-plane spanning the interval $[-R,R]$ for $R > 0$. Since $f$ is rational and the degree of the numerator is 2 less than the degree of the denominator, it follows that the integral over the semicircle converges to $0$ as $R \rarr \infty$. Therefore
+  \[
+  I = 2 \pi i \res_i f = \frac{\pi}{2}. \qedhere
+  \]
+\end{proof}
+
+TODO
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+Let $X = (S^1 \x S^1) \setminus \{p\}$ be a once-punctured torus.
+\begin{enumerate}[(a)]
+\item How many connected, 3-sheeted covering spaces $f \cn Y \rarr X$ are there?
+\item Show that for any of these covering spaces, $Y$ is either a 3-times punctured torus or a once-punctured surface of genus 2.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  TODO
+  
+  \problem*{(b)}
+  TODO
+\end{proof}
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\subsection{Day 2}
+\label{S:fall-2008-2}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+Let $\Omega \subset \C$ be the open region
+\[
+\Omega = \{ z \;|\; |z-1| < 1 \textrm{ and } |z-i| < 1 \}.
+\]
+Find a conformal map $f \cn \Omega \rarr \Delta$ of $\Omega$ onto the unit disk $\Delta = \{ z \;|\; |z| < 1 \}$.
+
+\begin{proof}[Solution]
+  Set $\Omega_1 = \Omega$. We proceed to give a sequence of conformal isomorphisms $f_i \cn \Omega_i \rarr \Omega_{i+1}$.
+  \begin{align*}
+    f_1(z) &= \frac{1}{z} &
+    \Omega_2 &= \{ z \;|\; \Re z > 1/2 \textrm{ and } \Im z < -1/2 \} \\
+    f_2(z) &= i \left( z + \frac{-1 + i}{2} \right) &
+    \Omega_3 &= \{ z \;|\; \Re z > 0 \textrm{ and } \Im z > 0 \} \\
+    f_3(z) &= z^2 &
+    \Omega_4 &= \{ z \;|\; \Im z > 0 \} \\
+    f_4(z) &= \frac{i-z}{i+z} &
+    \Omega_5 &= \{ z \;|\; |z| < 1 \}
+  \end{align*}
+  The composition $f = f_4 \circ \cdots \circ f_1$ is given by
+  \[
+  f(z) = \frac{z^2 - 2 i (i-1) z - 2 i}{3 z^2 + 2 i (i-1) z + 2 i}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+Let $X = S^2 \wedge \R\P^2$ be the wedge of the $2$-sphere and the real projective plane. (This is the space obtained from the disjoint union of the $2$-sphere and the real projective plane by the equivalence relation that identifies a given point in $S^2$ with a given point in $\R\P^2$, with the quotient topology.)
+\begin{enumerate}[(a)]
+\item Find the homology groups $H_n(X,\Z)$ for all $n$.
+\item Describe the universal covering space of $X$.
+\item Find the fundamental group $\pi_1(X)$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Recall that $\wtilde{H}_\bullet(X) \cong \wtilde{H}_\bullet(S^2) \oplus \wtilde{H}_\bullet(\R\P^2)$ and
+  \begin{align*}
+    \wtilde{H}_\bullet(S^2)    &\cong \Z_{(2)}, &
+    \wtilde{H}_\bullet(\R\P^2) &\cong \Z/2_{(1)},
+  \end{align*}
+  so
+  \[
+  \wtilde{H}_\bullet(X) \cong \Z/2_{(1)} \oplus \Z_{(2)}.
+  \]
+  Since $X$ is connected, we have
+  \[
+  H_\bullet(X) \cong
+  \wtilde{H}_\bullet(X) \oplus \Z_{(0)} \cong
+  \Z_{(0)} \oplus \Z/2_{(1)} \oplus \Z_{(2)}.
+  \]
+  
+  \problem*{(b)}
+  The universal covering space $\wtilde{X}$ of $X$ can be described as the union of three $2$-spheres of radius $1$ centered at $(-2,0,0)$, $(0,0,0)$, and $(2,0,0)$ sitting inside $\R^3$ (the first two touch at $(-1,0,0)$ and the latter two at $(1,0,0)$). The covering map $q \cn \wtilde{X} \rarr X$ is the quotient under the identification $x \sim -x$.
+  
+  \problem*{(c)}
+  Observing that the covering space described above is two-sheeted, we obtain $\pi_1(X) \cong \Z/2$. Alternatively, one could also derive this from the van Kampen Theorem which implies that
+  \[
+  \pi_1(X) \cong
+  \pi_1(S^2) \ast \pi_1(\R\P^2 \cong
+  1 \ast (\Z/2) \cong
+  \Z/2. \qedhere
+  \]
+\end{proof}
+
+\subsection{Day 3}
+\label{S:fall-2008-3}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+TODO
+
+\problem*{Problem 3}
+
+Let $X$ and $Y$ be compact, connected, oriented $3$-manifolds, with
+\begin{align*}
+  \pi_1(X) &= (\Z/3) \oplus \Z \oplus \Z, &
+  \pi_1(Y) &= (\Z/6) \oplus \Z \oplus \Z \oplus \Z.
+\end{align*}
+\begin{enumerate}[(a)]
+\item Find $H_n(X,\Z)$ and $H_n(Y,\Z)$ for all $n$.
+\item Find $H_n(X \x Y, \Q)$ for all $n$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Let us start with $X$ and we will later handle $Y$ analogously. We expect non-trivial homology only in degrees $0$ to $3$ since $X$ is a $3$-manifold. Connectedness implies $H_0(X) \cong H^0(X) \cong \Z$. Orientedness implies $H_3(X) \cong H^3(X) \cong \Z$. The Hurewicz Theorem implies
+  \[
+  H_1(X) \cong \pi_1(X)/[\pi_1(X),\pi_1(X)] \cong (\Z/3) \oplus \Z^2.
+  \]
+  Finally, we are left to determine $H_2(X)$. Poincar\'e duality implies $H^2(X) \cong H_1(X)$. Since $X$ is a closed manifold, there is a finite CW complex structure. Since the double dual of a free abelian group is naturally isomorphic to itself, and the groups in the cellular complex are such, a version of universal coefficients from cohomology from homology holds. We compute
+  \[
+  H_2(X) \cong
+  \Hom(H^2(X),\Z) \oplus \Ext(H^3(X),\Z) \cong
+  \Z^2.
+  \]
+  Similarly one can compute the homology of $Y$. We summarize
+  \begin{align*}
+    H_\bullet(X) &\cong \Z_{(0)} \oplus (\Z/3 \oplus \Z^2)_{(1)} \oplus \Z^2_{(2)} \oplus \Z_{(3)}, \\
+    H_\bullet(Y) &\cong \Z_{(0)} \oplus (\Z/6 \oplus \Z^3)_{(1)} \oplus \Z^3_{(2)} \oplus \Z_{(3)}.
+  \end{align*}
+  
+  \problem*{(b)}
+  Using the fact all $\Tor(-,\Q)$ groups vanish, then universal coefficients implies
+  \begin{align*}
+    H_\bullet(X;\Q)
+    &\cong
+    H_\bullet(X;\Z) \otimes \Q \cong
+    \Q_{(0)} \oplus \Q^2_{(2)} \oplus \Q^2_{(2)} \oplus \Q_{(3)}, \\
+    H_\bullet(Y;\Q)
+    &\cong
+    H_\bullet(Y;\Z) \otimes \Q \cong
+    \Q_{(0)} \oplus \Q^3_{(2)} \oplus \Q^3_{(2)} \oplus \Q_{(3)}.
+  \end{align*}
+  Since $\Q$ is a field, a simple version of the K\"unneth formula implies
+  \[
+  H_\bullet(X \x Y; \Q) \cong
+  H_\bullet(X; \Q) \otimes H_\bullet(Y; \Q) \cong
+  \Q_{(0)} \oplus \Q^5_{(1)} \oplus \Q^{11}_{(2)} \oplus \Q^{14}_{(3)} \oplus \Q^{11}_{(4)} \oplus \Q^5_{(5)} \oplus \Q_{(6)}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\section{Spring 2008}
+\label{S:spring-2008}
+
+\subsection{Day 1}
+\label{S:spring-2008-1}
+\mbox{}
+
+\problem*{Problem 1}
+
+Let $K = \C(x)$ be the field of rational functions in one variable over $\C$, and consider the polynomial
+	\[
+	f(y) = y^4 + x \cdot y^2 + x \in K[y].
+	\]
+\begin{enumerate}[(a)]
+\item Show that $f$ is irreducible in $K[y]$.
+\item Let $L = K[y]/(f)$. Is $L$ a Galois extension of $K$?
+\item Let $L'$ be the splitting field of $f$ over $K$.  Find the Galois group of $L'/K$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)} This follows from applying the following generalized version of Eisenstein's criterion to the UFD $K = \C(x)$ and the prime ideal $(x) \subseteq K$:
+  
+  \textbf{(Generalized Eisenstein's Criterion)} Let $D$ be a UFD and let $f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_0 \in D[x]$ be a polynomial.  Suppose there exists a prime ideal $P$ such that
+  \begin{enumerate}
+  \item $a_n \not \in P$,
+  \item $a_{n-1}, \ldots, a_0 \in P$,
+  \item $a_0 \not \in P^2$.
+  \end{enumerate}
+  Then $f$ is irreducible over $F[x]$, where $F$ is the field of fractions of $D$.  If $f$ is primitive, then it is also irreducible in $D[x]$.
+  
+  \problem*{(b)}
+  TO DO: From the wording of part (c) it seems that $f$ doesn't split completely in $L$ but I can't figure out how to show it.  Part (c) is done assuming that part (b) has been done.
+  
+  \problem*{(c)}
+  Let $\alpha$ be a root of $f(y) = 0$, so that $L = K(\alpha)$.  Then $L' = L(\beta)$, where $\beta$ is another root of $f(y) = 0$ such that $\beta \not \in L$.  Note that $-\alpha$ is also a root of $f(y) = 0$, so that the irreducible polynomial for $\beta$ over $L$ has degree 2.  Hence $[L' : K] = [L' : L][L : K] = 2 \cdot 4 = 8$, and the Galois group of $L'/K$ has order 8.  Now, the Galois group associated to the splitting field of an irreducible polynomial of degree 4 must be a transitive subgroup of $S_4$.  The transitive subgroups of $S_4$ are $S_4, A_4$, $D_4$, $C_4$ and the Klein four-group.  The only one of these with order $8$ is $D_4$, so $\mathrm{Gal}(K/\Q) = D_4$.
+\end{proof}
+
+\problem*{Problem 2}
+
+Let $f$ be a holomorphic function on the unit disk $\Delta = \{ z \;|\; |z| < 1 \}$. Suppose $|f(z)| < 1$ for all $z \in \Delta$, and that
+\[
+f\left( \frac{1}{2} \right) = f\left( -\frac{1}{2} \right) = 0.
+\]
+Show that $|f(0)| \leq 1/3$.
+
+\begin{proof}[Solution]
+  We consider the function $g \cn \Delta \rarr \C$ given by
+  \[
+  g(z) =
+  \begin{cases}
+    \displaystyle\frac{f(z)}{(z - 1/2)(z + 1/2)} & \textrm{if } z \neq \pm\frac{1}{2}, \\
+    f'(1/2) & \textrm{if } z = 1/2, \\
+    -f'(-1/2) & \textrm{if } z = -1/2,
+  \end{cases}
+  \]
+  which is holomorphic on $\Delta$. Next pick an arbitrary $1/2 < r < 1$, and consider the function $h(z) = (z-1/2)(z+1/2) = z^2 - 1/4$. We would like to find the minimal value of $|h|$ on the circle $C_r$ given by $|z| = r$. This is the square of the minimal value of
+  \[
+  |h(r e^{i\theta})|^2 =
+  r^2 - \frac{r \cos 2\theta}{2} + \frac{1}{16}
+  \]
+  which is $r^2 - r/2 + 1/16$, hence $|h| \leq \sqrt{r^2 - r/2 + 1/16}$. Since $g = f/h$ and $|f| < 1$, it follows that $|g| \leq (r^2 - r/2 + 1/16)^{-1/2}$ on $C_r$. By the maximum modulus principle $|g| \leq (r^2 - r/2 + 1/16)^{-1/2}$ on the disk $\Delta_r$ given by $|z| \leq r$. But $|g| = |f|/|h|$, so
+  \[
+  |f| \leq \frac{|z^2 - 1/4|}{\sqrt{r^2 - r/2 + 1/16}},
+  \]
+  and
+  \[
+  |f(0)| \leq \frac{1}{4 \sqrt{r^2 - r/2 + 1/16}}.
+  \]
+  Taking the limit as $r \rarr 1$, we obtain
+  \[
+  |f(0)| \leq \frac{1}{3}.
+  \]  
+\end{proof}
+
+\problem*{Problem 3}
+
+Let $\C\P^n$ be complex projective $n$-space.
+\begin{enumerate}[(a)]
+\item Describe (without proof) the cohomology ring $H^\bullet(\C\P^n, \Z)$.
+\item Let $i \cn \C\P^n \rarr \C\P^{n+1}$ be the inclusion of $\C\P^n$ as a hyperplane in $\C\P^{n+1}$. Show that there does not exist a continuous map $f \cn \C\P^{n+1} \rarr \C\P^n$ such that the composition $f \circ i$ is the identity on $\C\P^n$.
+\end{enumerate}
+
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  We have $H^\bullet(\C\P^n, \Z) \cong \Z[x]/(x^{n+1})$ where $\deg(x) = 2$.
+
+  \problem*{(b)}
+  For contradiction, assume such $f$ exists. Say $H^\bullet(\C\P^n, \Z) \cong \Z[x]/(x^{n+1})$ and $H^\bullet(\C\P^{n+1}, \Z) \cong \Z[y]/(y^{n+2})$. For degree reasons, we have $f^\ast(x) = k y$ for some $k \in \Z$. Then
+  \[
+  0 = f^\ast(0) = f^\ast(x^{n+1}) = f^\ast(x)^{n+1} = k^{n+1} y^{n+1},
+  \]
+  hence $k^{n+1} = 0$ and $k = 0$. It follows that $f^\ast = 0$, but this is impossible since
+  \[
+  i^\ast \circ f^\ast = (f \circ i)^\ast = \id_{\C\P^n}^\ast = \id_{H^\bullet(\C\P^n, \Z)}.
+  \]  
+\end{proof}
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\subsection{Day 2}
+\label{S:spring-2008-2}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+Let $V$ be an $n$-dimensional vector space over a field $K$, and $Q \cn V \x V \rarr K$ a symmetric bilinear form. By the kernel of $Q$ we mean the subspace of $V$ of vectors $v$ such that $Q(v,w) = 0$ for all $w \in V$, and by the rank of $Q$ we mean $n$ minus the dimension of the kernel of $Q$.
+
+Let $W \subset V$ be a subspace of dimension $n-k$, and let $Q'$ be the restriction of $Q$ to $W$. Show that
+\[
+\rank(Q) - 2k \leq \rank(Q') \leq \rank(Q).
+\]
+
+\begin{proof}[Solution]
+  Recall that for linear morphisms $f \cn U \rarr V$, $g \cn V \rarr W$, we have $\dim\Ker(g \circ f) \leq \dim\Ker f + \dim\Ker g$.
+
+  Let $Q' \cn W \x W \rarr K$ be the symmetric bilinear form on $W$ induced by $Q$. Suppose $Q$ and $Q'$ correspond to the maps $\wtilde{Q} \cn V \rarr V^\ast$ and $\wtilde{Q'} \cn W \rarr W$. If $i \cn W \hrarr V$ is the natural inclusion, then consider the following diagram.
+  \[\xymatrix{
+    W \ar[r]^-{\wtilde{Q'}} \ar[d]_-{i} & W^\ast \\
+    V \ar[r]^-{\wtilde{Q}} & V^\ast \ar[u]_-{i^\ast}
+  }\]
+
+  TODO
+
+  Nasko: The second inequality is easy. I have some ideas about the latter but still haven't fully realized them.  
+\end{proof}
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+Let $S$ be a compact orientable $2$-manifold of genus $g$, and let $S_2$ be its \emph{symmetric square}, that is, the quotient of the ordinary product $S \x S$ by the involution exchanging factors.
+\begin{enumerate}
+\item Show that $S_2$ is a manifold.
+\item Find the Euler characteristic $\chi(S_2)$.
+\item Find the Betti numbers of $S_2$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  It is clear that $S_2$ is Hausdorff and second countable, therefore it suffices to furnish a cover by charts. Let $q \cn S \x S \rarr S_2$ be the quotient map, and $\Delta \subset S \x S$ the diagonal. Away from $\Delta$ the map $q$ is a 2-sheeted cover, and therefore, $S_2 \setminus q(\Delta)$ is a manifold. It suffices to furnish charts around points along $q(\Delta)$. Therefore, it suffices to take $S = \R^2$ and prove $S_2$ is a manifold in that case. The key point is to note $S = \R^2 \cong \C$. Therefore, we can think of a point in $S_2$ as a pair of complex numbers, disregarding ordering. Such complex pairs $\{\alpha,\beta\}$ can always be arranged to be the root of a quadratic equation $z^2 - (\alpha+\beta)z + \alpha\beta = 0$. Note that the space of monic quadratic polynomials, properly topologized, is homeomorphic to $\C^2$ (take as coordinates the coefficients of $1$ and $z$). We have furnished a map $S_2 \rarr \C^2$. Since each monic quadratic polynomial has precisely two roots (by the fundamental theorem of algebra), it can be shown this map is a homeomorphism, and we conclude $S_2 \cong \C^2$ is a manifold.
+  
+  \problem*{(b)}
+  TODO
+  
+  \problem*{(c)}
+  TODO
+\end{proof}
+
+Nasko: I know how to do (a) but not (b) and (c).
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\subsection{Day 3}
+\label{S:spring-2008-3}
+\mbox{}
+
+\problem*{Problem 1}
+
+For $c$ a non-zero real number, evaluate the integral
+\[
+\int_0^\infty \frac{\log z}{z^2 + c^2} d z.
+\]
+
+\begin{proof}[Solution]
+  Note that the projected answers for $c$ and $-c$ would necessarily agree. Therefore, we may assume $c$ is positive, carry out the computation, and in the very last step replace $c$ with $|c|$. Start by choosing a branch of the logarithm well-defined on $\C \setminus (-\infty,0]i$, and define $f(z) = \log z / (z^2 + c^2)$. Make a choice of two constants $R$ and $\epsilon$ satisfying $0 < \epsilon < R$. We choose a contour which traverses the semicircle from $R$ to $-R$ in the upper half-plane, the interval from $-R$ to $-\epsilon$, followed by the semicircle from $-\epsilon$ to $\epsilon$ in the upper half-plane, and finally the interval from $\epsilon$ to $R$. It is not hard to show that letting $R \rarr \infty$ and $\epsilon \rarr 0$, the integral of $f$ along the two semicircles approaches $0$. The integral over the negative line segment is related to the integral over the positive one:
+  \[
+  \int_{-R}^{-\epsilon} \frac{\log z}{z^2 + c^2} d z =
+  \int_\epsilon^R \frac{\log(-z)}{z^2 + c^2} d z =
+  \int_\epsilon^R \frac{\log z + \pi i}{z^2 + c^2} d z =
+  \int_\epsilon^R \frac{\log z}{z^2 + c^2} d z + \pi i \int_\epsilon^R \frac{\pi i}{z^2 + c^2} d z.
+  \]
+  The residue of $f$ at $i c$ is
+  \[
+  \res_{i c} f =
+  \log(i c) \res_{i c} \frac{1}{z^2+c^2} =
+  \frac{\log c + \pi i / 2}{2 i c}.
+  \]
+  Also recall the computation
+  \[
+  \int_0^\infty \frac{1}{z^2+c^2} d z =
+  \frac{1}{c} \int_0^\infty \frac{1}{z^2 + 1} d z =
+  \frac{\pi}{2 c}.
+  \]
+  Let $I$ denote the value of the integral we are seeking. Putting all pieces of information we listed so far, applying the Cauchy Residue Theorem, and letting $R \rarr \infty$, $\epsilon \rarr 0$, we obtain
+  \[
+  2 I + \frac{\pi^2 i}{2 c} = 2 \pi i \res_{i c} f = \frac{\pi(\log c + \pi i/2)}{c}.
+  \]
+  Simplifying the previous equation and replacing $c$ with $|c|$, we have shown that
+  \[
+  I = \frac{\pi \log|c|}{2|c|}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 2}
+
+TODO
+
+\problem*{Problem 3}
+
+Let $S$ be a compact orientable $2$-manifold of genus $2$ (that is, a 2-holed torus) and let $f \cn S \rarr S$ be any orientation-preserving homeomorphism of finite order.
+\begin{enumerate}[(a)]
+\item Show that $f$ must have a fixed point.
+\item Is this statement still true if we drop the hypothesis that $f$ is orientation reversing? Prove or give a counterexample.
+\item Is this statement still true if we replace $S$ by a compact orientable $2$-manifold of genus 3? Again, prove or give a counterexample.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  TODO
+  
+  \problem*{(b)}
+  The statement is false. If one positions symmetrically a 2-holed torus around the origin in $\R^3$, then the map $x \mapsto -x$ is an orientation-reversing homeomorphism without fixed points.
+  
+  \problem*{(c)}
+  The statement is false if the genus is $3$. One can position a 3-holed torus symmetrically around the origin in $\R^3$, such that rotation by $\pi$ along an axis of symmetry is a orientation-preserving homeomorphism without fixed points.
+\end{proof}
+
+Nasko: Any ideas about this problem?
+
+\problem*{Problem 4}
+
+\begin{enumerate}[(a)]
+\item State Fermat's Little Theorem on powers in the field $\F_{37}$ with $37$ elements.
+\item Let $k$ be any natural number not divisible by $2$ or $3$, and let $a \in \F_{37}$ be any element. Show that there exists a unique solution to the equation
+  \[
+  x^k = a
+  \]
+  in $\F_{37}$.
+\item Solve the equation
+  \[
+  x^5 = 2
+  \]
+  in $\F_{37}$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Fermat's Little Theorem in this specific case would state that every $a \in \F_{37}$ satisfies $a^{37} = a$. Alternatively, we may state that every $a \in \F_{37}^\x$ satisfies $a^{36} = 1$.
+  
+  \problem*{(b)}
+  If $a = 0$, then it is easy to see the unique solution is $x = 0$. Next, assume $a \neq 0$. Note that since $k$ is not divisible by $2$ or $3$, it is then coprime to $36 = 2^2 \cdot 3^2$, and there exist integers $s$ and $t$ satisfying $k s + 36 t = 1$. Let us start by showing uniqueness. If $x$ is some solution, then raising $x^k = a$ to the power $s$, we obtain
+  \[
+  a^s = x^{k s} = x^{k s + 36 t} = x^1 = x.
+  \]
+  For the existence claim, we note that $x = a^s$ is always a solution.
+  
+  \problem*{(c)}
+  Note that $(-7) \cdot 5 + 1 \cdot 36 = 1$, so the desired solution is
+  \[
+  x = 2^{-7} = 17^{-1} = 24. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\section{Fall 2007}
+\label{S:fall-2007}
+
+\subsection{Day 1}
+\label{S:fall-2007-1}
+\mbox{}
+
+\problem*{Problem 1}
+
+Let $f(x) = x^4 - 7 \in \Q(x)$.
+\begin{enumerate}[(a)]
+\item Show that $f$ is irreducible in $\Q[x]$.
+\item Let $K$ be the splitting field of $f$ over $\Q$.  Find the Galois group of $K/\Q$.
+\item How many subfields $L \subset K$ have degree 4 over $\Q$?  How many of them are Galois over $\Q$?
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  This follows from Eisenstein's criterion with the prime $p = 7$.
+
+  \problem*{(b)}
+  By observation, $K = \Q(\sqrt[4]{7}, i)$.  This has degree 8 over $\Q$ since $[\Q(\sqrt[4]{7}) : \Q] = 4$ and $i \not in \Q(\sqrt[4]{7}$.  Hence the Galois group of $K/\Q$ has order 8.  Now, we know that the Galois group associated to the splitting field of an irreducible polynomial of degree 4 must be a transitive subgroup of $S_4$.  The transitive subgroups of $S_4$ are $S_4, A_4$, $D_4$, $C_4$ and the Klein four-group.  The only one of these with order $8$ is $D_4$, so $\mathrm{Gal}(K/\Q) = D_4$.
+  
+  \problem*{(c)}
+  The subfields $L \subset K$ of degree 4 over $\Q$ are the subfields $\Q \subset L \subset K$ such that $[K : L] = 2$.  These are in bijective correspondence with the subgroups of $\mathrm{Gal}(K/\Q)$ of order 2.  The group $D_4$ has 5 subgroups of order 2 (if $D_4$ has the presentation $\langle x, y; x^4, y^2, xyxy\rangle$, then the subgroups are $\langle x^2 \rangle$, $\langle y \rangle$, $\langle xy \rangle$, $\langle x^2y \rangle$, $\langle x^3y \rangle$), so there are 5 such subfields $L$.  The normal subgroups correspond to Galois extensions $L/\Q$.  Only the subgroup $\langle x^2 \rangle$ is a normal subgroup of $D_4$, so only one of the subfields is Galois over $\Q$.
+\end{proof}
+
+\problem*{Problem 2}
+
+\textbf{Lemma.} Let $f$ be a convex function on $(a, b)$.  Let $a < s < t < u < b$.  Then
+\begin{equation}
+  \frac{f(t) - f(s)}{t-s} \leq \frac{f(u) - f(s)}{u-s} \leq \frac{f(u) - f(t)}{u-t} .
+  \tag{$\dagger$} \label{eq:convex} \end{equation}
+\textbf{Proof.} Let $t = \lambda s + (1 - \lambda)u$, then $\lambda = \frac{u-t}{u-s}$.  The convexity of $f$ implies that
+\[
+f(t) \leq \frac{u-t}{u-s}f(s) + \frac{t-s}{u-s}f(u) .
+\]
+Rearranging, we obtain
+\[
+\frac{f(t) - f(s)}{t-s} \leq \frac{f(u) - f(s)}{u-s}.
+\]
+Similarly, if we let $t = \lambda u + (1 - \lambda)s$, then $\lambda = \frac{t-s}{u-s}$, and the convexity of $f$ implies that
+\[
+f(t) \leq \frac{t-s}{u-s}f(u) + \frac{u-t}{u-s}f(s) .
+\]
+Rearranging, we obtain
+\[
+\frac{f(u) - f(s)}{u-s} \leq \frac{f(u) - f(t)}{u-t}.
+\]
+
+Now we return to the problem.  For $x \in (a, b)$, choose $\delta > 0$ such that $(x - \delta, x + \delta) \in (a, b)$.  First suppose that $z \in (x- \delta, x)$.  Applying the second inequality in \eqref{eq:convex} to $x - \delta < z < x$, we obtain
+\[
+\frac{f(x) - f(x-\delta)}{\delta} \leq \frac{f(z) - f(x)}{z-x},
+\]
+and applying the outer inequality in \eqref{eq:convex} to $z < x < x + \delta$, we obtain
+\[
+\frac{f(z) - f(x)}{z-x} \leq \frac{f(x + \delta) - f(x)}{\delta}.
+\]
+We can obtain similar inequalities if $z \in (x, x + \delta)$.
+
+Hence $|f(x) - f(z)| \leq C|x - z|$ for all $z \in (x - \delta, x + \delta)$.  This proves the continuity of $f$.
+
+\problem*{Problem 3}
+
+Let $\tau_n \cn S^n \rarr S^n$ be the antipodal map, and let $X$ be the quotient $S^n \x S^m$ by the involution $(\tau_n, \tau_m)$ -- that is,
+\[
+X = S^n \x S^m/(x,y) \sim (-x,-y).
+\]
+\begin{enumerate}[(a)]
+\item What is the Euler characteristic of $X$?
+\item Find the homology groups of $X$ in case $n = 1$.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Recall that $H_\ast(S^n) \cong \Z_{(0)} \oplus \Z_{(n)}$, so
+  \[
+  \chi(S^n) =
+  1 + (-1)^n =
+  \begin{cases}
+    0 & \textrm{if $n$ is odd}, \\
+    2 & \textrm{if $n$ is even}.
+  \end{cases}
+  \]
+  K\"unneth formula implies $\chi(S^n \x S^m) = \chi(S^n) \chi(S^m)$. It is easy to see that the projection map $p \cn S^n \x S^m \rarr X$ is a $2$-fold cover, hence
+  \[
+  \chi(X) =
+  \frac{1}{2} \chi(S^n)\chi(S^m) =
+  \begin{cases}
+    0 & \textrm{if $m$ or $n$ is odd}, \\
+    2 & \textrm{if $m$ and $n$ are both even}.
+  \end{cases}
+  \]
+
+  \problem*{(b)}
+  In the case $m = 1$, a cut and paste argument enables us to identify $X$ with the 2-torus, hence $H_\bullet(X) \cong \Z_{(0)} \oplus \Z_{(1)}^2 \oplus \Z_{(2)}$. We will later see this calculation fits with the result for $m > 1$. In what follows, assume $m > 1$. Consider the following open cover of $X$:
+  \begin{align*}
+    A &= \exp(i(0,\pi/2) \cup i(\pi,3\pi/2))/\!\!\sim, &
+    B &= \exp(i(\pi/2,\pi) \cup i(3\pi/2,2\pi))/\!\!\sim.
+  \end{align*}
+  It is not hard to check that $A \simeq B \simeq S^m$ and $A \cap B \simeq S^m \sqcup S^m$. The relevant parts of the associated Mayer-Vietoris sequence and the associated maps are as follows.
+  \[\xymatrix{
+    0 \ar[r] & H_1(X) \ar[r] \ar@{=}[d] & H_0(A \cap B) \ar[r] \ar[d]^\cong & H_0(A) \oplus H_0(B) \ar[r] \ar[d]^\cong & H_0(X) \ar[r] \ar@{=}[d] & 0 \\
+    0 \ar[r] & H_1(X) \ar[r] & \Z^2 \ar[r]^{\left(\begin{smallmatrix} 1 & 1 \\ 1 & 1 \end{smallmatrix}\right)} & \Z^2 \ar[r] & H_0(X) \ar[r] & 0 \\
+  }\]
+  \[\xymatrix{
+    0 \ar[r] & H_{m+1}(X) \ar[r] \ar@{=}[d] & H_m(A \cap B) \ar[r] \ar[d]^\cong & H_m(A) \oplus H_m(B) \ar[r] \ar[d]^\cong & H_m(X) \ar[r] \ar@{=}[d] & 0 \\
+    0 \ar[r] & H_{m+1}(X) \ar[r] & \Z^2 \ar[r]^{\left(\begin{smallmatrix} 1 & \phantom{(-}1\phantom{)^{m+1}} \\ 1 & (-1)^{m+1} \end{smallmatrix}\right)} & \Z^2 \ar[r] & H_m(X) \ar[r] & 0 \\
+  }\]
+  We conclude
+  \[
+  H_\bullet(X) \cong
+  \begin{cases}
+    \Z_{(0)} \oplus \Z_{(1)} \Z/2_{(m)} & \textrm{if $n$ is even}, \\
+    \Z_{(0)} \oplus \Z_{(1)} \oplus \Z_{(m)} \oplus \Z_{(m+1)} & \textrm{if $n$ is odd}.
+  \end{cases}
+  \]
+  Note that this computation extends to the case $m = 1$ handled above.
+\end{proof}
+
+\problem*{Problem 4}
+
+Construct a surjective conformal mapping from the pie wedge
+\[
+\Omega = \{ z = r e^{i \theta} \;|\; \theta \in (0, \pi/4), r < 1 \}
+\]
+to the unit disk
+\[
+\Delta = \{ z \;|\; |z| < 1 \}.
+\]
+
+\begin{proof}[Solution]
+  Set $\Omega_1 = \Omega$. We proceed to give a sequence of conformal isomorphisms $f_i \cn \Omega_i \rarr \Omega_{i+1}$.
+  \begin{align*}
+    f_1(z) &= z^4 &
+    \Omega_2 &= \{ z \;|\; |z| < 1 \textrm{ and } \Im z > 0 \} \\
+    f_2(z) &= z+1 &
+    \Omega_3 &= \{ z \;|\; |z-1| < 1 \textrm{ and } \Im z > 0 \} \\
+    f_3(z) &= \frac{1}{z} &
+    \Omega_4 &= \{ z \;|\; \Re z > 1/2 \textrm{ and } \Im z < 0 \} \\
+    f_4(z) &= i \left( z - \frac{1}{2} \right) &
+    \Omega_5 &= \{ z \;|\; Re z > 0 \textrm{ and } \Im z > 0 \} \\
+    f_5(z) &= z^2 &
+    \Omega_6 &= \{ z \;|\; \Im z > 0 \} \\
+    f_6(z) &= \frac{i-z}{i+z} &
+    \Omega_7 &= \{ z \;|\; |z| < 1 \}
+  \end{align*}
+  The composition $f = f_6 \circ \cdots \circ f_1$ is given by
+  \[
+  f(z) = -i \frac{z^8 + 2 i z^4 + 1}{z^8 - 2 i z^4 + 1}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+Compute the curvature and the torsion of the curve
+	\[
+	\rho(t) = (t, t^2, t^3)
+	\]
+in $\R^3$.
+
+\begin{proof}[Solution]
+  The curvature $\kappa$ of the curve is given by the formula
+  \[
+  \kappa = \frac{|\rho' \times \rho''|}{|\rho'|^3}.
+  \]
+  Substituting in the parametrization $\rho(t) = (t, t^2, t^3)$, we obtain
+  \[
+  \kappa = \frac{\sqrt{36t^4 + 36t^2 + 4}}{(1 + 4t^2 + 9t^4)^{3/2})}.
+  \]
+  
+  The torsion of the curve is given by the formula
+  \[
+  \tau = \frac{(\rho' \times \rho'')\cdot \rho'''}{|\rho' \times \rho''|^2},
+  \]
+  and substituting in the given parametrization, we obtain
+  \[
+  \kappa = \frac{3}{9t^4 + 9t^2 + 1}. \qedhere
+  \]
+\end{proof}
+
+\subsection{Day 2}
+\label{S:fall-2007-2}
+\mbox{}
+
+\problem*{Problem 1}
+
+Evaluate the integral
+\[
+\int_0^\infty \frac{x^2}{x^4 + 5 x^2 + 4} d x.
+\]
+
+\begin{proof}[Solution]
+  Taking
+  \[
+  I =
+  \int_0^\infty \frac{x^2}{x^4 + 5 x^2 + 4} d x =
+  \frac{1}{2} \int_{-\infty}^\infty \frac{x^2}{(x^2+1)(x^2+4)} d x,
+  \]
+  we are lead to consider the meromorphic function $f(z) = z^2/((z^2+1)(z^2+4))$. It has four simple poles at $\pm i$ and $\pm 2i$ respectively. We are interested in
+  \begin{align*}
+    \res_i f &=
+    \frac{1}{0!} \lim_{z \rarr i} (z-i) \frac{z^2}{(z^2+1)(z^2+4)} =
+    -\frac{1}{6 i}, \\
+    \res_{2 i} f &=
+    \frac{1}{0!} \lim_{z \rarr 2i} (z-2i) \frac{z^2}{(z^2+1)(z^2+4)} =
+    \frac{1}{3 i}.
+  \end{align*}
+  A simple estimation leads to
+  \[
+  I =
+  \frac{1}{2} 2 \pi i \left( \res_i f + \res_{2i} f \right) =
+  \frac{\pi}{6}. \qedhere
+  \]
+\end{proof}
+
+\problem*{Problem 2}
+
+TODO
+
+\problem*{Problem 3}
+
+TODO
+
+\problem*{Problem 4}
+
+Consider the following three topological spaces
+\begin{align*}
+  A &= \C\P^3, &
+  B &= S^2 \x S^4, &
+  C &= S^2 \wedge S^4 \wedge S^6,
+\end{align*}
+where $\C\P^3$ is the complex projective $3$-space, $S^n$ is the $n$-sphere, and $\wedge$ denotes the wedge product.
+\begin{enumerate}[(a)]
+\item Calculate the cohomology groups (with integer coefficients) of all three.
+\item Show that $A$ and $B$ are not homotopy equivalent.
+\item Show that $C$ is not homotopy equivalent to any compact manifold.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  We know that $H^\bullet(\C\P^n) \cong \Z[\alpha]/(\alpha^{n+1})$ with $|\alpha| = 2$, so the relative cohomology groups are
+  \[
+  H^\bullet(\C\P^3) \cong
+  \Z_{(0)} \oplus \Z_{(2)} \oplus \Z_{(4)} \oplus \Z_{(6)}.
+  \]
+  For the second space, we have $H^\bullet(S^2) \cong \Z_{(0)} \oplus \Z_{(2)}$ and $H^\bullet(S^4) \cong \Z_{(0)} \oplus \Z_{(4)}$. Since all groups are finitely generated and free, a simple version of the K\"unneth formula implies
+  \[
+  H^\bullet(S^2 \x S^4) \cong
+  H^\bullet(S^2) \otimes H^\bullet(S^4) \cong
+  \Z_{(0)} \oplus \Z_{(2)} \oplus \Z_{(4)} \oplus \Z_{(6)}.
+  \]
+  Finally, reduced cohomology is additive with respect to the wedge product. To pass from reduced to non-reduced for a connected space such as $S^2 \wedge S^4 \wedge S^6$, we only need to add a factor of $\Z$ in degree $0$. We compute
+  \begin{align*}
+    H^\bullet(S^2 \wedge S^4 \wedge S^6)
+    &\cong
+    \Z_{(0)} \oplus \wtilde{H}^\bullet(S^2 \wedge S^4 \wedge S^6) \cong
+    \Z_{(0)} \oplus \wtilde{H}^\bullet(S^2) \oplus \wtilde{H}^\bullet(S^4) \oplus \wtilde{H}^\bullet(S^6) \\
+    &\cong
+    \Z_{(0)} \oplus \Z_{(2)} \oplus \Z_{(4)} \oplus \Z_{(6)}.
+  \end{align*}
+  
+  \problem*{(b)}
+  Note that $\alpha \wcup \alpha = \alpha^2 \neq 0$ in $H^\bullet(\C\P^3)$. On the other hand, since $H^\bullet(S^2 \x S^4) \cong H^\bullet(S^2) \otimes H^\bullet(S^4)$ as rings, the product of any two degree 2 classes is trivial there. We conclude that the cohomology rings of $\C\P^3$ and $S^2 \x S^4$ are not isomorphic, hence the spaces are not homotopy equivalent.
+  
+  \problem*{(c)}
+  For contradiction, assume $C$ is homotopy equivalent to a compact manifold $M$. Since $C$ is connected, so is $M$. Van Kampen's Theorem implies
+  \[
+  \pi_1(M) \cong \pi_1(C) \cong \pi_1(S^2) \ast \pi_1(S^4) \ast \pi_1(S^6) \cong 1 \ast 1 \ast 1 \cong 1,
+  \]
+  hence $M$ is simply-connected. If $M$ were non-orientable, it would admit a connected 2-sheeted cover. This is however impossible in view of $\pi_1(M) = 1$, hence $M$ is orientable. A simple computation with cohomology rings reveals that the ring $H^\bullet(M) \cong H^\bullet(C)$ is trivial. In other words $\alpha \wcup \beta = 0$ if one of the degrees $|\alpha|$ or $|\beta|$ is positive for $\alpha, \beta \in H^\bullet(M)$. If $\alpha$ denotes the generator of $H^2(M)$, then Poincar\'e duality implies there exists $\beta \in H^4(M)$ such that $(\alpha \wcup \beta)[M] = 1$, in particular $\alpha \wcup \beta \neq 0$. This yields the necessary contradiction.
+\end{proof}
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+\subsection{Day 3}
+\label{S:fall-2007-3}
+\mbox{}
+
+\problem*{Problem 1}
+
+TODO
+
+\problem*{Problem 2}
+
+TODO
+
+\problem*{Problem 3}
+
+\begin{enumerate}
+\item Show that any continuous map from the $2$-sphere $S^2$ to a compact orientable manifold of genus $g \geq 1$ is homotopic to a constant map.
+\item Recall that if $f \cn X \rarr Y$ is a map between compact, oriented $n$-manifolds, the induced map $f_\ast \cn H_n(X) \rarr H_n(Y)$ is a multiplication by some integer $d$, called the \emph{degree} of the map $f$. Now let $S$ and $T$ be compact oriented $2$-manifolds of genus $g$ and $h$ respectively, and $f \cn S \rarr T$ a continuous map. Show that if $g < h$, then the degree of $f$ is zero.
+\end{enumerate}
+
+\begin{proof}[Solution]
+  \problem*{(a)}
+  Let $f \cn S^2 \rarr \Sigma_g$ be a continuous map. Since $g \geq 1$, the universal cover of $\Sigma_g$ is $\R^2$, say via $p \cn \R^2 \rarr \Sigma_g$. Note that $\pi_1(S^2) = 1 \subset p_\ast(\pi_1(\R^2)) = p_\ast(1) = 1$, and $S^2$ is path-connected and locally path-connected, hence the lifting criterion furnished a map $\wtilde{f} \cn S^2 \rarr \R^2$ lifting $f$. Since $\R^2$ is contractible, the map $\wtilde{f}$ is nullhomotopic. Composing this homotopy with $p$, we conclude that $f$ is also nullhomotopic.
+
+  \problem*{(b)}
+  Let us start by describing the cohomology ring of $\Sigma_g$, a compact orientable surface of genus $g$. We have $H^0(\Sigma_g) \cong \Z$ and $H^2(\Sigma_g) \cong \Z$ which are generated respectively by the unit $1 \in H^0(\Sigma_g)$ and the fundamental class $[\Sigma_g] \in H^2(\Sigma_g)$. The degree 1 part $H^1(\Sigma_g)$ is generated freely by $2g$ elements $\alpha_1, \beta_1, \dots, \alpha_g, \beta_g$ which satisfy $\alpha_i \wcup \beta_i = [\Sigma_g]$ and all other products are trivial. The ring $H^\bullet(\Sigma_g;\Q)$ is analogously presented but with coefficients in $\Q$.
+
+  For convenience set $S = \Sigma_g$ and $T = \Sigma_h$. Consider a map $f \cn \Sigma_g \rarr \Sigma_h$ for $g < h$ of degree $d = \deg f$. A dimension count implies the map $f^\ast \cn H^1(\Sigma_h;\Q) \rarr H^1(\Sigma_g;\Q)$ has nontrivial kernel. Pick a non-trivial element $\gamma$ in the kernel of this map. Up to scaling and reordering of the generators, we may write $\gamma = \alpha_1 + \gamma'$ where $\gamma'$ is a linear combination of all generators except $\alpha_1$. Note that
+  \[
+  \gamma \wcup \beta_1 =
+  (\alpha_1 + \gamma') \wcup \beta_1 =
+  [\Sigma_h].
+  \]
+  We have
+  \[
+  d [\Sigma_g] =
+  f^\ast[\Sigma_h] =
+  f^\ast(\gamma \wcup \beta_1) =
+  f^\ast(\gamma) \wcup f^\ast(\beta_1) =
+  0 \wcup f^\ast(\beta_1) = 0,
+  \]
+  hence $d = 0$ as desired.
+\end{proof}
+
+\problem*{Problem 4}
+
+TODO
+
+\problem*{Problem 5}
+
+TODO
+
+\problem*{Problem 6}
+
+TODO
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Study_Guide"
+%%% End: 
