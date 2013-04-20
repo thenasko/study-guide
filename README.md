@@ -16,3 +16,5 @@ Compilation
 You can compile the notes to PDF format by executing the following command in the root of the project.
 
 `$ pdflatex Study_Guide.tex`
+
+A current version of the guide can be downloaded from [here](http://math.harvard.edu/~nasko/documents/study_guide.pdf).
