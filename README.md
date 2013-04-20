@@ -19,4 +19,6 @@ Compilation
 
 You can compile the notes to PDF format by executing the following command in the root of the project.
 
-`$ pdflatex Study_Guide.tex`
+```
+$ pdflatex Study_Guide.tex
+```
